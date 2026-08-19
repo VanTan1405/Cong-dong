@@ -1,344 +1,380 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1877f2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no">
-    <title>Huong Dan YouTube - Cong Nghe Vui</title>
-    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/youtube.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#ff0000">
+  <title>Hướng Dẫn YouTube - Công Nghệ Vui</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <header class="main-header">
-    <div class="header-inner">
-        <div class="logo-area">
-            <span class="logo-icon">&#128241;</span>
-            <div class="logo-text"><h1>Cong Nghe Vui</h1><p>Huong dan danh rieng cho Ong Ba</p></div>
-        </div>
-        <nav class="top-nav">
-            <a href="index.html" class="nav-link">&#127968; Trang Chu</a>
-            <a href="facebook.html" class="nav-link nav-fb">&#128077; Facebook</a>
-            <a href="tiktok.html" class="nav-link nav-tt">&#127925; TikTok</a>
-            <a href="youtube.html" class="nav-link active nav-yt">&#9654; YouTube</a>
-        </nav>
+  <div class="header-inner">
+    <div class="logo-area">
+      <span class="logo-icon">📱</span>
+      <div class="logo-text"><h1>Công Nghệ Vui</h1><p>Dành riêng cho Ông Bà</p></div>
     </div>
+    <nav class="top-nav">
+      <a href="index.html" class="nav-link">🏠 Trang Chủ</a>
+      <a href="facebook.html" class="nav-link nav-fb">👍 Facebook</a>
+      <a href="tiktok.html" class="nav-link nav-tt">🎵 TikTok</a>
+      <a href="youtube.html" class="nav-link active nav-yt">▶️ YouTube</a>
+    </nav>
+  </div>
 </header>
 
-<div class="breadcrumb">
-    <div class="breadcrumb-inner">
-        <a href="index.html">&#127968; Trang Chu</a>
-        <span>&#8250;</span>
-        <span>&#9654; Huong Dan YouTube</span>
-    </div>
+<div class="breadcrumb"><div class="breadcrumb-inner">
+  <a href="index.html">🏠 Trang Chủ</a><span>›</span><span>▶️ YouTube</span>
+</div></div>
+
+<div class="page-header yt-header" style="background: linear-gradient(135deg, #ff0000, #cc0000);">
+  <div class="page-header-inner">
+    <span class="page-icon">▶️</span>
+    <h1>Hướng Dẫn YouTube</h1>
+    <p>Xem phim · Ca nhạc xưa · Cải lương · Nấu ăn · Tin tức miễn phí</p>
+  </div>
 </div>
 
-<div class="page-header yt-header">
-    <div class="page-header-inner">
-        <span class="page-icon">&#9654;</span>
-        <h1>Huong Dan Dung YouTube</h1>
-        <p>Kho video khong lo, mien phi - Phim, nhac, tin tuc, hoc nau an!</p>
-        <div class="difficulty-bar">
-            <span>Do kho:</span>
-            <div class="stars">&#11088;&#11088;&#9734;&#9734;&#9734;</div>
-            <span>De hoc</span>
-        </div>
+<!-- AUTO DEMO PHONE -->
+<section class="demo-section" style="background: linear-gradient(135deg, #fff0f0, #fef2f2);">
+  <div class="demo-section-inner">
+    <div class="demo-header">
+      <h2>📱 Xem Demo Từng Thao Tác</h2>
+      <p>Màn hình tự động chạy mô phỏng để Ông Bà dễ hình dung</p>
     </div>
-</div>
-
-<!-- INTRO -->
-<section class="yt-intro">
-    <div class="yt-intro-inner">
-        <div class="yt-intro-text">
-            <h2>&#127916; YouTube la gi?</h2>
-            <p>YouTube la website/ung dung xem video MIEN PHI lon nhat the gioi. Co hon 800 trieu video du moi the loai!</p>
-            <div class="yt-stats">
-                <div class="yt-stat"><div class="yt-stat-num">800M+</div><div class="yt-stat-label">Video mien phi</div></div>
-                <div class="yt-stat"><div class="yt-stat-num">100%</div><div class="yt-stat-label">Khong can tra phi</div></div>
-                <div class="yt-stat"><div class="yt-stat-num">24/7</div><div class="yt-stat-label">Xem bat cu luc nao</div></div>
-            </div>
-        </div>
-        <div class="yt-demo-player">
-            <div class="yt-player">
-                <div class="yt-player-screen" id="yt-player-screen">
-                    <div class="yt-play-overlay" id="yt-play-overlay" onclick="playYTDemo()">
-                        <div class="yt-play-btn-big">&#9654;</div>
-                        <p>Nhan de phat video</p>
-                    </div>
-                    <div class="yt-playing" id="yt-playing" style="display:none">
-                        <div class="yt-playing-content">
-                            <div class="yt-playing-icon">&#127859;</div>
-                            <p>Cach nau Pho Bo Truyen Thong</p>
-                            <div class="yt-progress">
-                                <div class="yt-progress-bar" id="yt-progress-bar" style="width:0%"></div>
-                            </div>
-                            <div class="yt-time" id="yt-time">0:00 / 12:34</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="yt-controls">
-                    <button class="yt-ctrl-btn" id="yt-play-pause" onclick="togglePlay()">&#9654;</button>
-                    <div class="yt-vol">
-                        <button class="yt-ctrl-btn" onclick="toggleMute()">&#128266;</button>
-                        <input type="range" min="0" max="100" value="80" class="yt-vol-slider" oninput="changeVol(this.value)">
-                    </div>
-                    <div class="yt-ctrl-time" id="yt-ctrl-time">0:00</div>
-                    <div style="flex:1"></div>
-                    <button class="yt-ctrl-btn" onclick="toggleFullscreen()">&#9974;</button>
-                </div>
-                <div class="yt-video-info">
-                    <h4>Cach nau Pho Bo Truyen Thong - Dung vi nhat</h4>
-                    <div class="yt-video-meta">
-                        <span>2.3 trieu luot xem</span><span>&#9679;</span><span>3 thang truoc</span>
-                    </div>
-                    <div class="yt-actions">
-                        <button class="yt-action-btn" onclick="ytLike(this)">&#128077; Thich (45K)</button>
-                        <button class="yt-action-btn" onclick="ytSave()">&#128190; Luu</button>
-                        <button class="yt-action-btn" onclick="ytShare()">&#8635; Chia se</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="yt-demo"></div>
+  </div>
 </section>
 
-<!-- STEPS -->
-<section class="steps-section" style="background:#f8faff;">
-    <div class="inner">
-        <h2>&#128218; Huong Dan Tung Buoc Dung YouTube</h2>
-
-        <div class="step-block">
-            <div class="step-header">
-                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">1</div>
-                <div class="step-header-text">
-                    <strong>&#128241; Mo YouTube Tren Dien Thoai</strong>
-                    <span>Mo ung dung hoac vao web youtube.com</span>
-                </div>
-                <div class="step-toggle">&#9660;</div>
-            </div>
-            <div class="step-body">
-                <div class="demo-area">
-                    <div class="yt-open-demo">
-                        <div class="yt-screen-demo">
-                            <div class="yt-app-icon-demo" onclick="openYTDemo()">
-                                <div class="yt-icon-circle">&#9654;</div>
-                                <span>YouTube</span>
-                            </div>
-                            <div id="yt-open-result"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Tim bieu tuong YouTube</strong><span>Tim bieu tuong YouTube (hinh hoc trang voi nut phat do) tren man hinh chinh dien thoai.</span></div></div>
-                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan 1 lan de mo</strong><span>Nhan vao bieu tuong YouTube 1 lan. Ung dung se mo va hien trang chu voi rat nhieu video.</span></div></div>
-                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Neu chua co YouTube</strong><span>Vao "Play Store" (Android) hoac "App Store" (iPhone), tim "YouTube" va nhan "Tai ve". Mien phi!</span></div></div>
-                <div class="demo-tip"><div class="demo-tip-icon">&#127760;</div><div><strong>Tren may tinh:</strong> Mo trinh duyet Chrome/Firefox, gõ "youtube.com" vao thanh dia chi roi nhan Enter la xong!</div></div>
-            </div>
-        </div>
-
-        <div class="step-block">
-            <div class="step-header">
-                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">2</div>
-                <div class="step-header-text">
-                    <strong>&#128269; Tim Kiem Video Muon Xem</strong>
-                    <span>Tim bat cu video nao chi trong vai giay</span>
-                </div>
-                <div class="step-toggle">&#9660;</div>
-            </div>
-            <div class="step-body">
-                <div class="demo-area">
-                    <div class="yt-search-demo">
-                        <div class="yt-search-header">
-                            <div style="color:#ff0000;font-size:1.5rem;font-weight:900">&#9654; YouTube</div>
-                            <button class="yt-search-icon-btn" onclick="openYTSearch()">&#128269;</button>
-                        </div>
-                        <div class="yt-search-box" id="yt-search-box" style="display:none">
-                            <input type="text" placeholder="Tim kiem..." id="yt-search-inp" oninput="ytSearch(this.value)" style="flex:1;border:2px solid #ff0000;border-radius:20px 0 0 20px;padding:10px 16px;font-size:1rem;outline:none;font-family:inherit">
-                            <button onclick="ytSearch(document.getElementById('yt-search-inp').value)" style="background:#ff0000;color:white;border:none;padding:10px 16px;border-radius:0 20px 20px 0;font-size:1.1rem;cursor:pointer">&#128269;</button>
-                        </div>
-                        <div class="yt-quick-searches">
-                            <div onclick="ytQuickSearch('pho bo')" class="yt-quick-tag">&#127859; Pho bo</div>
-                            <div onclick="ytQuickSearch('dan ca quan ho')" class="yt-quick-tag">&#127926; Dan ca</div>
-                            <div onclick="ytQuickSearch('tap the duc nguoi gia')" class="yt-quick-tag">&#127939; The duc</div>
-                            <div onclick="ytQuickSearch('tin tuc viet nam hom nay')" class="yt-quick-tag">&#128240; Tin tuc</div>
-                            <div onclick="ytQuickSearch('phim Viet Nam')" class="yt-quick-tag">&#127916; Phim Viet</div>
-                            <div onclick="ytQuickSearch('lam vuon tai nha')" class="yt-quick-tag">&#127810; Lam vuon</div>
-                        </div>
-                        <div id="yt-search-results" style="margin-top:12px"></div>
-                    </div>
-                </div>
-                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan vao bieu tuong kinh lup &#128269;</strong><span>O goc tren phai man hinh YouTube co bieu tuong kinh lup. Nhan vao do.</span></div></div>
-                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Gõ ten bai hat, mon an, chu de...</strong><span>Vi du gõ: "pho bo truyen thong", "hat mit con nha ngheo", "cai luong Nam Bo", "vo bai tap cho nguoi cao tuoi"...</span></div></div>
-                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Nhan "Tim kiem" tren ban phim</strong><span>Sau khi gõ xong, nhan phim "Tim kiem" mau xanh hoac nut "Go" tren ban phim.</span></div></div>
-                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Chon video muon xem</strong><span>Nhan vao hinh thu nho cua video muon xem. Video se phat ngay!</span></div></div>
-                <div class="demo-tip"><div class="demo-tip-icon">&#127908;</div><div><strong>Tim bang giong noi:</strong> Nhan vao bieu tuong mic &#127908; trong o tim kiem roi noi ro rang: "Tim video pho bo" - khong can gõ!</div></div>
-            </div>
-        </div>
-
-        <div class="step-block">
-            <div class="step-header">
-                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">3</div>
-                <div class="step-header-text">
-                    <strong>&#9654; Xem Va Dieu Chinh Video</strong>
-                    <span>Dung, tam dung, tang am, phat toan man hinh</span>
-                </div>
-                <div class="step-toggle">&#9660;</div>
-            </div>
-            <div class="step-body">
-                <div class="demo-area">
-                    <div class="yt-control-demo">
-                        <div class="yt-demo-video" id="yt-demo-video" onclick="toggleYTDemo()">
-                            <div class="yt-demo-thumb">&#127859;</div>
-                            <div class="yt-demo-overlay" id="yt-demo-overlay">&#9654;</div>
-                        </div>
-                        <div class="yt-demo-controls">
-                            <div class="yt-demo-ctrl-row">
-                                <button class="yt-demo-btn" onclick="ytGoBack()">&#9194; 10s</button>
-                                <button class="yt-demo-btn play-btn" id="yt-big-play" onclick="toggleYTDemo()">&#9654;</button>
-                                <button class="yt-demo-btn" onclick="ytGoForward()">10s &#9193;</button>
-                            </div>
-                            <div class="yt-demo-vol">
-                                <span>&#128266;</span>
-                                <input type="range" min="0" max="100" value="70" id="yt-demo-vol" style="flex:1" oninput="ytVolChange(this.value)">
-                                <span id="yt-vol-num">70%</span>
-                            </div>
-                            <div class="yt-demo-speed">
-                                <span>Toc do:</span>
-                                <button class="speed-btn" onclick="setSpeed(0.75)" id="sp-075">0.75x (Cham)</button>
-                                <button class="speed-btn active" onclick="setSpeed(1)" id="sp-1">1x (Binh thuong)</button>
-                                <button class="speed-btn" onclick="setSpeed(1.25)" id="sp-125">1.25x (Nhanh)</button>
-                            </div>
-                            <div id="yt-demo-feedback" style="text-align:center;font-size:0.95rem;font-weight:700;color:#ff0000;min-height:24px;margin-top:8px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan 1 lan de tam dung / tiep tuc</strong><span>Nhan vao bat ky dau tren man hinh video de tam dung. Nhan lan nua de phat tiep.</span></div></div>
-                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan 2 lan nhanh de tua 10 giay</strong><span>Nhan nhanh 2 lan vao BEN PHAI man hinh de tua len 10 giay. Nhan vao BEN TRAI de tua lui 10 giay.</span></div></div>
-                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Xoay ngang de xem to hon</strong><span>Xoay dien thoai ngang de video hien ra toan man hinh, ro va dep hon rat nhieu!</span></div></div>
-                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Dat toc do phat 0.75x neu noi nhanh</strong><span>Nhan 3 cham (...) o goc tren phai, chon "Toc do phat" roi chon "0.75x" de nghe cham va ro hon.</span></div></div>
-                <div class="demo-tip"><div class="demo-tip-icon">&#128265;</div><div><strong>Nghe khong ro:</strong> Nhan phu de (CC) neu co! Chu se hien o duoi man hinh giup Ong Ba hieu hon khi am thanh nho hoac noi nhanh.</div></div>
-            </div>
-        </div>
-
-        <div class="step-block">
-            <div class="step-header">
-                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">4</div>
-                <div class="step-header-text">
-                    <strong>&#128276; Dang Ky Kenh Yeu Thich</strong>
-                    <span>Theo doi kenh hay de xem video moi moi ngay</span>
-                </div>
-                <div class="step-toggle">&#9660;</div>
-            </div>
-            <div class="step-body">
-                <div class="demo-area">
-                    <div class="yt-channel-demo">
-                        <div class="yt-channel-header">
-                            <div class="yt-ch-avatar">&#127859;</div>
-                            <div class="yt-ch-info">
-                                <strong>Am Thuc Mien Nam</strong>
-                                <span>1.2 trieu dang ky</span>
-                                <span>450 video</span>
-                            </div>
-                            <button class="yt-subscribe-btn" id="yt-sub-btn" onclick="ytSubscribe()">
-                                &#128276; Dang ky
-                            </button>
-                        </div>
-                        <div id="yt-sub-result"></div>
-                        <div class="yt-ch-videos">
-                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127859;</div><p>Banh Mi Trung Oc<br><small>234K luot xem</small></p></div>
-                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127812;</div><p>Canh Chua Dac Biet<br><small>189K luot xem</small></p></div>
-                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127837;</div><p>Com Suon Bi Dat<br><small>156K luot xem</small></p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Vao trang kenh muon theo doi</strong><span>Khi xem video hay, nhan vao TEN KENH (hien ben duoi tua video) de vao trang kenh.</span></div></div>
-                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan nut "Dang ky"</strong><span>Nhan vao nut do "Dang ky" tren trang kenh. Nut se doi thanh "Da dang ky" mau xam.</span></div></div>
-                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Bat thong bao</strong><span>Nhan vao bieu tuong chuong &#128276; ben canh nut "Da dang ky" roi chon "Tat ca" de duoc bao khi co video moi.</span></div></div>
-                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Xem video moi tren tab "Dang theo doi"</strong><span>Nhan vao bieu tuong ngoi nha &#127968; roi chon "Dang theo doi" de xem video moi nhat cua kenh da dang ky.</span></div></div>
-                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Goi y kenh hay:</strong> "Am Thuc Mien Nam", "Nhac Viet Truyen Thong", "Suc Khoe 365", "Dan Ca Quan Ho", "VTV Tin Tuc"</div></div>
-            </div>
-        </div>
-
-        <div class="step-block">
-            <div class="step-header">
-                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">5</div>
-                <div class="step-header-text">
-                    <strong>&#128190; Tao Danh Sach Phat</strong>
-                    <span>Luu video yeu thich de xem lai bat cu luc nao</span>
-                </div>
-                <div class="step-toggle">&#9660;</div>
-            </div>
-            <div class="step-body">
-                <div class="demo-area">
-                    <div class="yt-playlist-demo">
-                        <div class="yt-pl-header">
-                            <span>&#128190;</span>
-                            <strong>Danh sach phat cua toi</strong>
-                        </div>
-                        <div class="yt-pl-list" id="yt-pl-list">
-                            <div class="yt-pl-item">
-                                <div class="yt-pl-thumb">&#127926;</div>
-                                <span>Dan Ca Quan Ho Bac Ninh</span>
-                                <button class="yt-pl-remove" onclick="removeFromPlaylist(this)">&#10005;</button>
-                            </div>
-                            <div class="yt-pl-item">
-                                <div class="yt-pl-thumb">&#127859;</div>
-                                <span>Cach Lam Pho Bo</span>
-                                <button class="yt-pl-remove" onclick="removeFromPlaylist(this)">&#10005;</button>
-                            </div>
-                        </div>
-                        <button class="yt-add-pl-btn" onclick="addToPlaylist()">+ Them video mau</button>
-                        <div id="yt-pl-result"></div>
-                    </div>
-                </div>
-                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan nut "Luu" duoi video</strong><span>Khi xem video hay, nhan vao "Luu" (&#128190;) hoac nut 3 cham (...) roi chon "Luu vao danh sach phat".</span></div></div>
-                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Chon "Xem ve sau"</strong><span>Chon "Xem ve sau" la cach don gian nhat de luu video - khong can tao tai khoan!</span></div></div>
-                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Tao danh sach phat moi</strong><span>Nhan "Tao danh sach phat moi", dat ten (vi du "Nhac Dan Ca"), roi luu video vao do.</span></div></div>
-                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Xem lai danh sach phat</strong><span>Nhan vao tab "Thu vien" (&#128218; icon) roi chon danh sach phat muon xem.</span></div></div>
-                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Khong can tai khoan:</strong> Ong Ba co the xem YouTube KHONG can dang nhap! Chi tim kiem va xem video thoi, hoan toan mien phi!</div></div>
-            </div>
-        </div>
-
+<!-- HƯỚNG DẪN CHI TIẾT -->
+<section class="steps-section" style="background:#f8faff">
+  <div class="inner">
+    <div class="steps-header-row">
+      <h2>📋 Hướng Dẫn Từng Bước</h2>
+      <button class="read-all-btn" onclick="Voice.readSteps(window.PAGE_STEPS); document.getElementById('voice-ui').classList.add('active')">
+        🔊 Nghe Toàn Bộ
+      </button>
     </div>
+
+    <!-- BƯỚC 1 -->
+    <div class="step-block open" id="yt-step-1">
+      <div class="step-header" onclick="toggleStep('yt-step-1')">
+        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">1</div>
+        <div class="step-header-text">
+          <strong>Tìm Video Bằng Giọng Nói</strong>
+          <span>Nói tên bài hát hoặc bộ phim muốn xem</span>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+        <div class="step-visual">
+          <div class="step-anim-box">
+            <div class="yt-search-demo-box">
+              <div class="vs-bar" style="border:2px solid #ff0000;box-shadow:none">
+                <input type="text" id="yt-voice-inp" placeholder="Nói tên bài hát..." class="vs-input">
+                <button id="voice-search-btn-yt" class="font-ctrl-btn" style="border:none;background:#ff0000;color:white;font-size:1.2rem;width:40px;height:40px" onclick="Voice.startVoiceSearch(document.getElementById('yt-voice-inp'), handleYTSearch)">🎙️</button>
+              </div>
+              <div class="vs-suggestions" style="margin-top:12px">
+                <span onclick="handleYTSearch('Nhạc Bolero xưa')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">🎵 Bolero xưa</span>
+                <span onclick="handleYTSearch('Cải lương Nam Bộ')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">🎭 Cải lương</span>
+                <span onclick="handleYTSearch('VTV Tin tức 19h')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">📰 Thời sự</span>
+              </div>
+              <div id="yt-search-res" style="margin-top:10px;font-size:0.95rem;font-weight:800;color:#ff0000;text-align:center"></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-text-short">
+          <p>Nhấn vào biểu tượng <strong>Kính lúp 🔍</strong> → Nhấn vào <strong>Micro 🎙️</strong> và nói to rõ ràng tên chương trình muốn xem.</p>
+        </div>
+        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào kính lúp ở trên cùng màn hình YouTube, rồi nhấn vào biểu tượng micro và nói to tên bài hát hay bộ phim Ông Bà muốn xem.')">🔊 Nghe bước này</button>
+      </div>
+    </div>
+
+    <!-- BƯỚC 2 -->
+    <div class="step-block" id="yt-step-2">
+      <div class="step-header" onclick="toggleStep('yt-step-2')">
+        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">2</div>
+        <div class="step-header-text">
+          <strong>Tạm Dừng & Phóng To Toàn Màn Hình</strong>
+          <span>Chạm vào màn hình để dừng hoặc xem toàn màn hình</span>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+        <div class="step-visual">
+          <div class="step-anim-box">
+            <div class="yt-player-interactive">
+              <div class="yt-screen-mock" id="yt-screen-mock" onclick="toggleYTMockPlay()">
+                <div id="yt-play-icon" style="font-size:3rem;color:white">▶️</div>
+                <div class="yt-time-badge" id="yt-badge-txt">0:00 / 15:00</div>
+              </div>
+              <div class="yt-ctrl-bar">
+                <button class="yt-btn-round" onclick="toggleYTMockPlay()" id="yt-btn-play-pause">▶️ Phát</button>
+                <button class="yt-btn-round" onclick="Voice.speak('Xoay ngang điện thoại hoặc nhấn nút vuông ở góc dưới để xem toàn màn hình to rõ nhất.')">⛶ Toàn màn hình</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-text-short">
+          <p>Chạm <strong>1 lần vào giữa video</strong> để Dừng (hoặc Phát tiếp).</p>
+          <p><strong>Xoay ngang điện thoại</strong> để xem toàn màn hình cực kỳ to và nét.</p>
+        </div>
+        <button class="step-speak-btn" onclick="Voice.speak('Chạm một lần vào màn hình video để tạm dừng hoặc phát tiếp. Khi xem, Ông Bà xoay ngang điện thoại ra là video tự phóng to hết màn hình.')">🔊 Nghe bước này</button>
+      </div>
+    </div>
+
+    <!-- BƯỚC 3 -->
+    <div class="step-block" id="yt-step-3">
+      <div class="step-header" onclick="toggleStep('yt-step-3')">
+        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">3</div>
+        <div class="step-header-text">
+          <strong>Tua Video Tiến / Lùi 10 Giây</strong>
+          <span>Xem lại đoạn vừa qua chỉ bằng cách chạm 2 lần</span>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+        <div class="step-visual">
+          <div class="step-anim-box">
+            <div class="yt-seek-demo">
+              <div class="yt-seek-area">
+                <div class="yt-seek-left" onclick="demoSeek(-10)">
+                  <span>⏪</span>
+                  <small>Chạm đúp trái<br>Tua lùi 10s</small>
+                </div>
+                <div class="yt-seek-right" onclick="demoSeek(10)">
+                  <span>⏩</span>
+                  <small>Chạm đúp phải<br>Tua tới 10s</small>
+                </div>
+              </div>
+              <div id="yt-seek-feedback" style="font-size:0.9rem;font-weight:800;color:#ff0000;text-align:center;margin-top:8px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-text-short">
+          <p>Chạm nhanh <strong>2 lần bên trái</strong> màn hình = Tua lùi 10 giây.</p>
+          <p>Chạm nhanh <strong>2 lần bên phải</strong> màn hình = Tua tới 10 giây.</p>
+        </div>
+        <button class="step-speak-btn" onclick="Voice.speak('Gõ nhanh hai lần bên trái màn hình để nghe lại đoạn vừa rồi mười giây. Gõ hai lần bên phải màn hình để tua tới trước mười giây.')">🔊 Nghe bước này</button>
+      </div>
+    </div>
+
+    <!-- BƯỚC 4 -->
+    <div class="step-block" id="yt-step-4">
+      <div class="step-header" onclick="toggleStep('yt-step-4')">
+        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">4</div>
+        <div class="step-header-text">
+          <strong>Đăng Ký Kênh Yêu Thích</strong>
+          <span>Để mỗi khi có bài mới là YouTube tự nhắc</span>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+        <div class="step-visual">
+          <div class="step-anim-box">
+            <div class="yt-sub-card">
+              <div class="yt-sub-avatar">🎭</div>
+              <div class="yt-sub-info">
+                <strong>Cải Lương Xưa Chọn Lọc</strong>
+                <span>1.8M người đăng ký</span>
+              </div>
+              <button class="yt-sub-action-btn" id="yt-sub-btn" onclick="toggleYTSubscribe(this)">
+                🔔 Đăng Ký
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="step-text-short">
+          <p>Nhấn vào chữ <strong>Đăng Ký</strong> màu đỏ dưới video để lưu lại kênh hay.</p>
+          <p>Nhấn tiếp vào <strong>Cái Chuông 🔔</strong> để có video mới là xem được ngay.</p>
+        </div>
+        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào nút Đăng Ký màu đỏ bên dưới video để theo dõi kênh. Nhấn thêm biểu tượng cái chuông bên cạnh để nhận thông báo khi có video mới nhất.')">🔊 Nghe bước này</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- YOUTUBE CHANNELS -->
-<section class="yt-channels">
-    <div class="yt-channels-inner">
-        <h2>&#11088; Kenh YouTube Hay Cho Ong Ba</h2>
-        <div class="yt-ch-grid">
-            <div class="yt-ch-card"><div class="ch-icon">&#127859;</div><h4>Am Thuc Mien Nam</h4><p>Nau an, mon an Viet Nam truyen thong</p><div class="ch-badge">1.2M dang ky</div></div>
-            <div class="yt-ch-card"><div class="ch-icon">&#127926;</div><h4>Nhac Viet Truyen Thong</h4><p>Bolero, dan ca, nhac co, tru tinh</p><div class="ch-badge">850K dang ky</div></div>
-            <div class="yt-ch-card"><div class="ch-icon">&#127884;</div><h4>Suc Khoe Viet 365</h4><p>Meo dan gian, tap the duc, dinh duong</p><div class="ch-badge">620K dang ky</div></div>
-            <div class="yt-ch-card"><div class="ch-icon">&#127810;</div><h4>Vuon Xanh Viet Nam</h4><p>Trong rau, lam vuon, cay cong trinh</p><div class="ch-badge">430K dang ky</div></div>
-            <div class="yt-ch-card"><div class="ch-icon">&#128240;</div><h4>VTV Tin Tuc</h4><p>Tin tuc, thoi su Viet Nam hang ngay</p><div class="ch-badge">2.1M dang ky</div></div>
-            <div class="yt-ch-card"><div class="ch-icon">&#127881;</div><h4>Hai Huoc Viet</h4><p>Video vui, hai huoc, cuoi vui</p><div class="ch-badge">980K dang ky</div></div>
-        </div>
+<!-- KÊNH NỔI BẬT -->
+<section style="padding:48px 24px;background:white">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:20px;text-align:center">🌟 Kênh Hay Nên Xem</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:16px">
+      <div class="quick-item" onclick="Voice.speak('Kênh Nhạc Bolero Xưa có rất nhiều bài hát quê hương trữ tình êm dịu.')">
+        <div class="qi-icon">🎵</div><p>Nhạc Bolero Xưa</p>
+      </div>
+      <div class="quick-item" onclick="Voice.speak('Kênh Cải Lương có các vở tuồng kinh điển của nghệ sĩ Út Bạch Lan, Minh Phụng, Lệ Thủy.')">
+        <div class="qi-icon">🎭</div><p>Cải Lương Tuồng Cổ</p>
+      </div>
+      <div class="quick-item" onclick="Voice.speak('Kênh VTV Thời Sự cập nhật tin tức chuẩn xác hàng ngày của Đài Truyền Hình Việt Nam.')">
+        <div class="qi-icon">📰</div><p>VTV Thời Sự</p>
+      </div>
+      <div class="quick-item" onclick="Voice.speak('Kênh Bếp Xưa chia sẻ cách nấu các món ăn truyền thống dân dã thơm ngon.')">
+        <div class="qi-icon">🍲</div><p>Bếp Xưa Truyền Thống</p>
+      </div>
     </div>
+  </div>
 </section>
 
+<!-- ĐIỀU HƯỚNG -->
 <section class="nav-section">
-    <div class="nav-section-inner">
-        <a href="tiktok.html" class="nav-prev">&#8592; TikTok</a>
-        <a href="index.html" class="nav-next" style="background:linear-gradient(135deg,#1877f2,#5b21b6)">&#127968; Ve Trang Chu</a>
-    </div>
+  <div class="nav-section-inner">
+    <a href="tiktok.html" class="nav-prev">← TikTok</a>
+    <a href="index.html" class="nav-next" style="background:linear-gradient(135deg,#1877f2,#5b21b6)">🏠 Về Trang Chủ</a>
+  </div>
 </section>
 
 <footer class="main-footer">
-    <div class="footer-inner">
-        <div class="footer-logo">&#128241; Cong Nghe Vui</div>
-        <p>&#128150; Duoc tao ra voi tinh yeu thuong danh cho Ong Ba Viet Nam</p>
-        <div class="footer-links">
-            <a href="index.html">Trang Chu</a>
-            <a href="facebook.html">Facebook</a>
-            <a href="tiktok.html">TikTok</a>
-            <a href="youtube.html">YouTube</a>
-        </div>
-        <p class="copy">&#169; 2025 Cong Nghe Vui</p>
+  <div class="footer-inner">
+    <div class="footer-logo">📱 Công Nghệ Vui</div>
+    <p>💖 Được tạo ra với tình yêu thương dành cho Ông Bà</p>
+    <div class="footer-links">
+      <a href="index.html">Trang Chủ</a><a href="facebook.html">Facebook</a>
+      <a href="tiktok.html">TikTok</a><a href="youtube.html">YouTube</a>
     </div>
+    <p class="copy">© 2025 Công Nghệ Vui</p>
+  </div>
 </footer>
+<div class="back-to-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">🔝 Lên Đầu</div>
 
-<div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">&#8679; Len Dau</div>
+<script>
+// YouTube demo steps for phone animator
+const YT_DEMO_STEPS = [
+  {
+    screen: <div class="sc-home"><div class="sc-app-icon" style="background:#ff0000;color:white">▶️</div><div class="sc-app-label">YouTube</div><div class="sc-hint">👆 Nhấn để mở</div></div>,
+    tap: {x:50,y:50}, caption: 'Mở ứng dụng YouTube', audio: 'Tìm biểu tượng nút phát YouTube màu đỏ và nhấn vào.', duration: 3500
+  },
+  {
+    screen: <div class="sc"><div class="sc-topbar sc-yt-top">YouTube <span style="font-size:1.1rem">🔍</span></div><div class="sc-search"><div class="sc-search-bar">🎙️ "Nhạc trữ tình quê hương"</div><div class="sc-vid-item"><div class="sc-vid-thumb" style="background:#fee2e2">🎵</div><div class="sc-vid-info"><div class="sc-vid-title">Tuyển tập Nhạc Quê Hương</div><div class="sc-vid-sub">3.5M lượt xem</div></div></div></div></div>,
+    tap: {x:88,y:10}, caption: 'Tìm video bằng giọng nói cực nhanh', audio: 'Nhấn vào biểu tượng kính lúp và micro rồi nói bài hát muốn nghe.', duration: 4000
+  },
+  {
+    screen: <div class="sc" style="background:#000"><div style="height:140px;display:flex;align-items:center;justify-content:center;color:white;font-size:2.5rem">⏸️</div><div style="background:#1e293b;color:white;padding:10px;height:calc(100% - 140px)"><div style="font-weight:800;font-size:0.85rem;margin-bottom:6px">Tuyển tập Bolero Chọn Lọc</div><div style="display:flex;gap:8px;font-size:0.75rem;color:#94a3b8"><span>👍 250K</span><span>🔔 Đã Đăng Ký</span></div></div></div>,
+    tap: {x:50,y:30}, caption: 'Chạm vào video để Dừng hoặc Phát tiếp', audio: 'Chạm nhẹ một lần vào giữa video để tạm dừng hoặc phát tiếp.', duration: 4000
+  },
+  {
+    screen: <div class="sc"><div class="sc-topbar sc-yt-top">Kênh yêu thích</div><div style="padding:16px;text-align:center"><div style="font-size:3rem;margin-bottom:6px">🎭</div><div style="font-weight:900;font-size:0.95rem;margin-bottom:4px">Cải Lương Tuồng Cổ</div><button style="background:#22c55e;color:white;border:none;border-radius:20px;padding:8px 20px;font-weight:800;font-size:0.85rem">✓ Đã Đăng Ký 🔔</button></div></div>,
+    tap: {x:50,y:60}, caption: 'Đăng ký kênh để theo dõi các bài mới', audio: 'Nhấn nút Đăng ký màu đỏ để theo dõi các bài hát và vở cải lương mới.', duration: 4000
+  }
+];
+
+window.PAGE_STEPS = [
+  { el: '#yt-step-1', text: 'Bước 1: Tìm video bằng giọng nói. Nhấn vào kính lúp và micro rồi nói tên chương trình muốn xem.' },
+  { el: '#yt-step-2', text: 'Bước 2: Tạm dừng và xem toàn màn hình. Chạm vào video để dừng, xoay ngang điện thoại để xem to nhất.' },
+  { el: '#yt-step-3', text: 'Bước 3: Tua video. Gõ hai lần bên trái để tua lùi mười giây, gõ hai lần bên phải để tua tới trước.' },
+  { el: '#yt-step-4', text: 'Bước 4: Đăng ký kênh. Nhấn nút Đăng Ký và bấm biểu tượng cái chuông để nhận video mới.' },
+];
+
+function toggleStep(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function handleYTSearch(text) {
+  if (!text) return;
+  document.getElementById('yt-search-res').textContent = '✅ Đã tìm thấy danh sách video về "' + text + '"';
+  Voice.speak('Đã tìm thấy video về ' + text);
+}
+
+let isYTMockPlaying = false;
+function toggleYTMockPlay() {
+  isYTMockPlaying = !isYTMockPlaying;
+  const icon = document.getElementById('yt-play-icon');
+  const btn = document.getElementById('yt-btn-play-pause');
+  const badge = document.getElementById('yt-badge-txt');
+  if (isYTMockPlaying) {
+    icon.textContent = '⏸️';
+    btn.textContent = '⏸️ Tạm dừng';
+    badge.textContent = '2:15 / 15:00';
+    Voice.speak('Video đang phát...');
+  } else {
+    icon.textContent = '▶️';
+    btn.textContent = '▶️ Phát';
+    Voice.speak('Đã tạm dừng video.');
+  }
+}
+
+function demoSeek(sec) {
+  const fb = document.getElementById('yt-seek-feedback');
+  if (sec > 0) {
+    fb.textContent = '⏩ Đã tua tới 10 giây!';
+    Voice.speak('Tua tới mười giây');
+  } else {
+    fb.textContent = '⏪ Đã tua lùi 10 giây!';
+    Voice.speak('Tua lùi mười giây');
+  }
+  setTimeout(() => { fb.textContent = ''; }, 2000);
+}
+
+function toggleYTSubscribe(btn) {
+  if (btn.classList.contains('subbed')) {
+    btn.classList.remove('subbed');
+    btn.textContent = '🔔 Đăng Ký';
+    btn.style.background = '#ff0000';
+  } else {
+    btn.classList.add('subbed');
+    btn.textContent = '✓ Đã Đăng Ký 🔔';
+    btn.style.background = '#22c55e';
+    Voice.speak('Đã đăng ký kênh thành công! Ông Bà sẽ nhận được video mới nhất.');
+  }
+}
+</script>
 
 <script src="js/main.js"></script>
-<script src="js/youtube.js"></script><script src="js/mobile.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/mobile.js"></script>
+<script>
+window.addEventListener('load', () => {
+  new PhoneDemo('yt-demo', YT_DEMO_STEPS);
+});
+</script>
+<style>
+.demo-section { padding: 48px 24px; }
+.demo-section-inner { max-width: 1100px; margin: 0 auto; }
+.demo-header { text-align: center; margin-bottom: 24px; }
+.demo-header h2 { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
+.demo-header p { font-size: 1.1rem; color: #64748b; }
+
+.steps-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+.steps-header-row h2 { font-size: 1.8rem; font-weight: 900; margin: 0; }
+.read-all-btn { background: #f59e0b; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
+.read-all-btn:hover { transform: scale(1.05); }
+.step-speak-btn { background: #fee2e2; color: #ff0000; border: 2px solid #ff0000; padding: 10px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-top: 12px; transition: all 0.2s; }
+.step-speak-btn:hover { background: #ff0000; color: white; }
+
+.step-visual { margin-bottom: 16px; }
+.step-anim-box { background: #f8faff; border-radius: 16px; padding: 20px; display: flex; justify-content: center; min-height: 160px; align-items: center; }
+.step-text-short p { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; }
+
+/* YouTube custom styles */
+.yt-search-demo-box { width: 300px; }
+.yt-player-interactive { width: 280px; display: flex; flex-direction: column; gap: 10px; }
+.yt-screen-mock { height: 160px; background: #000; border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+.yt-time-badge { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; }
+.yt-ctrl-bar { display: flex; gap: 8px; }
+.yt-btn-round { flex: 1; border: 2px solid #e2e8f0; background: white; border-radius: 20px; padding: 8px 12px; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
+.yt-btn-round:hover { background: #fee2e2; border-color: #ff0000; color: #ff0000; }
+
+.yt-seek-demo { width: 280px; }
+.yt-seek-area { display: flex; gap: 10px; height: 120px; }
+.yt-seek-left, .yt-seek-right { flex: 1; background: #0f172a; color: white; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; padding: 8px; text-align: center; }
+.yt-seek-left span, .yt-seek-right span { font-size: 1.8rem; margin-bottom: 4px; }
+.yt-seek-left:hover, .yt-seek-right:hover { background: #1e293b; transform: scale(1.03); }
+
+.yt-sub-card { display: flex; align-items: center; gap: 12px; background: white; padding: 14px 16px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); width: 300px; }
+.yt-sub-avatar { font-size: 2.2rem; }
+.yt-sub-info { flex: 1; }
+.yt-sub-info strong { font-size: 0.9rem; display: block; }
+.yt-sub-info span { font-size: 0.75rem; color: #94a3b8; }
+.yt-sub-action-btn { background: #ff0000; color: white; border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .steps-header-row { flex-direction: column; align-items: flex-start; }
+  .yt-search-demo-box, .yt-player-interactive, .yt-seek-demo, .yt-sub-card { width: 100%; max-width: 300px; }
+}
+</style>
 </body>
 </html>

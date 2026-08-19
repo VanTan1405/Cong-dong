@@ -1,193 +1,227 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1877f2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no">
-    <title>Cong Nghe Vui - Huong Dan Dung Dien Thoai</title>
-    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/mobile.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#1877f2">
+  <title>Công Nghệ Vui - Hướng Dẫn Cho Ông Bà</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <header class="main-header">
-    <div class="header-inner">
-        <div class="logo-area">
-            <span class="logo-icon">&#128241;</span>
-            <div class="logo-text">
-                <h1>Cong Nghe Vui</h1>
-                <p>Huong dan danh rieng cho Ong Ba</p>
-            </div>
-        </div>
-        <nav class="top-nav">
-            <a href="index.html" class="nav-link active">&#127968; Trang Chu</a>
-            <a href="facebook.html" class="nav-link nav-fb">&#128077; Facebook</a>
-            <a href="tiktok.html" class="nav-link nav-tt">&#127925; TikTok</a>
-            <a href="youtube.html" class="nav-link nav-yt">&#9654; YouTube</a>
-        </nav>
+  <div class="header-inner">
+    <div class="logo-area">
+      <span class="logo-icon">📱</span>
+      <div class="logo-text">
+        <h1>Công Nghệ Vui</h1>
+        <p>Dành riêng cho Ông Bà</p>
+      </div>
     </div>
+    <nav class="top-nav">
+      <a href="index.html" class="nav-link active">🏠 Trang Chủ</a>
+      <a href="facebook.html" class="nav-link nav-fb">👍 Facebook</a>
+      <a href="tiktok.html" class="nav-link nav-tt">🎵 TikTok</a>
+      <a href="youtube.html" class="nav-link nav-yt">▶️ YouTube</a>
+    </nav>
+  </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">&#127800; Chao mung Ong Ba!</div>
-        <h2 class="hero-title">Hoc Cong Nghe<br><span class="highlight">That De Dang!</span></h2>
-        <p class="hero-desc">Chung toi se huong dan Ong Ba tung buoc mot,<br>don gian va de hieu nhat! &#128150;</p>
-        <div class="hero-buttons">
-            <a href="#apps" class="btn-primary">&#128640; Bat Dau Hoc</a>
-            <a href="#tips" class="btn-secondary">&#128161; Meo Huu Ich</a>
-        </div>
+  <div class="hero-content">
+    <div class="hero-badge">🌸 Chào mừng Ông Bà!</div>
+    <h2 class="hero-title">Học Điện Thoại<br><span class="highlight">Thật Dễ Dàng!</span></h2>
+    <p class="hero-desc">Xem hình ảnh, nhắn tin con cháu, xem phim — tất cả ngay trên điện thoại! 💖</p>
+    <div class="hero-buttons">
+      <a href="#apps" class="btn-primary">🚀 Chọn App Học</a>
+      <button class="btn-secondary" onclick="Voice.readSteps(window.PAGE_STEPS); document.getElementById('voice-ui').classList.add('active')">🔊 Nghe Giới Thiệu</button>
     </div>
-    <div class="hero-visual">
-        <div class="phone-mockup">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-                <div class="phone-apps">
-                    <div class="papp fb-app">&#128077;<span>Facebook</span></div>
-                    <div class="papp tt-app">&#127925;<span>TikTok</span></div>
-                    <div class="papp yt-app">&#9654;<span>YouTube</span></div>
-                </div>
-                <div class="phone-hint">&#128070; Nhan vao de hoc!</div>
-            </div>
+  </div>
+  <div class="hero-visual">
+    <div class="phone-mockup">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-apps">
+          <a href="facebook.html" class="papp fb-app">👍<span>Facebook</span></a>
+          <a href="tiktok.html" class="papp tt-app">🎵<span>TikTok</span></a>
+          <a href="youtube.html" class="papp yt-app">▶️<span>YouTube</span></a>
         </div>
-        <div class="float-emoji fe1">&#128522;</div>
-        <div class="float-emoji fe2">&#11088;</div>
-        <div class="float-emoji fe3">&#128150;</div>
-        <div class="float-emoji fe4">&#127802;</div>
+        <div class="phone-hint">👆 Nhấn để học!</div>
+      </div>
     </div>
+    <div class="float-emoji fe1">😊</div>
+    <div class="float-emoji fe2">⭐</div>
+    <div class="float-emoji fe3">💖</div>
+    <div class="float-emoji fe4">🌺</div>
+  </div>
 </section>
 
+<!-- CHỌN ỨNG DỤNG -->
 <section class="apps-section" id="apps">
-    <div class="section-header">
-        <h2>&#128242; Chon Ung Dung Muon Hoc</h2>
-        <p>Nhan vao ung dung de xem huong dan chi tiet</p>
-    </div>
-    <div class="apps-grid">
-        <a href="facebook.html" class="app-card card-fb">
-            <div class="card-ribbon">Pho bien nhat</div>
-            <div class="card-icon-wrap fb-wrap">&#128077;</div>
-            <h3>Facebook</h3>
-            <p>Ket noi voi con chau, ban be. Xem anh, video va chia se cau chuyen moi ngay.</p>
-            <ul>
-                <li>&#9989; Tao tai khoan de dang</li>
-                <li>&#9989; Dang anh va video</li>
-                <li>&#9989; Nhan tin, goi video</li>
-                <li>&#9989; Tham gia nhom ban be</li>
-            </ul>
-            <div class="card-cta fb-cta">Hoc Ngay &#8594;</div>
-        </a>
-        <a href="tiktok.html" class="app-card card-tt">
-            <div class="card-ribbon">Vui & Thu vi</div>
-            <div class="card-icon-wrap tt-wrap">&#127925;</div>
-            <h3>TikTok</h3>
-            <p>Xem video ngan vui nhon. Hoc nau an, suc khoe va nhieu dieu hay moi ngay.</p>
-            <ul>
-                <li>&#9989; Xem video hay, vui</li>
-                <li>&#9989; Tim noi dung yeu thich</li>
-                <li>&#9989; Theo doi kenh thu vi</li>
-                <li>&#9989; Chia se cho nguoi than</li>
-            </ul>
-            <div class="card-cta tt-cta">Hoc Ngay &#8594;</div>
-        </a>
-        <a href="youtube.html" class="app-card card-yt">
-            <div class="card-ribbon">Hoc hoi nhieu nhat</div>
-            <div class="card-icon-wrap yt-wrap">&#9654;</div>
-            <h3>YouTube</h3>
-            <p>Xem phim, ca nhac, tin tuc. Hoc nau an, lam vuon, cham soc suc khoe.</p>
-            <ul>
-                <li>&#9989; Xem video mien phi</li>
-                <li>&#9989; Tim kiem noi dung</li>
-                <li>&#9989; Dang ky kenh yeu thich</li>
-                <li>&#9989; Tao danh sach phat</li>
-            </ul>
-            <div class="card-cta yt-cta">Hoc Ngay &#8594;</div>
-        </a>
-    </div>
+  <div class="section-header">
+    <h2>📲 Chọn Ứng Dụng Muốn Học</h2>
+    <p>Nhấn vào để xem hướng dẫn từng bước có hình ảnh và âm thanh</p>
+  </div>
+  <div class="apps-grid">
+    <a href="facebook.html" class="app-card card-fb" id="card-fb">
+      <div class="card-ribbon">Phổ biến nhất</div>
+      <div class="card-icon-wrap fb-wrap">👍</div>
+      <h3>Facebook</h3>
+      <p>Xem ảnh con cháu · Nhắn tin · Gọi video miễn phí</p>
+      <ul>
+        <li>✅ Tạo tài khoản</li>
+        <li>✅ Đăng ảnh, video</li>
+        <li>✅ Nhắn tin, gọi điện</li>
+        <li>✅ Tham gia nhóm</li>
+      </ul>
+      <div class="card-cta fb-cta">Học Ngay →</div>
+    </a>
+    <a href="tiktok.html" class="app-card card-tt" id="card-tt">
+      <div class="card-ribbon">Vui & Thú vị</div>
+      <div class="card-icon-wrap tt-wrap">🎵</div>
+      <h3>TikTok</h3>
+      <p>Video nấu ăn · Sức khoẻ · Nhạc dân ca · Hài hước</p>
+      <ul>
+        <li>✅ Xem video hay</li>
+        <li>✅ Tìm nội dung yêu thích</li>
+        <li>✅ Theo dõi kênh hay</li>
+        <li>✅ Chia sẻ cho người thân</li>
+      </ul>
+      <div class="card-cta tt-cta">Học Ngay →</div>
+    </a>
+    <a href="youtube.html" class="app-card card-yt" id="card-yt">
+      <div class="card-ribbon">Học nhiều nhất</div>
+      <div class="card-icon-wrap yt-wrap">▶️</div>
+      <h3>YouTube</h3>
+      <p>Phim · Ca nhạc · Tin tức · Nấu ăn · Làm vườn</p>
+      <ul>
+        <li>✅ Xem video miễn phí</li>
+        <li>✅ Tìm kiếm nội dung</li>
+        <li>✅ Đăng ký kênh yêu thích</li>
+        <li>✅ Tạo danh sách phát</li>
+      </ul>
+      <div class="card-cta yt-cta">Học Ngay →</div>
+    </a>
+  </div>
 </section>
 
+<!-- THAO TÁC CƠ BẢN -->
 <section class="tips-section" id="tips">
-    <div class="section-header">
-        <h2>&#128161; Meo Quan Trong Khi Dung Dien Thoai</h2>
-        <p>Nhung dieu Ong Ba can biet de dung dien thoai an toan va hieu qua</p>
+  <div class="section-header">
+    <h2>👆 3 Thao Tác Cần Biết</h2>
+    <p>Chỉ cần biết 3 động tác này là dùng được điện thoại!</p>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon-big">☝️</div>
+      <h3>Nhấn 1 lần</h3>
+      <p>Để mở app, chọn menu, hoặc bấm nút</p>
+      <div class="gest-demo tap-demo"><span class="gest-hand tap-finger">👆</span></div>
     </div>
-    <div class="tips-grid">
-        <div class="tip-card tip-safe">
-            <div class="tip-icon-big">&#128274;</div>
-            <h3>An Toan Tren Mang</h3>
-            <ul>
-                <li>&#128683; Khong chia se mat khau voi ai</li>
-                <li>&#128683; Khong bam vao link la</li>
-                <li>&#128683; Khong gui tien cho nguoi la</li>
-                <li>&#128222; Goi cho con chau neu nghi ngo</li>
-            </ul>
-        </div>
-        <div class="tip-card tip-gesture">
-            <div class="tip-icon-big">&#128072;</div>
-            <h3>Thao Tac Co Ban</h3>
-            <div class="gestures">
-                <div class="gest-item">
-                    <div class="gest-demo tap-demo"><span class="gest-hand">&#128070;</span></div>
-                    <p><strong>Nhan 1 lan</strong><br>Mo / Chon</p>
-                </div>
-                <div class="gest-item">
-                    <div class="gest-demo swipe-demo"><span class="gest-hand">&#9757;</span></div>
-                    <p><strong>Vuot len</strong><br>Xem them</p>
-                </div>
-                <div class="gest-item">
-                    <div class="gest-demo pinch-demo"><span class="gest-hand">&#129295;</span></div>
-                    <p><strong>Doang ra</strong><br>Phong to</p>
-                </div>
-            </div>
-        </div>
-        <div class="tip-card tip-care">
-            <div class="tip-icon-big">&#128267;</div>
-            <h3>Cham Soc Dien Thoai</h3>
-            <ul>
-                <li>&#128267; Sac pin khi con 20%</li>
-                <li>&#127777; Khong de dien thoai qua nong</li>
-                <li>&#128274; Dat mat khau man hinh</li>
-                <li>&#128260; Cap nhat ung dung thuong xuyen</li>
-            </ul>
-        </div>
+    <div class="tip-card">
+      <div class="tip-icon-big">☝️</div>
+      <h3>Vuốt lên / xuống</h3>
+      <p>Để xem thêm nội dung bên dưới hoặc lên trên</p>
+      <div class="gest-demo swipe-demo"><span class="gest-hand swipe-finger">☝️</span></div>
     </div>
+    <div class="tip-card">
+      <div class="tip-icon-big">🤏</div>
+      <h3>Doãng 2 ngón</h3>
+      <p>Để phóng to chữ hoặc hình ảnh cho dễ đọc</p>
+      <div class="gest-demo pinch-demo"><span class="gest-hand zoom-finger">🤏</span></div>
+    </div>
+  </div>
 </section>
 
+<!-- AN TOÀN -->
 <section class="quick-section" id="quick">
-    <div class="section-header">
-        <h2>&#9889; Thao Tac Hay Dung Nhat</h2>
-        <p>Nhan vao de xem huong dan nhanh</p>
+  <div class="section-header">
+    <h2>🔒 An Toàn Khi Dùng Điện Thoại</h2>
+    <p>Nhấn vào để nghe giải thích</p>
+  </div>
+  <div class="quick-grid">
+    <div class="quick-item" id="safe-1" onclick="Voice.speak('Không chia sẻ mật khẩu cho bất kỳ ai, kể cả người tự xưng là nhân viên ngân hàng hoặc công an.')">
+      <div class="qi-icon">🔑</div><p>Giữ mật khẩu bí mật</p>
     </div>
-    <div class="quick-grid">
-        <div class="quick-item" onclick="showQuick('zoom')"><div class="qi-icon">&#128269;</div><p>Phong To</p></div>
-        <div class="quick-item" onclick="showQuick('call')"><div class="qi-icon">&#128222;</div><p>Goi Video</p></div>
-        <div class="quick-item" onclick="showQuick('photo')"><div class="qi-icon">&#128247;</div><p>Chup Anh</p></div>
-        <div class="quick-item" onclick="showQuick('share')"><div class="qi-icon">&#128228;</div><p>Chia Se</p></div>
-        <div class="quick-item" onclick="showQuick('search')"><div class="qi-icon">&#128270;</div><p>Tim Kiem</p></div>
-        <div class="quick-item" onclick="showQuick('volume')"><div class="qi-icon">&#128266;</div><p>Am Luong</p></div>
+    <div class="quick-item" id="safe-2" onclick="Voice.speak('Không bấm vào đường link lạ gửi qua tin nhắn. Nếu nghi ngờ, hãy hỏi con cháu trước.')">
+      <div class="qi-icon">🔗</div><p>Không bấm link lạ</p>
     </div>
+    <div class="quick-item" id="safe-3" onclick="Voice.speak('Không chuyển tiền cho người lạ qua mạng. Đây là chiêu lừa đảo rất phổ biến.')">
+      <div class="qi-icon">💰</div><p>Không chuyển tiền người lạ</p>
+    </div>
+    <div class="quick-item" id="safe-4" onclick="Voice.speak('Khi thấy điều gì đó lạ hoặc nghi ngờ, hãy gọi ngay cho con cháu để được giúp đỡ.')">
+      <div class="qi-icon">📞</div><p>Gọi con cháu khi nghi ngờ</p>
+    </div>
+    <div class="quick-item" id="safe-5" onclick="Voice.speak('Sạc pin khi còn 20 phần trăm. Không để pin xuống 0 vì sẽ hỏng pin nhanh.')">
+      <div class="qi-icon">🔋</div><p>Sạc pin khi còn 20%</p>
+    </div>
+    <div class="quick-item" id="safe-6" onclick="Voice.speak('Nhấn A cộng để tăng cỡ chữ, nhấn A trừ để giảm cỡ chữ cho vừa mắt.')">
+      <div class="qi-icon">🔡</div><p>Điều chỉnh cỡ chữ</p>
+    </div>
+  </div>
 </section>
 
-<div class="modal-bg" id="modal" onclick="closeModal()">
-    <div class="modal-box" onclick="event.stopPropagation()">
-        <button class="modal-close-btn" onclick="closeModal()">&#10005; Dong lai</button>
-        <div id="modal-body"></div>
+<!-- TÌM KIẾM BẰNG GIỌNG NÓI -->
+<section class="voice-search-section">
+  <div class="vs-inner">
+    <h2>🎙️ Tìm Kiếm Bằng Giọng Nói</h2>
+    <p>Ông Bà nói — chúng tôi tìm ngay!</p>
+    <div class="vs-bar">
+      <input type="text" id="main-search-input" placeholder="Nói hoặc gõ điều muốn tìm..." class="vs-input">
+      <button id="voice-search-btn" onclick="Voice.startVoiceSearch(document.getElementById('main-search-input'), handleVoiceSearch)" title="Tìm bằng giọng nói">🎙️</button>
+      <button class="vs-go-btn" onclick="handleVoiceSearch(document.getElementById('main-search-input').value)">Tìm</button>
     </div>
-</div>
+    <div id="vs-result" class="vs-result"></div>
+    <div class="vs-suggestions">
+      <span onclick="handleVoiceSearch('Facebook')">👍 Facebook</span>
+      <span onclick="handleVoiceSearch('TikTok')">🎵 TikTok</span>
+      <span onclick="handleVoiceSearch('YouTube')">▶️ YouTube</span>
+      <span onclick="handleVoiceSearch('nấu ăn')">🍲 Nấu ăn</span>
+      <span onclick="handleVoiceSearch('sức khoẻ')">💊 Sức khoẻ</span>
+    </div>
+  </div>
+</section>
 
 <footer class="main-footer">
-    <div class="footer-inner">
-        <div class="footer-logo">&#128241; Cong Nghe Vui</div>
-        <p>&#128150; Duoc tao ra voi tinh yeu thuong danh cho Ong Ba Viet Nam</p>
-        <div class="footer-links">
-            <a href="index.html">Trang Chu</a>
-            <a href="facebook.html">Facebook</a>
-            <a href="tiktok.html">TikTok</a>
-            <a href="youtube.html">YouTube</a>
-        </div>
-        <p class="copy">&#169; 2025 Cong Nghe Vui</p>
+  <div class="footer-inner">
+    <div class="footer-logo">📱 Công Nghệ Vui</div>
+    <p>💖 Được tạo ra với tình yêu thương dành cho Ông Bà Việt Nam</p>
+    <div class="footer-links">
+      <a href="index.html">Trang Chủ</a>
+      <a href="facebook.html">Facebook</a>
+      <a href="tiktok.html">TikTok</a>
+      <a href="youtube.html">YouTube</a>
     </div>
+    <p class="copy">© 2025 Công Nghệ Vui</p>
+  </div>
 </footer>
 
-<div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">&#8679; Len Dau</div>
+<div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">🔝 Lên Đầu</div>
 
-<script src="js/main.js"></script><script src="js/mobile.js"></script>
+<script>
+window.PAGE_STEPS = [
+  { el: '#card-fb', text: 'Facebook giúp Ông Bà kết nối với con cháu, xem ảnh và nhắn tin miễn phí.', audio: 'Facebook giúp Ông Bà kết nối với con cháu, xem ảnh và nhắn tin miễn phí.' },
+  { el: '#card-tt', text: 'TikTok có hàng ngàn video nấu ăn, sức khoẻ và nhạc dân ca rất hay.', audio: 'TikTok có hàng ngàn video nấu ăn, sức khoẻ và nhạc dân ca rất hay.' },
+  { el: '#card-yt', text: 'YouTube có thể xem phim, nghe nhạc và học nấu ăn hoàn toàn miễn phí.', audio: 'YouTube có thể xem phim, nghe nhạc và học nấu ăn hoàn toàn miễn phí.' },
+];
+
+function handleVoiceSearch(text) {
+  if (!text) return;
+  const res = document.getElementById('vs-result');
+  const t = text.toLowerCase();
+  if (t.includes('facebook')) { res.innerHTML = '➡️ <a href="facebook.html">Xem hướng dẫn Facebook →</a>'; }
+  else if (t.includes('tiktok')) { res.innerHTML = '➡️ <a href="tiktok.html">Xem hướng dẫn TikTok →</a>'; }
+  else if (t.includes('youtube') || t.includes('you tube')) { res.innerHTML = '➡️ <a href="youtube.html">Xem hướng dẫn YouTube →</a>'; }
+  else { res.innerHTML = 🔍 Không tìm thấy kết quả cho "<strong></strong>". Hãy thử: Facebook, TikTok, YouTube; }
+  Voice.speak('Tìm thấy kết quả cho ' + text + '. Nhấn vào để xem chi tiết.');
+}
+</script>
+
+<script src="js/main.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/mobile.js"></script>
 </body>
 </html>
