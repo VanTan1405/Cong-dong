@@ -33,11 +33,11 @@
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">🌸 Chào mừng Ông Bà!</div>
-    <h2 class="hero-title">Học Điện Thoại<br><span class="highlight">Thật Dễ Dàng!</span></h2>
-    <p class="hero-desc">Xem hình ảnh, nhắn tin con cháu, xem phim — tất cả ngay trên điện thoại! 💖</p>
+    <h2 class="hero-title">Học Điện Thoại<br><span class="highlight">Có Giọng Nói Hướng Dẫn!</span></h2>
+    <p class="hero-desc">Xem hình ảnh, nhắn tin con cháu, xem phim — có giọng đọc từng bước thật dễ hiểu! 💖</p>
     <div class="hero-buttons">
-      <a href="#apps" class="btn-primary">🚀 Chọn App Học</a>
-      <button class="btn-secondary" onclick="Voice.readSteps(window.PAGE_STEPS); document.getElementById('voice-ui').classList.add('active')">🔊 Nghe Giới Thiệu</button>
+      <button class="btn-primary" onclick="Voice.speak('Chào mừng Ông Bà đến với trang web Công Nghệ Vui! Hãy chọn ứng dụng bên dưới để bắt đầu học nhé.'); Voice.readSteps(window.PAGE_STEPS);" style="cursor:pointer;border:none">🔊 Bật Giọng Nói & Học Ngay</button>
+      <a href="#apps" class="btn-secondary">📱 Chọn Ứng Dụng</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -115,22 +115,22 @@
     <p>Chỉ cần biết 3 động tác này là dùng được điện thoại!</p>
   </div>
   <div class="tips-grid">
-    <div class="tip-card">
+    <div class="tip-card" onclick="Voice.speak('Thao tác thứ nhất: Nhấn một lần bằng đầu ngón tay để mở ứng dụng hoặc chọn nút bấm.')" style="cursor:pointer">
       <div class="tip-icon-big">☝️</div>
       <h3>Nhấn 1 lần</h3>
-      <p>Để mở app, chọn menu, hoặc bấm nút</p>
+      <p>Để mở app, chọn menu, hoặc bấm nút (Nhấn vào để nghe)</p>
       <div class="gest-demo tap-demo"><span class="gest-hand tap-finger">👆</span></div>
     </div>
-    <div class="tip-card">
+    <div class="tip-card" onclick="Voice.speak('Thao tác thứ hai: Đặt ngón tay lên màn hình rồi vuốt lên trên hoặc vuốt xuống dưới để xem thêm nội dung.')" style="cursor:pointer">
       <div class="tip-icon-big">☝️</div>
       <h3>Vuốt lên / xuống</h3>
-      <p>Để xem thêm nội dung bên dưới hoặc lên trên</p>
+      <p>Để xem thêm nội dung bên dưới hoặc lên trên (Nhấn vào để nghe)</p>
       <div class="gest-demo swipe-demo"><span class="gest-hand swipe-finger">☝️</span></div>
     </div>
-    <div class="tip-card">
+    <div class="tip-card" onclick="Voice.speak('Thao tác thứ ba: Dùng hai ngón tay doãng ra xa nhau để phóng to chữ hoặc hình ảnh cho dễ nhìn.')" style="cursor:pointer">
       <div class="tip-icon-big">🤏</div>
       <h3>Doãng 2 ngón</h3>
-      <p>Để phóng to chữ hoặc hình ảnh cho dễ đọc</p>
+      <p>Để phóng to chữ hoặc hình ảnh cho dễ đọc (Nhấn vào để nghe)</p>
       <div class="gest-demo pinch-demo"><span class="gest-hand zoom-finger">🤏</span></div>
     </div>
   </div>
@@ -140,25 +140,25 @@
 <section class="quick-section" id="quick">
   <div class="section-header">
     <h2>🔒 An Toàn Khi Dùng Điện Thoại</h2>
-    <p>Nhấn vào để nghe giải thích</p>
+    <p>Nhấn vào từng ô để nghe giọng nói giải thích</p>
   </div>
   <div class="quick-grid">
     <div class="quick-item" id="safe-1" onclick="Voice.speak('Không chia sẻ mật khẩu cho bất kỳ ai, kể cả người tự xưng là nhân viên ngân hàng hoặc công an.')">
       <div class="qi-icon">🔑</div><p>Giữ mật khẩu bí mật</p>
     </div>
-    <div class="quick-item" id="safe-2" onclick="Voice.speak('Không bấm vào đường link lạ gửi qua tin nhắn. Nếu nghi ngờ, hãy hỏi con cháu trước.')">
+    <div class="quick-item" id="safe-2" onclick="Voice.speak('Không bấm vào đường link lạ gửi qua tin nhắn. Nếu nghi ngờ, hãy gọi hỏi con cháu trước.')">
       <div class="qi-icon">🔗</div><p>Không bấm link lạ</p>
     </div>
-    <div class="quick-item" id="safe-3" onclick="Voice.speak('Không chuyển tiền cho người lạ qua mạng. Đây là chiêu lừa đảo rất phổ biến.')">
+    <div class="quick-item" id="safe-3" onclick="Voice.speak('Không chuyển tiền cho người lạ qua mạng. Đây là chiêu lừa đảo rất phổ biến hiện nay.')">
       <div class="qi-icon">💰</div><p>Không chuyển tiền người lạ</p>
     </div>
-    <div class="quick-item" id="safe-4" onclick="Voice.speak('Khi thấy điều gì đó lạ hoặc nghi ngờ, hãy gọi ngay cho con cháu để được giúp đỡ.')">
+    <div class="quick-item" id="safe-4" onclick="Voice.speak('Khi thấy điều gì đó lạ hoặc nghi ngờ, hãy gọi ngay cho con cháu để được hướng dẫn.')">
       <div class="qi-icon">📞</div><p>Gọi con cháu khi nghi ngờ</p>
     </div>
-    <div class="quick-item" id="safe-5" onclick="Voice.speak('Sạc pin khi còn 20 phần trăm. Không để pin xuống 0 vì sẽ hỏng pin nhanh.')">
+    <div class="quick-item" id="safe-5" onclick="Voice.speak('Sạc pin khi còn 20 phần trăm. Không để pin cạn kiệt xuống 0 vì sẽ hỏng pin nhanh.')">
       <div class="qi-icon">🔋</div><p>Sạc pin khi còn 20%</p>
     </div>
-    <div class="quick-item" id="safe-6" onclick="Voice.speak('Nhấn A cộng để tăng cỡ chữ, nhấn A trừ để giảm cỡ chữ cho vừa mắt.')">
+    <div class="quick-item" id="safe-6" onclick="Voice.speak('Nhấn nút A cộng ở góc dưới màn hình để tăng cỡ chữ to hơn cho dễ đọc.')">
       <div class="qi-icon">🔡</div><p>Điều chỉnh cỡ chữ</p>
     </div>
   </div>
@@ -168,9 +168,9 @@
 <section class="voice-search-section">
   <div class="vs-inner">
     <h2>🎙️ Tìm Kiếm Bằng Giọng Nói</h2>
-    <p>Ông Bà nói — chúng tôi tìm ngay!</p>
+    <p>Ông Bà bấm vào Micro rồi nói — chúng tôi tìm ngay!</p>
     <div class="vs-bar">
-      <input type="text" id="main-search-input" placeholder="Nói hoặc gõ điều muốn tìm..." class="vs-input">
+      <input type="text" id="main-search-input" placeholder="Nhấn nút Micro bên phải để nói..." class="vs-input">
       <button id="voice-search-btn" onclick="Voice.startVoiceSearch(document.getElementById('main-search-input'), handleVoiceSearch)" title="Tìm bằng giọng nói">🎙️</button>
       <button class="vs-go-btn" onclick="handleVoiceSearch(document.getElementById('main-search-input').value)">Tìm</button>
     </div>
@@ -203,20 +203,25 @@
 
 <script>
 window.PAGE_STEPS = [
-  { el: '#card-fb', text: 'Facebook giúp Ông Bà kết nối với con cháu, xem ảnh và nhắn tin miễn phí.', audio: 'Facebook giúp Ông Bà kết nối với con cháu, xem ảnh và nhắn tin miễn phí.' },
-  { el: '#card-tt', text: 'TikTok có hàng ngàn video nấu ăn, sức khoẻ và nhạc dân ca rất hay.', audio: 'TikTok có hàng ngàn video nấu ăn, sức khoẻ và nhạc dân ca rất hay.' },
-  { el: '#card-yt', text: 'YouTube có thể xem phim, nghe nhạc và học nấu ăn hoàn toàn miễn phí.', audio: 'YouTube có thể xem phim, nghe nhạc và học nấu ăn hoàn toàn miễn phí.' },
+  { el: '#card-fb', text: 'Ứng dụng Facebook giúp Ông Bà xem ảnh con cháu, nhắn tin và gọi video miễn phí.' },
+  { el: '#card-tt', text: 'Ứng dụng TikTok có rất nhiều video ngắn về nấu ăn, sức khoẻ dưỡng sinh và nhạc dân ca vui tươi.' },
+  { el: '#card-yt', text: 'Ứng dụng YouTube xem phim, nghe nhạc cải lương và tin tức thời sự hoàn toàn miễn phí.' },
 ];
 
 function handleVoiceSearch(text) {
   if (!text) return;
   const res = document.getElementById('vs-result');
   const t = text.toLowerCase();
-  if (t.includes('facebook')) { res.innerHTML = '➡️ <a href="facebook.html">Xem hướng dẫn Facebook →</a>'; }
-  else if (t.includes('tiktok')) { res.innerHTML = '➡️ <a href="tiktok.html">Xem hướng dẫn TikTok →</a>'; }
-  else if (t.includes('youtube') || t.includes('you tube')) { res.innerHTML = '➡️ <a href="youtube.html">Xem hướng dẫn YouTube →</a>'; }
-  else { res.innerHTML = 🔍 Không tìm thấy kết quả cho "<strong></strong>". Hãy thử: Facebook, TikTok, YouTube; }
-  Voice.speak('Tìm thấy kết quả cho ' + text + '. Nhấn vào để xem chi tiết.');
+  if (t.includes('facebook')) {
+    res.innerHTML = '➡️ <a href="facebook.html" style="color:#f59e0b;font-weight:900;text-decoration:underline">Nhấn vào đây để xem hướng dẫn Facebook →</a>';
+  } else if (t.includes('tiktok')) {
+    res.innerHTML = '➡️ <a href="tiktok.html" style="color:#f59e0b;font-weight:900;text-decoration:underline">Nhấn vào đây để xem hướng dẫn TikTok →</a>';
+  } else if (t.includes('youtube') || t.includes('you tube')) {
+    res.innerHTML = '➡️ <a href="youtube.html" style="color:#f59e0b;font-weight:900;text-decoration:underline">Nhấn vào đây để xem hướng dẫn YouTube →</a>';
+  } else {
+    res.innerHTML = 🔍 Đã tìm: "<strong></strong>". Ông Bà hãy chọn xem Facebook, TikTok hoặc YouTube nhé!;
+  }
+  Voice.speak('Đã tìm thấy kết quả cho ' + text + '. Ông Bà nhấn vào liên kết màu vàng trên màn hình để xem nhé!');
 }
 </script>
 
