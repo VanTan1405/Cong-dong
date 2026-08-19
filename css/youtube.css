@@ -1,0 +1,130 @@
+﻿/* ===== YOUTUBE PAGE STYLES ===== */
+.yt-intro { padding: 60px 24px; background: var(--white); }
+.yt-intro-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 60px; align-items: center; }
+.yt-intro-text { flex: 1; }
+.yt-intro-text h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; }
+.yt-intro-text p { font-size: 1.1rem; color: var(--text2); margin-bottom: 24px; }
+.yt-stats { display: flex; gap: 20px; }
+.yt-stat { background: var(--yt-light); border-radius: 16px; padding: 16px 24px; text-align: center; flex: 1; border: 2px solid #fca5a5; }
+.yt-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--yt); }
+.yt-stat-label { font-size: 0.9rem; color: var(--text2); font-weight: 600; }
+
+/* YT Player demo */
+.yt-demo-player { flex: 0 0 380px; }
+.yt-player { background: white; border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
+.yt-player-screen { background: #000; height: 200px; position: relative; cursor: pointer; border-radius: 0; display: flex; align-items: center; justify-content: center; }
+.yt-play-overlay { text-align: center; color: white; }
+.yt-play-btn-big { font-size: 3rem; background: rgba(255,0,0,0.8); border-radius: 12px; padding: 10px 20px; display: inline-block; transition: var(--transition); }
+.yt-play-overlay:hover .yt-play-btn-big { transform: scale(1.1); }
+.yt-play-overlay p { margin-top: 8px; font-size: 0.9rem; opacity: 0.8; }
+.yt-playing { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.yt-playing-content { text-align: center; color: white; padding: 16px; width: 100%; }
+.yt-playing-icon { font-size: 2.5rem; margin-bottom: 8px; }
+.yt-playing-content p { font-size: 0.9rem; margin-bottom: 12px; }
+.yt-progress { height: 6px; background: rgba(255,255,255,0.3); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.yt-progress-bar { height: 100%; background: var(--yt); border-radius: 3px; transition: width 0.1s linear; }
+.yt-time { font-size: 0.8rem; opacity: 0.7; }
+.yt-controls { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f8faff; border-top: 1px solid var(--gray); }
+.yt-ctrl-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 6px; border-radius: 8px; transition: var(--transition); }
+.yt-ctrl-btn:hover { background: var(--gray); }
+.yt-vol { display: flex; align-items: center; gap: 6px; }
+.yt-vol-slider { width: 70px; accent-color: var(--yt); }
+.yt-ctrl-time { font-size: 0.85rem; font-weight: 700; color: var(--text2); }
+.yt-video-info { padding: 14px 16px; }
+.yt-video-info h4 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+.yt-video-meta { font-size: 0.85rem; color: var(--text2); display: flex; gap: 6px; margin-bottom: 10px; }
+.yt-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.yt-action-btn { background: var(--gray); border: none; padding: 8px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+.yt-action-btn:hover { background: var(--yt-light); color: var(--yt); }
+.yt-action-btn.liked { background: var(--yt-light); color: var(--yt); }
+
+/* YT Open Demo */
+.yt-open-demo { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.yt-screen-demo { background: var(--gray); border-radius: 20px; padding: 30px 40px; text-align: center; }
+.yt-app-icon-demo { cursor: pointer; transition: var(--transition); }
+.yt-app-icon-demo:hover { transform: scale(1.05); }
+.yt-icon-circle { width: 80px; height: 80px; background: var(--yt); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; margin: 0 auto 8px; box-shadow: 0 4px 20px rgba(255,0,0,0.4); transition: var(--transition); }
+.yt-icon-circle:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(255,0,0,0.5); }
+.yt-app-icon-demo span { font-weight: 800; font-size: 1rem; }
+#yt-open-result { margin-top: 12px; font-size: 0.95rem; font-weight: 700; color: var(--yt); }
+
+/* YT Search Demo */
+.yt-search-demo { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--shadow); width: 320px; }
+.yt-search-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.yt-search-icon-btn { background: var(--gray); border: none; padding: 8px 14px; border-radius: 50px; font-size: 1rem; cursor: pointer; transition: var(--transition); }
+.yt-search-icon-btn:hover { background: var(--yt-light); }
+.yt-search-box { display: flex; margin-bottom: 14px; }
+.yt-quick-searches { display: flex; flex-wrap: wrap; gap: 8px; }
+.yt-quick-tag { background: var(--gray); border-radius: 50px; padding: 6px 14px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+.yt-quick-tag:hover { background: var(--yt-light); color: var(--yt); }
+#yt-search-results { font-size: 0.9rem; font-weight: 700; color: var(--yt); }
+
+/* YT Control Demo */
+.yt-control-demo { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 360px; margin: 0 auto; }
+.yt-demo-video { background: #000; border-radius: 16px; height: 160px; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; overflow: hidden; }
+.yt-demo-thumb { font-size: 4rem; }
+.yt-demo-overlay { position: absolute; background: rgba(255,0,0,0.8); border-radius: 10px; padding: 8px 16px; font-size: 1.5rem; color: white; transition: var(--transition); }
+.yt-demo-controls { background: var(--gray); border-radius: 16px; padding: 16px; }
+.yt-demo-ctrl-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 14px; }
+.yt-demo-btn { background: white; border: 2px solid var(--gray); border-radius: 50px; padding: 10px 16px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+.yt-demo-btn:hover { border-color: var(--yt); color: var(--yt); }
+.yt-demo-btn.play-btn { background: var(--yt); color: white; border-color: var(--yt); font-size: 1.2rem; padding: 10px 20px; }
+.yt-demo-vol { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.yt-demo-vol input { flex: 1; accent-color: var(--yt); }
+.yt-demo-speed { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.yt-demo-speed > span { font-size: 0.9rem; font-weight: 700; }
+.speed-btn { background: white; border: 2px solid var(--gray); border-radius: 50px; padding: 6px 12px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+.speed-btn:hover, .speed-btn.active { background: var(--yt-light); border-color: var(--yt); color: var(--yt); }
+
+/* YT Channel Demo */
+.yt-channel-demo { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); width: 340px; }
+.yt-channel-header { display: flex; align-items: center; gap: 14px; padding: 16px; border-bottom: 2px solid var(--gray); }
+.yt-ch-avatar { font-size: 2.5rem; }
+.yt-ch-info { flex: 1; }
+.yt-ch-info strong { font-size: 1rem; display: block; }
+.yt-ch-info span { font-size: 0.8rem; color: var(--text2); display: block; }
+.yt-subscribe-btn { background: var(--yt); color: white; border: none; padding: 10px 16px; border-radius: 50px; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: var(--transition); white-space: nowrap; }
+.yt-subscribe-btn:hover { opacity: 0.9; transform: scale(1.05); }
+.yt-subscribe-btn.subscribed { background: var(--gray); color: var(--text2); }
+#yt-sub-result { padding: 0 16px; font-size: 0.9rem; font-weight: 700; color: var(--green); }
+.yt-ch-videos { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; }
+.yt-ch-vid { flex: 0 0 100px; text-align: center; cursor: pointer; }
+.yt-ch-thumb { background: var(--yt-light); border-radius: 10px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 6px; transition: var(--transition); }
+.yt-ch-vid:hover .yt-ch-thumb { transform: scale(1.05); }
+.yt-ch-vid p { font-size: 0.75rem; font-weight: 600; line-height: 1.4; }
+.yt-ch-vid small { color: var(--text2); }
+
+/* YT Playlist Demo */
+.yt-playlist-demo { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); width: 320px; }
+.yt-pl-header { background: var(--yt); color: white; padding: 12px 16px; display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 800; }
+.yt-pl-list { max-height: 180px; overflow-y: auto; }
+.yt-pl-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--gray); }
+.yt-pl-thumb { font-size: 1.5rem; }
+.yt-pl-item span { flex: 1; font-size: 0.9rem; font-weight: 600; }
+.yt-pl-remove { background: none; border: none; color: var(--text2); cursor: pointer; font-size: 1rem; padding: 4px; border-radius: 50%; transition: var(--transition); }
+.yt-pl-remove:hover { background: #fee2e2; color: #dc2626; }
+.yt-add-pl-btn { width: 100%; background: var(--yt-light); color: var(--yt); border: none; padding: 12px; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: var(--transition); }
+.yt-add-pl-btn:hover { background: var(--yt); color: white; }
+#yt-pl-result { padding: 8px 16px; font-size: 0.85rem; font-weight: 700; color: var(--green); }
+
+/* YT Channels Section */
+.yt-channels { padding: 60px 24px; background: #0a0a0a; }
+.yt-channels-inner { max-width: 1100px; margin: 0 auto; }
+.yt-channels h2 { font-size: 2rem; font-weight: 900; color: white; margin-bottom: 32px; text-align: center; }
+.yt-ch-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.yt-ch-card { background: #1a1a2e; border-radius: var(--radius); padding: 24px; text-align: center; transition: var(--transition); border: 2px solid transparent; }
+.yt-ch-card:hover { border-color: var(--yt); transform: translateY(-5px); }
+.ch-icon { font-size: 2.8rem; margin-bottom: 12px; }
+.yt-ch-card h4 { font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 6px; }
+.yt-ch-card p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 10px; }
+.ch-badge { background: rgba(255,0,0,0.2); color: var(--yt); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+
+@media (max-width: 900px) {
+  .yt-intro-inner { flex-direction: column; }
+  .yt-demo-player { display: none; }
+  .yt-ch-grid { grid-template-columns: repeat(2,1fr); }
+  .yt-stats { flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+  .yt-ch-grid { grid-template-columns: 1fr; }
+}

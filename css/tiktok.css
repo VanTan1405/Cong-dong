@@ -1,0 +1,166 @@
+﻿/* ===== TIKTOK PAGE STYLES ===== */
+.tt-intro { padding: 60px 24px; background: var(--white); }
+.tt-intro .intro-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 60px; align-items: center; }
+.tt-intro .intro-text h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; }
+.tt-intro .intro-text p { font-size: 1.1rem; color: var(--text2); margin-bottom: 20px; }
+.tt-categories { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.tt-cat {
+  display: flex; align-items: center; gap: 10px; background: var(--gray);
+  border-radius: 14px; padding: 12px 14px; font-size: 1rem; font-weight: 700;
+  transition: var(--transition); cursor: default;
+}
+.tt-cat:hover { background: var(--tt-light); }
+.tt-cat span { font-size: 0.95rem; }
+.tt-phone-wrap { flex: 0 0 220px; }
+.tt-phone {
+  width: 200px; background: #010101; border-radius: 32px; padding: 12px 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4); margin: 0 auto;
+}
+.tt-video-bg {
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  border-radius: 24px; min-height: 360px; position: relative;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.tt-video-content { text-align: center; color: white; padding: 16px; }
+.tt-video-emoji { font-size: 3rem; margin-bottom: 10px; }
+.tt-video-text { font-size: 0.85rem; line-height: 1.5; }
+.tt-sidebar {
+  position: absolute; right: 10px; bottom: 80px;
+  display: flex; flex-direction: column; gap: 16px; text-align: center;
+}
+.tt-action { color: white; font-size: 1.3rem; cursor: pointer; line-height: 1.2; transition: var(--transition); }
+.tt-action small { font-size: 0.65rem; display: block; }
+.tt-action:hover { transform: scale(1.2); }
+.tt-bottom { position: absolute; bottom: 12px; left: 10px; right: 50px; color: white; }
+.tt-author { font-size: 0.8rem; font-weight: 800; margin-bottom: 4px; }
+.tt-caption { font-size: 0.75rem; opacity: 0.85; }
+.tt-next-btn {
+  position: absolute; bottom: 10px; right: 10px; background: var(--tt-pink);
+  color: white; border: none; border-radius: 20px; padding: 6px 12px;
+  font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+}
+.tt-next-btn:hover { transform: scale(1.05); }
+
+/* Swipe demo */
+.swipe-demo-area { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.swipe-phone {
+  width: 160px; height: 280px; background: #010101; border-radius: 28px;
+  padding: 10px 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden;
+}
+.swipe-video {
+  background: linear-gradient(180deg, #1a1a2e, #0f3460);
+  border-radius: 20px; height: 100%; display: flex; align-items: center;
+  justify-content: center; color: white; text-align: center; padding: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.vid-content { }
+.vid-content p { font-size: 0.8rem; margin-top: 8px; }
+.vid-content small { font-size: 0.7rem; opacity: 0.7; }
+.swipe-hint { text-align: center; }
+.swipe-up-btn {
+  background: linear-gradient(135deg, #010101, var(--tt-pink)); color: white;
+  border: none; padding: 14px 28px; border-radius: 50px; font-size: 1rem;
+  font-weight: 800; cursor: pointer; transition: var(--transition);
+  animation: swipe-bounce 1.5s ease-in-out infinite;
+}
+@keyframes swipe-bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.swipe-up-btn:hover { transform: scale(1.05); animation: none; }
+
+/* TT Search */
+.tt-search-demo { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); width: 280px; }
+.tt-search-bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 2px solid var(--gray); font-size: 1.2rem; }
+.tt-search-bar input { flex: 1; border: none; outline: none; font-size: 0.95rem; font-family: inherit; }
+.tt-search-suggestions { padding: 8px; }
+.tt-suggest {
+  padding: 10px 12px; border-radius: 10px; font-size: 0.95rem;
+  cursor: pointer; transition: var(--transition); font-weight: 600;
+}
+.tt-suggest:hover { background: var(--tt-light); color: var(--tt-pink); }
+#tt-search-result { padding: 0 12px 12px; font-size: 0.9rem; font-weight: 700; color: var(--tt-pink); }
+
+/* TT Interact */
+.tt-interact-demo { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.tt-mini-phone {
+  background: #010101; border-radius: 24px; padding: 10px 8px;
+  display: flex; gap: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.tt-mini-video {
+  background: linear-gradient(180deg, #1a1a2e, #0f3460);
+  border-radius: 16px 0 0 16px; width: 130px; min-height: 220px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: white; text-align: center; padding: 10px;
+}
+.tt-mini-actions {
+  display: flex; flex-direction: column; gap: 12px; justify-content: center;
+  padding: 8px 6px; align-items: center;
+}
+.tt-act-btn {
+  background: none; border: none; color: white; text-align: center;
+  cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; align-items: center;
+}
+.tt-act-btn span { font-size: 1.6rem; display: block; }
+.tt-act-btn small { font-size: 0.65rem; color: rgba(255,255,255,0.8); }
+.tt-act-btn:hover { transform: scale(1.2); }
+#tt-like-btn.liked span { filter: drop-shadow(0 0 8px #fe2c55); }
+
+/* TT Follow */
+.tt-follow-demo { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); width: 300px; }
+.channel-card {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  border-bottom: 1px solid var(--gray); transition: var(--transition);
+}
+.channel-card:hover { background: var(--tt-light); }
+.channel-avatar { font-size: 2rem; }
+.channel-info { flex: 1; }
+.channel-info strong { font-size: 0.95rem; display: block; }
+.channel-info span { font-size: 0.8rem; color: var(--text2); }
+.tt-follow-btn {
+  background: var(--tt-pink); color: white; border: none;
+  padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;
+  cursor: pointer; transition: var(--transition); white-space: nowrap;
+}
+.tt-follow-btn:hover { transform: scale(1.05); }
+.tt-follow-btn.following { background: var(--gray); color: var(--text2); }
+
+/* TT Recs */
+.tt-recs { padding: 60px 24px; background: #0a0a0a; }
+.tt-recs-inner { max-width: 1100px; margin: 0 auto; }
+.tt-recs h2 { font-size: 2rem; font-weight: 900; color: white; margin-bottom: 32px; text-align: center; }
+.tt-recs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.tt-rec-card {
+  background: #1a1a2e; border-radius: var(--radius); padding: 24px;
+  text-align: center; transition: var(--transition); border: 2px solid transparent;
+}
+.tt-rec-card:hover { border-color: var(--tt-pink); transform: translateY(-5px); }
+.tt-rec-icon { font-size: 2.8rem; margin-bottom: 12px; }
+.tt-rec-card h3 { font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 8px; }
+.tt-rec-card p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 12px; }
+.tt-rec-tags { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.tt-rec-tags span { background: rgba(254,44,85,0.2); color: var(--tt-pink); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+
+/* Install demo */
+.store-demo { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); width: 260px; }
+.store-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 16px; font-size: 1rem; font-weight: 800; }
+.store-app { display: flex; align-items: center; gap: 12px; padding: 16px; }
+.store-app-icon { font-size: 2.5rem; }
+.store-app-info { flex: 1; }
+.store-app-info strong { font-size: 1rem; display: block; }
+.store-stars { font-size: 0.85rem; color: #f59e0b; }
+.store-app-info span { font-size: 0.8rem; color: var(--green); font-weight: 700; }
+.store-install-btn { background: #007aff; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 800; cursor: pointer; }
+.install-progress { padding: 0 16px 16px; }
+.install-progress .progress-bar { margin-bottom: 8px; }
+#install-text { font-size: 0.9rem; font-weight: 700; color: var(--green); }
+
+@media (max-width: 768px) {
+  .tt-intro .intro-inner { flex-direction: column; }
+  .tt-categories { grid-template-columns: repeat(2,1fr); }
+  .tt-recs-grid { grid-template-columns: repeat(2,1fr); }
+  .tt-phone-wrap { display: none; }
+}
+@media (max-width: 480px) {
+  .tt-recs-grid { grid-template-columns: 1fr; }
+}

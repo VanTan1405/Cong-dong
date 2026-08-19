@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1877f2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no">
+    <title>Huong Dan TikTok - Cong Nghe Vui</title>
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/tiktok.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <span class="logo-icon">&#128241;</span>
+            <div class="logo-text"><h1>Cong Nghe Vui</h1><p>Huong dan danh rieng cho Ong Ba</p></div>
+        </div>
+        <nav class="top-nav">
+            <a href="index.html" class="nav-link">&#127968; Trang Chu</a>
+            <a href="facebook.html" class="nav-link nav-fb">&#128077; Facebook</a>
+            <a href="tiktok.html" class="nav-link active nav-tt">&#127925; TikTok</a>
+            <a href="youtube.html" class="nav-link nav-yt">&#9654; YouTube</a>
+        </nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-inner">
+        <a href="index.html">&#127968; Trang Chu</a>
+        <span>&#8250;</span>
+        <span>&#127925; Huong Dan TikTok</span>
+    </div>
+</div>
+
+<div class="page-header tt-header">
+    <div class="page-header-inner">
+        <span class="page-icon">&#127925;</span>
+        <h1>Huong Dan Dung TikTok</h1>
+        <p>Xem video vui, hoc nau an, suc khoe - Giai tri bat tan!</p>
+        <div class="difficulty-bar">
+            <span>Do kho:</span>
+            <div class="stars">&#11088;&#11088;&#9734;&#9734;&#9734;</div>
+            <span>De hoc</span>
+        </div>
+    </div>
+</div>
+
+<!-- INTRO -->
+<section class="tt-intro">
+    <div class="intro-inner">
+        <div class="intro-text">
+            <h2>&#127897; TikTok la gi?</h2>
+            <p>TikTok la ung dung xem video ngan (15 giay den 10 phut). Ong Ba se tim thay:</p>
+            <div class="tt-categories">
+                <div class="tt-cat">&#127859;<span>Nau an, Mon Viet</span></div>
+                <div class="tt-cat">&#127884;<span>Suc khoe, Thuoc nam</span></div>
+                <div class="tt-cat">&#127926;<span>Ca nhac, Dan ca</span></div>
+                <div class="tt-cat">&#128516;<span>Video vui, hai huoc</span></div>
+                <div class="tt-cat">&#127810;<span>Lam vuon, Cay canh</span></div>
+                <div class="tt-cat">&#128124;<span>Huong dan, Meo vat</span></div>
+            </div>
+        </div>
+        <div class="tt-phone-wrap">
+            <div class="tt-phone">
+                <div class="tt-video-bg" id="tt-video-bg">
+                    <div class="tt-video-content" id="tt-video-content">
+                        <div class="tt-video-emoji">&#127859;</div>
+                        <div class="tt-video-text">Cach lam Canh Chua Ca<br>&#9654; Dang phat...</div>
+                    </div>
+                    <div class="tt-sidebar">
+                        <div class="tt-action" onclick="ttLike(this)">&#10084;<br><small>4.2K</small></div>
+                        <div class="tt-action">&#128172;<br><small>320</small></div>
+                        <div class="tt-action">&#8635;<br><small>Chia se</small></div>
+                        <div class="tt-action">&#128266;<br><small>Nhac</small></div>
+                    </div>
+                    <div class="tt-bottom">
+                        <div class="tt-author">@cooking_viet</div>
+                        <div class="tt-caption">Cach lam canh chua ca that ngon &#127859;</div>
+                    </div>
+                    <button class="tt-next-btn" onclick="nextTTVideo()">&#8680; Video tiep</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps-section" style="background:#f8faff;">
+    <div class="inner">
+        <h2>&#128218; Huong Dan Tung Buoc Dung TikTok</h2>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#010101,#fe2c55)">1</div>
+                <div class="step-header-text">
+                    <strong>&#128272; Tai Va Cai Dat TikTok</strong>
+                    <span>Tai mien phi tu cua hang ung dung</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="store-demo">
+                        <div class="store-header">&#128241; Cua Hang App</div>
+                        <div class="store-app">
+                            <div class="store-app-icon">&#127925;</div>
+                            <div class="store-app-info">
+                                <strong>TikTok</strong>
+                                <div class="store-stars">&#11088;&#11088;&#11088;&#11088;&#11088; 4.7</div>
+                                <span>Mien phi</span>
+                            </div>
+                            <button class="store-install-btn" onclick="demoInstall(this)">Tai ve</button>
+                        </div>
+                        <div class="install-progress" id="install-progress" style="display:none">
+                            <div class="progress-bar"><div class="progress-fill" data-width="100" style="width:0%"></div></div>
+                            <span id="install-text">Dang tai...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Mo "App Store" (iPhone) hoac "CH Play" (Android)</strong><span>Tim bieu tuong cua hang ung dung tren man hinh chinh cua dien thoai.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Gõ "TikTok" vao o tim kiem</strong><span>Nhan vao o tim kiem o tren cung va gõ "TikTok".</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Nhan "Tai ve" / "Cai dat"</strong><span>Nhan nut "Tai ve" (mau xanh). Cho den khi ung dung tai xong.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Mo TikTok</strong><span>Khi tai xong, bieu tuong TikTok xuat hien tren man hinh. Nhan vao de mo.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Luu y:</strong> Ong Ba can ket noi wifi de tai ung dung khong mat phi. Hoi con chau giup ket noi wifi neu can!</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#010101,#fe2c55)">2</div>
+                <div class="step-header-text">
+                    <strong>&#127909; Xem Video Tren TikTok</strong>
+                    <span>Chi can vuot len la xem video tiep theo</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="swipe-demo-area">
+                        <div class="swipe-phone" id="swipe-phone">
+                            <div class="swipe-video" id="current-vid">
+                                <div class="vid-content" id="vid-content-0">
+                                    <div style="font-size:3rem">&#127859;</div>
+                                    <p>Cach lam Pho Bo<br><small>@amthuc_viet</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swipe-hint">
+                            <button onclick="swipeUp()" class="swipe-up-btn">&#8679; Vuot len de xem video tiep</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Mo TikTok la tu dong phat video</strong><span>Ngay khi mo TikTok, video se tu dong phat. Ong Ba chi can nhin va thu gian!</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Vuot len xem video tiep theo</strong><span>Dat ngon tay vao man hinh va vuot len tren (nhu sang trang) de xem video tiep theo.</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Nhan 1 lan de tam dung / tiep tuc</strong><span>Nhan vao bat ky dau tren man hinh de tam dung video. Nhan lan nua de phat tiep.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Vuot xuong de xem lai video truoc</strong><span>Vuot xuong duoi (nguoc lai) de xem lai video da xem truoc do.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#127897;</div><div><strong>TikTok tu hoc sot:</strong> Cang xem nhieu, TikTok cang hieu so thich cua Ong Ba va de xuat video phu hop hon!</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#010101,#fe2c55)">3</div>
+                <div class="step-header-text">
+                    <strong>&#128269; Tim Video Yeu Thich</strong>
+                    <span>Tim nau an, suc khoe, nhac cu...</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="tt-search-demo">
+                        <div class="tt-search-bar">
+                            <span>&#128269;</span>
+                            <input type="text" placeholder="Tim kiem..." id="tt-search-input" oninput="ttSearch(this.value)">
+                        </div>
+                        <div class="tt-search-suggestions" id="tt-suggestions">
+                            <div class="tt-suggest" onclick="fillSearch('nau canh chua')">&#127859; nau canh chua</div>
+                            <div class="tt-suggest" onclick="fillSearch('bai hat que huong')">&#127926; bai hat que huong</div>
+                            <div class="tt-suggest" onclick="fillSearch('tap the duc nguoi lon tuoi')">&#127939; tap the duc nguoi lon tuoi</div>
+                            <div class="tt-suggest" onclick="fillSearch('lam vuon tai nha')">&#127810; lam vuon tai nha</div>
+                            <div class="tt-suggest" onclick="fillSearch('meo chua benh dan gian')">&#127884; meo chua benh dan gian</div>
+                        </div>
+                        <div id="tt-search-result"></div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan bieu tuong Kham pha (kinh lup)</strong><span>Nhan vao bieu tuong kinh lup &#128269; o thanh phia duoi man hinh.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Gõ tu khoa vao o tim kiem</strong><span>Gõ thu noi dung muon xem: "nau pho bo", "dan ca quan ho", "tap the duc cho nguoi gia"...</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Chon video de xem</strong><span>Nhan vao hinh thu nho cua video muon xem. Video se tu dong phat.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Nhan tim kiem bang giong noi</strong><span>Nhan vao bieu tuong mic &#127908; trong o tim kiem roi noi to: "tim video nau pho bo"!</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Goi y tu khoa:</strong> Nau An Viet Nam, Suc Khoe Nguoi Cao Tuoi, Ca Nhac Tru Tinh, Lam Vuon Don Gian, Khi Cong Viet Nam</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#010101,#fe2c55)">4</div>
+                <div class="step-header-text">
+                    <strong>&#10084; Tuong Tac Voi Video</strong>
+                    <span>Thich, binh luan va chia se video hay</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="tt-interact-demo">
+                        <div class="tt-mini-phone">
+                            <div class="tt-mini-video">
+                                <div style="font-size:2.5rem;margin-bottom:8px">&#127926;</div>
+                                <p style="font-size:0.85rem">Dan ca quan ho Bac Ninh &#127926;</p>
+                            </div>
+                            <div class="tt-mini-actions">
+                                <button class="tt-act-btn" id="tt-like-btn" onclick="ttLikeToggle()">
+                                    <span>&#10084;</span><small id="tt-like-count">12.5K</small>
+                                </button>
+                                <button class="tt-act-btn" onclick="ttComment()">
+                                    <span>&#128172;</span><small>450</small>
+                                </button>
+                                <button class="tt-act-btn" onclick="ttShare()">
+                                    <span>&#8635;</span><small>Chia se</small>
+                                </button>
+                                <button class="tt-act-btn" onclick="ttSave()">
+                                    <span>&#128190;</span><small>Luu</small>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="tt-feedback" style="font-size:0.95rem;font-weight:700;color:var(--tt-pink);text-align:center;margin-top:10px;min-height:24px"></div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Tim nut Tim (trai tim)</strong><span>Nhan vao bieu tuong trai tim &#10084; o ben phai man hinh video de bay to su yeu thich.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan tim 2 lan nhanh</strong><span>Nhan nhanh 2 lan vao bat ky dau tren video cung co the "thich" video do!</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Binh luan</strong><span>Nhan vao bieu tuong bong bong &#128172; de doc va viet binh luan ve video.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Chia se video</strong><span>Nhan vao bieu tuong chia se (&#8635;) de gui video cho con chau qua Zalo, Facebook hoac Messenger.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Meo:</strong> Nhan vao TEN KENH (chu nho o duoi) de xem them video cua nguoi do. Nhan "Theo doi" de khong bo lo video moi!</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#010101,#fe2c55)">5</div>
+                <div class="step-header-text">
+                    <strong>&#128276; Theo Doi Kenh Yeu Thich</strong>
+                    <span>Dang ky kenh de xem video moi hang ngay</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="tt-follow-demo">
+                        <div class="channel-card" id="tt-channel-1">
+                            <div class="channel-avatar">&#127859;</div>
+                            <div class="channel-info"><strong>Am Thuc Viet Nam</strong><span>2.3 trieu nguoi theo doi</span></div>
+                            <button class="tt-follow-btn" onclick="followChannel(this, 1)">+ Theo doi</button>
+                        </div>
+                        <div class="channel-card" id="tt-channel-2">
+                            <div class="channel-avatar">&#127884;</div>
+                            <div class="channel-info"><strong>Suc Khoe Toan Dien</strong><span>1.8 trieu nguoi theo doi</span></div>
+                            <button class="tt-follow-btn" onclick="followChannel(this, 2)">+ Theo doi</button>
+                        </div>
+                        <div class="channel-card" id="tt-channel-3">
+                            <div class="channel-avatar">&#127926;</div>
+                            <div class="channel-info"><strong>Dan Ca Truyen Thong</strong><span>950 nghin nguoi theo doi</span></div>
+                            <button class="tt-follow-btn" onclick="followChannel(this, 3)">+ Theo doi</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Tim kenh muon theo doi</strong><span>Xem video hay, nhan vao ten nguoi dung (thay @ truoc ten) de vao trang kenh do.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan "Theo doi"</strong><span>Nhan vao nut hong/do "Theo doi" hoac "+" tren trang kenh. Nut se doi thanh "Dang theo doi".</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Xem video tu kenh dang theo doi</strong><span>Nhan vao tab "Dang theo doi" (bieu tuong nguoi + dau cong) o thanh duoi de xem video moi nhat.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128276;</div><div><strong>Goi y kenh hay:</strong> @bepanhviet (Nau An), @suckhoeviet (Suc Khoe), @dancaviet (Dan Ca), @vuonrau (Lam Vuon)</div></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTENT RECS -->
+<section class="tt-recs">
+    <div class="tt-recs-inner">
+        <h2>&#127803; Noi Dung Phu Hop Cho Ong Ba</h2>
+        <div class="tt-recs-grid">
+            <div class="tt-rec-card">
+                <div class="tt-rec-icon">&#127859;</div>
+                <h3>Nau An Viet</h3>
+                <p>Canh chua, pho bo, banh mi, com tam, chao ga...</p>
+                <div class="tt-rec-tags"><span>#NauAnViet</span><span>#BepViet</span></div>
+            </div>
+            <div class="tt-rec-card">
+                <div class="tt-rec-icon">&#127884;</div>
+                <h3>Suc Khoe</h3>
+                <p>The duc nhe, meo dan gian, cham soc suc khoe...</p>
+                <div class="tt-rec-tags"><span>#SucKhoe</span><span>#MeoDanGian</span></div>
+            </div>
+            <div class="tt-rec-card">
+                <div class="tt-rec-icon">&#127926;</div>
+                <h3>Am Nhac</h3>
+                <p>Dan ca, bolero, nhac tru tinh, hat cheo...</p>
+                <div class="tt-rec-tags"><span>#Bolero</span><span>#DanCa</span></div>
+            </div>
+            <div class="tt-rec-card">
+                <div class="tt-rec-icon">&#127810;</div>
+                <h3>Lam Vuon</h3>
+                <p>Trong rau sach, chau kieng, bo phan...</p>
+                <div class="tt-rec-tags"><span>#LamVuon</span><span>#TrongRau</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="nav-section">
+    <div class="nav-section-inner">
+        <a href="facebook.html" class="nav-prev">&#8592; Facebook</a>
+        <a href="youtube.html" class="nav-next yt-next">Tiep: YouTube &#8594;</a>
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-inner">
+        <div class="footer-logo">&#128241; Cong Nghe Vui</div>
+        <p>&#128150; Duoc tao ra voi tinh yeu thuong danh cho Ong Ba Viet Nam</p>
+        <div class="footer-links">
+            <a href="index.html">Trang Chu</a>
+            <a href="facebook.html">Facebook</a>
+            <a href="tiktok.html">TikTok</a>
+            <a href="youtube.html">YouTube</a>
+        </div>
+        <p class="copy">&#169; 2025 Cong Nghe Vui</p>
+    </div>
+</footer>
+
+<div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">&#8679; Len Dau</div>
+
+<script src="js/main.js"></script>
+<script src="js/tiktok.js"></script><script src="js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1877f2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no">
+    <title>Huong Dan YouTube - Cong Nghe Vui</title>
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/youtube.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <span class="logo-icon">&#128241;</span>
+            <div class="logo-text"><h1>Cong Nghe Vui</h1><p>Huong dan danh rieng cho Ong Ba</p></div>
+        </div>
+        <nav class="top-nav">
+            <a href="index.html" class="nav-link">&#127968; Trang Chu</a>
+            <a href="facebook.html" class="nav-link nav-fb">&#128077; Facebook</a>
+            <a href="tiktok.html" class="nav-link nav-tt">&#127925; TikTok</a>
+            <a href="youtube.html" class="nav-link active nav-yt">&#9654; YouTube</a>
+        </nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-inner">
+        <a href="index.html">&#127968; Trang Chu</a>
+        <span>&#8250;</span>
+        <span>&#9654; Huong Dan YouTube</span>
+    </div>
+</div>
+
+<div class="page-header yt-header">
+    <div class="page-header-inner">
+        <span class="page-icon">&#9654;</span>
+        <h1>Huong Dan Dung YouTube</h1>
+        <p>Kho video khong lo, mien phi - Phim, nhac, tin tuc, hoc nau an!</p>
+        <div class="difficulty-bar">
+            <span>Do kho:</span>
+            <div class="stars">&#11088;&#11088;&#9734;&#9734;&#9734;</div>
+            <span>De hoc</span>
+        </div>
+    </div>
+</div>
+
+<!-- INTRO -->
+<section class="yt-intro">
+    <div class="yt-intro-inner">
+        <div class="yt-intro-text">
+            <h2>&#127916; YouTube la gi?</h2>
+            <p>YouTube la website/ung dung xem video MIEN PHI lon nhat the gioi. Co hon 800 trieu video du moi the loai!</p>
+            <div class="yt-stats">
+                <div class="yt-stat"><div class="yt-stat-num">800M+</div><div class="yt-stat-label">Video mien phi</div></div>
+                <div class="yt-stat"><div class="yt-stat-num">100%</div><div class="yt-stat-label">Khong can tra phi</div></div>
+                <div class="yt-stat"><div class="yt-stat-num">24/7</div><div class="yt-stat-label">Xem bat cu luc nao</div></div>
+            </div>
+        </div>
+        <div class="yt-demo-player">
+            <div class="yt-player">
+                <div class="yt-player-screen" id="yt-player-screen">
+                    <div class="yt-play-overlay" id="yt-play-overlay" onclick="playYTDemo()">
+                        <div class="yt-play-btn-big">&#9654;</div>
+                        <p>Nhan de phat video</p>
+                    </div>
+                    <div class="yt-playing" id="yt-playing" style="display:none">
+                        <div class="yt-playing-content">
+                            <div class="yt-playing-icon">&#127859;</div>
+                            <p>Cach nau Pho Bo Truyen Thong</p>
+                            <div class="yt-progress">
+                                <div class="yt-progress-bar" id="yt-progress-bar" style="width:0%"></div>
+                            </div>
+                            <div class="yt-time" id="yt-time">0:00 / 12:34</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="yt-controls">
+                    <button class="yt-ctrl-btn" id="yt-play-pause" onclick="togglePlay()">&#9654;</button>
+                    <div class="yt-vol">
+                        <button class="yt-ctrl-btn" onclick="toggleMute()">&#128266;</button>
+                        <input type="range" min="0" max="100" value="80" class="yt-vol-slider" oninput="changeVol(this.value)">
+                    </div>
+                    <div class="yt-ctrl-time" id="yt-ctrl-time">0:00</div>
+                    <div style="flex:1"></div>
+                    <button class="yt-ctrl-btn" onclick="toggleFullscreen()">&#9974;</button>
+                </div>
+                <div class="yt-video-info">
+                    <h4>Cach nau Pho Bo Truyen Thong - Dung vi nhat</h4>
+                    <div class="yt-video-meta">
+                        <span>2.3 trieu luot xem</span><span>&#9679;</span><span>3 thang truoc</span>
+                    </div>
+                    <div class="yt-actions">
+                        <button class="yt-action-btn" onclick="ytLike(this)">&#128077; Thich (45K)</button>
+                        <button class="yt-action-btn" onclick="ytSave()">&#128190; Luu</button>
+                        <button class="yt-action-btn" onclick="ytShare()">&#8635; Chia se</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps-section" style="background:#f8faff;">
+    <div class="inner">
+        <h2>&#128218; Huong Dan Tung Buoc Dung YouTube</h2>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">1</div>
+                <div class="step-header-text">
+                    <strong>&#128241; Mo YouTube Tren Dien Thoai</strong>
+                    <span>Mo ung dung hoac vao web youtube.com</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="yt-open-demo">
+                        <div class="yt-screen-demo">
+                            <div class="yt-app-icon-demo" onclick="openYTDemo()">
+                                <div class="yt-icon-circle">&#9654;</div>
+                                <span>YouTube</span>
+                            </div>
+                            <div id="yt-open-result"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Tim bieu tuong YouTube</strong><span>Tim bieu tuong YouTube (hinh hoc trang voi nut phat do) tren man hinh chinh dien thoai.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan 1 lan de mo</strong><span>Nhan vao bieu tuong YouTube 1 lan. Ung dung se mo va hien trang chu voi rat nhieu video.</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Neu chua co YouTube</strong><span>Vao "Play Store" (Android) hoac "App Store" (iPhone), tim "YouTube" va nhan "Tai ve". Mien phi!</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#127760;</div><div><strong>Tren may tinh:</strong> Mo trinh duyet Chrome/Firefox, gõ "youtube.com" vao thanh dia chi roi nhan Enter la xong!</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">2</div>
+                <div class="step-header-text">
+                    <strong>&#128269; Tim Kiem Video Muon Xem</strong>
+                    <span>Tim bat cu video nao chi trong vai giay</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="yt-search-demo">
+                        <div class="yt-search-header">
+                            <div style="color:#ff0000;font-size:1.5rem;font-weight:900">&#9654; YouTube</div>
+                            <button class="yt-search-icon-btn" onclick="openYTSearch()">&#128269;</button>
+                        </div>
+                        <div class="yt-search-box" id="yt-search-box" style="display:none">
+                            <input type="text" placeholder="Tim kiem..." id="yt-search-inp" oninput="ytSearch(this.value)" style="flex:1;border:2px solid #ff0000;border-radius:20px 0 0 20px;padding:10px 16px;font-size:1rem;outline:none;font-family:inherit">
+                            <button onclick="ytSearch(document.getElementById('yt-search-inp').value)" style="background:#ff0000;color:white;border:none;padding:10px 16px;border-radius:0 20px 20px 0;font-size:1.1rem;cursor:pointer">&#128269;</button>
+                        </div>
+                        <div class="yt-quick-searches">
+                            <div onclick="ytQuickSearch('pho bo')" class="yt-quick-tag">&#127859; Pho bo</div>
+                            <div onclick="ytQuickSearch('dan ca quan ho')" class="yt-quick-tag">&#127926; Dan ca</div>
+                            <div onclick="ytQuickSearch('tap the duc nguoi gia')" class="yt-quick-tag">&#127939; The duc</div>
+                            <div onclick="ytQuickSearch('tin tuc viet nam hom nay')" class="yt-quick-tag">&#128240; Tin tuc</div>
+                            <div onclick="ytQuickSearch('phim Viet Nam')" class="yt-quick-tag">&#127916; Phim Viet</div>
+                            <div onclick="ytQuickSearch('lam vuon tai nha')" class="yt-quick-tag">&#127810; Lam vuon</div>
+                        </div>
+                        <div id="yt-search-results" style="margin-top:12px"></div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan vao bieu tuong kinh lup &#128269;</strong><span>O goc tren phai man hinh YouTube co bieu tuong kinh lup. Nhan vao do.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Gõ ten bai hat, mon an, chu de...</strong><span>Vi du gõ: "pho bo truyen thong", "hat mit con nha ngheo", "cai luong Nam Bo", "vo bai tap cho nguoi cao tuoi"...</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Nhan "Tim kiem" tren ban phim</strong><span>Sau khi gõ xong, nhan phim "Tim kiem" mau xanh hoac nut "Go" tren ban phim.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Chon video muon xem</strong><span>Nhan vao hinh thu nho cua video muon xem. Video se phat ngay!</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#127908;</div><div><strong>Tim bang giong noi:</strong> Nhan vao bieu tuong mic &#127908; trong o tim kiem roi noi ro rang: "Tim video pho bo" - khong can gõ!</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">3</div>
+                <div class="step-header-text">
+                    <strong>&#9654; Xem Va Dieu Chinh Video</strong>
+                    <span>Dung, tam dung, tang am, phat toan man hinh</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="yt-control-demo">
+                        <div class="yt-demo-video" id="yt-demo-video" onclick="toggleYTDemo()">
+                            <div class="yt-demo-thumb">&#127859;</div>
+                            <div class="yt-demo-overlay" id="yt-demo-overlay">&#9654;</div>
+                        </div>
+                        <div class="yt-demo-controls">
+                            <div class="yt-demo-ctrl-row">
+                                <button class="yt-demo-btn" onclick="ytGoBack()">&#9194; 10s</button>
+                                <button class="yt-demo-btn play-btn" id="yt-big-play" onclick="toggleYTDemo()">&#9654;</button>
+                                <button class="yt-demo-btn" onclick="ytGoForward()">10s &#9193;</button>
+                            </div>
+                            <div class="yt-demo-vol">
+                                <span>&#128266;</span>
+                                <input type="range" min="0" max="100" value="70" id="yt-demo-vol" style="flex:1" oninput="ytVolChange(this.value)">
+                                <span id="yt-vol-num">70%</span>
+                            </div>
+                            <div class="yt-demo-speed">
+                                <span>Toc do:</span>
+                                <button class="speed-btn" onclick="setSpeed(0.75)" id="sp-075">0.75x (Cham)</button>
+                                <button class="speed-btn active" onclick="setSpeed(1)" id="sp-1">1x (Binh thuong)</button>
+                                <button class="speed-btn" onclick="setSpeed(1.25)" id="sp-125">1.25x (Nhanh)</button>
+                            </div>
+                            <div id="yt-demo-feedback" style="text-align:center;font-size:0.95rem;font-weight:700;color:#ff0000;min-height:24px;margin-top:8px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan 1 lan de tam dung / tiep tuc</strong><span>Nhan vao bat ky dau tren man hinh video de tam dung. Nhan lan nua de phat tiep.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan 2 lan nhanh de tua 10 giay</strong><span>Nhan nhanh 2 lan vao BEN PHAI man hinh de tua len 10 giay. Nhan vao BEN TRAI de tua lui 10 giay.</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Xoay ngang de xem to hon</strong><span>Xoay dien thoai ngang de video hien ra toan man hinh, ro va dep hon rat nhieu!</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Dat toc do phat 0.75x neu noi nhanh</strong><span>Nhan 3 cham (...) o goc tren phai, chon "Toc do phat" roi chon "0.75x" de nghe cham va ro hon.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128265;</div><div><strong>Nghe khong ro:</strong> Nhan phu de (CC) neu co! Chu se hien o duoi man hinh giup Ong Ba hieu hon khi am thanh nho hoac noi nhanh.</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">4</div>
+                <div class="step-header-text">
+                    <strong>&#128276; Dang Ky Kenh Yeu Thich</strong>
+                    <span>Theo doi kenh hay de xem video moi moi ngay</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="yt-channel-demo">
+                        <div class="yt-channel-header">
+                            <div class="yt-ch-avatar">&#127859;</div>
+                            <div class="yt-ch-info">
+                                <strong>Am Thuc Mien Nam</strong>
+                                <span>1.2 trieu dang ky</span>
+                                <span>450 video</span>
+                            </div>
+                            <button class="yt-subscribe-btn" id="yt-sub-btn" onclick="ytSubscribe()">
+                                &#128276; Dang ky
+                            </button>
+                        </div>
+                        <div id="yt-sub-result"></div>
+                        <div class="yt-ch-videos">
+                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127859;</div><p>Banh Mi Trung Oc<br><small>234K luot xem</small></p></div>
+                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127812;</div><p>Canh Chua Dac Biet<br><small>189K luot xem</small></p></div>
+                            <div class="yt-ch-vid"><div class="yt-ch-thumb">&#127837;</div><p>Com Suon Bi Dat<br><small>156K luot xem</small></p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Vao trang kenh muon theo doi</strong><span>Khi xem video hay, nhan vao TEN KENH (hien ben duoi tua video) de vao trang kenh.</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Nhan nut "Dang ky"</strong><span>Nhan vao nut do "Dang ky" tren trang kenh. Nut se doi thanh "Da dang ky" mau xam.</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Bat thong bao</strong><span>Nhan vao bieu tuong chuong &#128276; ben canh nut "Da dang ky" roi chon "Tat ca" de duoc bao khi co video moi.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Xem video moi tren tab "Dang theo doi"</strong><span>Nhan vao bieu tuong ngoi nha &#127968; roi chon "Dang theo doi" de xem video moi nhat cua kenh da dang ky.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Goi y kenh hay:</strong> "Am Thuc Mien Nam", "Nhac Viet Truyen Thong", "Suc Khoe 365", "Dan Ca Quan Ho", "VTV Tin Tuc"</div></div>
+            </div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">5</div>
+                <div class="step-header-text">
+                    <strong>&#128190; Tao Danh Sach Phat</strong>
+                    <span>Luu video yeu thich de xem lai bat cu luc nao</span>
+                </div>
+                <div class="step-toggle">&#9660;</div>
+            </div>
+            <div class="step-body">
+                <div class="demo-area">
+                    <div class="yt-playlist-demo">
+                        <div class="yt-pl-header">
+                            <span>&#128190;</span>
+                            <strong>Danh sach phat cua toi</strong>
+                        </div>
+                        <div class="yt-pl-list" id="yt-pl-list">
+                            <div class="yt-pl-item">
+                                <div class="yt-pl-thumb">&#127926;</div>
+                                <span>Dan Ca Quan Ho Bac Ninh</span>
+                                <button class="yt-pl-remove" onclick="removeFromPlaylist(this)">&#10005;</button>
+                            </div>
+                            <div class="yt-pl-item">
+                                <div class="yt-pl-thumb">&#127859;</div>
+                                <span>Cach Lam Pho Bo</span>
+                                <button class="yt-pl-remove" onclick="removeFromPlaylist(this)">&#10005;</button>
+                            </div>
+                        </div>
+                        <button class="yt-add-pl-btn" onclick="addToPlaylist()">+ Them video mau</button>
+                        <div id="yt-pl-result"></div>
+                    </div>
+                </div>
+                <div class="substep"><div class="substep-num">1</div><div class="substep-text"><strong>Nhan nut "Luu" duoi video</strong><span>Khi xem video hay, nhan vao "Luu" (&#128190;) hoac nut 3 cham (...) roi chon "Luu vao danh sach phat".</span></div></div>
+                <div class="substep"><div class="substep-num">2</div><div class="substep-text"><strong>Chon "Xem ve sau"</strong><span>Chon "Xem ve sau" la cach don gian nhat de luu video - khong can tao tai khoan!</span></div></div>
+                <div class="substep"><div class="substep-num">3</div><div class="substep-text"><strong>Tao danh sach phat moi</strong><span>Nhan "Tao danh sach phat moi", dat ten (vi du "Nhac Dan Ca"), roi luu video vao do.</span></div></div>
+                <div class="substep"><div class="substep-num">4</div><div class="substep-text"><strong>Xem lai danh sach phat</strong><span>Nhan vao tab "Thu vien" (&#128218; icon) roi chon danh sach phat muon xem.</span></div></div>
+                <div class="demo-tip"><div class="demo-tip-icon">&#128161;</div><div><strong>Khong can tai khoan:</strong> Ong Ba co the xem YouTube KHONG can dang nhap! Chi tim kiem va xem video thoi, hoan toan mien phi!</div></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- YOUTUBE CHANNELS -->
+<section class="yt-channels">
+    <div class="yt-channels-inner">
+        <h2>&#11088; Kenh YouTube Hay Cho Ong Ba</h2>
+        <div class="yt-ch-grid">
+            <div class="yt-ch-card"><div class="ch-icon">&#127859;</div><h4>Am Thuc Mien Nam</h4><p>Nau an, mon an Viet Nam truyen thong</p><div class="ch-badge">1.2M dang ky</div></div>
+            <div class="yt-ch-card"><div class="ch-icon">&#127926;</div><h4>Nhac Viet Truyen Thong</h4><p>Bolero, dan ca, nhac co, tru tinh</p><div class="ch-badge">850K dang ky</div></div>
+            <div class="yt-ch-card"><div class="ch-icon">&#127884;</div><h4>Suc Khoe Viet 365</h4><p>Meo dan gian, tap the duc, dinh duong</p><div class="ch-badge">620K dang ky</div></div>
+            <div class="yt-ch-card"><div class="ch-icon">&#127810;</div><h4>Vuon Xanh Viet Nam</h4><p>Trong rau, lam vuon, cay cong trinh</p><div class="ch-badge">430K dang ky</div></div>
+            <div class="yt-ch-card"><div class="ch-icon">&#128240;</div><h4>VTV Tin Tuc</h4><p>Tin tuc, thoi su Viet Nam hang ngay</p><div class="ch-badge">2.1M dang ky</div></div>
+            <div class="yt-ch-card"><div class="ch-icon">&#127881;</div><h4>Hai Huoc Viet</h4><p>Video vui, hai huoc, cuoi vui</p><div class="ch-badge">980K dang ky</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="nav-section">
+    <div class="nav-section-inner">
+        <a href="tiktok.html" class="nav-prev">&#8592; TikTok</a>
+        <a href="index.html" class="nav-next" style="background:linear-gradient(135deg,#1877f2,#5b21b6)">&#127968; Ve Trang Chu</a>
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-inner">
+        <div class="footer-logo">&#128241; Cong Nghe Vui</div>
+        <p>&#128150; Duoc tao ra voi tinh yeu thuong danh cho Ong Ba Viet Nam</p>
+        <div class="footer-links">
+            <a href="index.html">Trang Chu</a>
+            <a href="facebook.html">Facebook</a>
+            <a href="tiktok.html">TikTok</a>
+            <a href="youtube.html">YouTube</a>
+        </div>
+        <p class="copy">&#169; 2025 Cong Nghe Vui</p>
+    </div>
+</footer>
+
+<div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">&#8679; Len Dau</div>
+
+<script src="js/main.js"></script>
+<script src="js/youtube.js"></script><script src="js/mobile.js"></script>
+</body>
+</html>
