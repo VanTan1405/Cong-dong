@@ -1,9 +1,8 @@
 ﻿/* =========================================================
    APP-SIMULATION.CSS - IMMERSIVE FULLSCREEN SIMULATION MODE
-   Floating Glassmorphism Controls - Optimized for Mobile
+   100% Non-overlapping, Fully Visible on Mobile & Laptop
    ========================================================= */
 
-/* Reset body for fullscreen theater experience */
 body.sim-theater-body {
   margin: 0;
   padding: 0;
@@ -30,29 +29,27 @@ body.sim-theater-body {
   box-sizing: border-box;
 }
 
-/* ===== TOP FLOATING OVERLAY BAR (STORIES / THEATER STYLE) ===== */
+/* ===== 1. TOP HEADER CONTROLS (NON-OVERLAPPING) ===== */
 .sim-top-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 12px 16px 16px;
-  background: linear-gradient(180deg, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.7) 70%, transparent 100%);
+  position: relative; /* Normal flow, NOT absolute - never covers content */
+  flex-shrink: 0;
+  padding: 10px 14px 12px;
+  background: #0f172a;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
   z-index: 500;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   box-sizing: border-box;
 }
 
-/* Stories Style Progress Bar at the very top */
+/* Progress countdown bar */
 .sim-story-progress-bar {
   width: 100%;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
 }
 .sim-story-progress-fill {
   height: 100%;
@@ -62,41 +59,38 @@ body.sim-theater-body {
   transition: width 0.04s linear;
 }
 
-/* Main Controls Row in Top Bar */
+/* Top Row with Exit button, Step title, and Actions */
 .sim-controls-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
-/* Left: Big Red Floating Exit Button */
+/* Left: Big Red Exit Button */
 .sim-btn-exit {
   background: #dc2626;
   color: #ffffff !important;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
-  padding: 10px 18px;
+  padding: 8px 14px;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
   cursor: pointer;
   border: none;
-  transition: transform 0.15s ease, background 0.2s ease;
   flex-shrink: 0;
-  z-index: 550;
 }
 .sim-btn-exit:hover, .sim-btn-exit:active {
   background: #b91c1c;
-  transform: scale(0.96);
   color: #fff !important;
 }
-.sim-btn-exit span.icon { font-size: 18px; line-height: 1; }
+.sim-btn-exit span.icon { font-size: 16px; font-weight: 900; }
 
-/* Center: Step Indicator Pill */
+/* Center: Clear Step Title (Full Text, Never Cut Off) */
 .sim-title-pill {
   flex: 1;
   text-align: center;
@@ -107,81 +101,71 @@ body.sim-theater-body {
   background: rgba(245, 158, 11, 0.25);
   color: #fcd34d;
   border: 1px solid rgba(245, 158, 11, 0.5);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
-  padding: 2px 10px;
+  padding: 2px 8px;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 2px;
-  letter-spacing: 0.5px;
 }
 .sim-step-caption {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  max-height: 36px;
+  overflow-y: auto;
 }
 
-/* Right Actions Group */
+/* Right Action Buttons */
 .sim-actions-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
-
 .sim-act-btn {
-  background: rgba(30, 41, 59, 0.85);
+  background: rgba(30, 41, 59, 0.95);
   color: #ffffff;
   border: 1.5px solid rgba(255, 255, 255, 0.2);
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
+  gap: 4px;
   white-space: nowrap;
-}
-.sim-act-btn:hover, .sim-act-btn:active {
-  background: rgba(51, 65, 85, 0.95);
-  transform: scale(0.96);
 }
 .sim-btn-pause {
   background: #d97706;
   border-color: #f59e0b;
-  color: #ffffff;
 }
-.sim-btn-pause:hover { background: #b45309; }
 
-/* ===== MAXIMIZED STAGE & PHONE ===== */
+/* ===== 2. SMARTPHONE SIMULATOR STAGE (FITS 100% VIEWPORT) ===== */
 .sim-theater-stage {
   flex: 1;
+  min-height: 0; /* Prevents overflow */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 70px 12px 12px;
+  padding: 8px 6px;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
 }
 
 .sim-phone {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   height: 100%;
-  max-height: 800px;
-  max-width: 100%;
+  max-height: 100%;
   background: #0f172a;
-  border-radius: 44px;
-  padding: 10px 8px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.15);
+  border-radius: 36px;
+  padding: 8px 6px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.12);
   position: relative;
   user-select: none;
   display: flex;
@@ -191,26 +175,26 @@ body.sim-theater-body {
 
 .sim-notch {
   position: absolute;
-  top: 14px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 22px;
+  width: 90px;
+  height: 18px;
   background: #0f172a;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 12px 12px;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
-.sim-speaker { width: 40px; height: 4px; background: #334155; border-radius: 2px; }
-.sim-camera { width: 8px; height: 8px; background: #1e293b; border-radius: 50%; border: 1px solid #334155; }
+.sim-speaker { width: 34px; height: 3px; background: #334155; border-radius: 2px; }
+.sim-camera { width: 6px; height: 6px; background: #1e293b; border-radius: 50%; border: 1px solid #334155; }
 
 .sim-screen {
   width: 100%;
   height: 100%;
-  border-radius: 34px;
+  border-radius: 28px;
   overflow: hidden;
   position: relative;
   background: #fff;
@@ -222,19 +206,19 @@ body.sim-theater-body {
 
 /* Status Bar */
 .sim-status-bar {
-  height: 34px;
-  padding: 6px 16px 0;
+  height: 30px;
+  padding: 4px 12px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   z-index: 50;
   box-sizing: border-box;
 }
 .status-dark { color: #fff; background: transparent; }
 .status-light { color: #1e293b; background: transparent; }
-.sim-status-icons { display: flex; gap: 6px; font-size: 11px; align-items: center; }
+.sim-status-icons { display: flex; gap: 4px; font-size: 11px; align-items: center; }
 
 /* Finger Pointer Animation */
 .sim-finger {
@@ -248,25 +232,25 @@ body.sim-theater-body {
   transform: translate(-50%, -50%);
 }
 .sim-finger-hand {
-  font-size: 42px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  font-size: 38px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
   animation: finger-tap 1s infinite alternate ease-in-out;
 }
 .sim-finger-pulse {
   position: absolute;
-  top: 8px;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 4px solid #f59e0b;
+  border: 3px solid #f59e0b;
   background: rgba(245, 158, 11, 0.3);
   animation: ripple 1.2s infinite ease-out;
 }
 @keyframes finger-tap {
   0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-10px) scale(0.92); }
+  100% { transform: translateY(-8px) scale(0.92); }
 }
 @keyframes ripple {
   0% { transform: translateX(-50%) scale(0.4); opacity: 1; }
@@ -287,28 +271,28 @@ body.sim-theater-body {
 
 .fb-header {
   background: #fff;
-  padding: 4px 14px 8px;
+  padding: 4px 12px 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e4e6eb;
 }
 .fb-logo {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
   color: #1877f2;
   letter-spacing: -0.5px;
 }
-.fb-header-actions { display: flex; gap: 8px; }
+.fb-header-actions { display: flex; gap: 6px; }
 .fb-circle-btn {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #e4e6eb;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   position: relative;
 }
@@ -318,11 +302,11 @@ body.sim-theater-body {
   right: -2px;
   background: #e41e3f;
   color: white;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
-  padding: 1px 5px;
-  border-radius: 10px;
-  border: 2px solid white;
+  padding: 1px 4px;
+  border-radius: 8px;
+  border: 1px solid white;
 }
 
 .fb-nav-tabs {
@@ -334,8 +318,8 @@ body.sim-theater-body {
 .fb-tab {
   flex: 1;
   text-align: center;
-  padding: 8px 0;
-  font-size: 20px;
+  padding: 6px 0;
+  font-size: 18px;
   color: #65676b;
   position: relative;
   cursor: pointer;
@@ -355,131 +339,130 @@ body.sim-theater-body {
 .fb-feed {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .fb-create-box {
   background: #fff;
-  padding: 10px 14px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 .fb-avatar {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: linear-gradient(135deg, #a8edea, #fed6e3);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   flex-shrink: 0;
 }
 .fb-input-fake {
   flex: 1;
   border: 1px solid #ced0d4;
-  border-radius: 24px;
-  padding: 9px 14px;
-  font-size: 14px;
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 13px;
   color: #65676b;
   background: #f0f2f5;
   cursor: pointer;
 }
-.fb-photo-icon { color: #45bd62; font-size: 22px; cursor: pointer; }
+.fb-photo-icon { color: #45bd62; font-size: 20px; cursor: pointer; }
 
 .fb-post-card {
   background: #fff;
-  margin-bottom: 8px;
-  padding: 12px 0 0;
+  margin-bottom: 6px;
+  padding: 10px 0 0;
 }
 .fb-post-header {
   display: flex;
-  gap: 10px;
-  padding: 0 14px 10px;
+  gap: 8px;
+  padding: 0 12px 6px;
   align-items: center;
 }
 .fb-post-user { flex: 1; }
-.fb-user-name { font-size: 14px; font-weight: 700; color: #050505; }
-.fb-post-meta { font-size: 12px; color: #65676b; }
+.fb-user-name { font-size: 13px; font-weight: 700; color: #050505; }
+.fb-post-meta { font-size: 11px; color: #65676b; }
 .fb-post-body {
-  padding: 0 14px 10px;
-  font-size: 14px;
+  padding: 0 12px 6px;
+  font-size: 13px;
   color: #050505;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 .fb-post-media {
   width: 100%;
-  height: 200px;
+  height: 160px;
   background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 40px;
   color: white;
   position: relative;
 }
 .fb-media-caption {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   background: rgba(0,0,0,0.5);
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 20px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .fb-post-stats {
   display: flex;
   justify-content: space-between;
-  padding: 8px 14px;
-  font-size: 12px;
+  padding: 6px 12px;
+  font-size: 11px;
   color: #65676b;
   border-bottom: 1px solid #e4e6eb;
 }
 .fb-stats-likes { display: flex; align-items: center; gap: 4px; }
 .fb-like-bubble {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background: #1877f2;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 9px;
 }
 .fb-heart-bubble {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background: #e41e3f;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .fb-post-actions {
   display: flex;
   justify-content: space-around;
-  padding: 6px 8px;
+  padding: 4px 6px;
 }
 .fb-act-btn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 0;
-  font-size: 13px;
+  gap: 4px;
+  padding: 6px 0;
+  font-size: 12px;
   font-weight: 700;
   color: #65676b;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 /* =========================================================
@@ -497,20 +480,20 @@ body.sim-theater-body {
 
 .tt-top-nav {
   position: absolute;
-  top: 36px;
+  top: 32px;
   left: 0;
   right: 0;
   z-index: 40;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
-  font-size: 16px;
+  gap: 16px;
+  font-size: 15px;
   font-weight: 700;
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 .tt-tab-item { color: rgba(255,255,255,0.6); cursor: pointer; position: relative; padding: 4px 0; }
-.tt-tab-item.active { color: #fff; font-weight: 800; font-size: 17px; }
+.tt-tab-item.active { color: #fff; font-weight: 800; font-size: 16px; }
 .tt-tab-item.active::after {
   content: '';
   position: absolute;
@@ -521,7 +504,7 @@ body.sim-theater-body {
   background: #fff;
   border-radius: 2px;
 }
-.tt-search-icon { position: absolute; right: 16px; font-size: 20px; cursor: pointer; }
+.tt-search-icon { position: absolute; right: 14px; font-size: 18px; cursor: pointer; }
 
 .tt-viewport {
   flex: 1;
@@ -541,48 +524,48 @@ body.sim-theater-body {
   background-position: center;
 }
 .tt-vid-main-icon {
-  font-size: 80px;
+  font-size: 65px;
   animation: float-slow 3s infinite alternate ease-in-out;
 }
 @keyframes float-slow {
   0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-10px) scale(1.05); }
+  100% { transform: translateY(-8px) scale(1.04); }
 }
 
 .tt-sidebar {
   position: absolute;
-  right: 12px;
-  bottom: 80px;
+  right: 10px;
+  bottom: 65px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   z-index: 30;
 }
 .tt-avatar-box {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 2px solid #fff;
   background: #fe2c55;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 20px;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .tt-plus-badge {
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
   background: #fe2c55;
   color: white;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -592,40 +575,40 @@ body.sim-theater-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   cursor: pointer;
 }
-.tt-action-icon { font-size: 28px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6)); }
-.tt-action-num { font-size: 11px; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
+.tt-action-icon { font-size: 24px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6)); }
+.tt-action-num { font-size: 10px; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
 .tt-disc {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #262626;
-  border: 8px solid #0f0f0f;
+  border: 5px solid #0f0f0f;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 11px;
   animation: spin 3s linear infinite;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
 .tt-bottom-info {
   position: absolute;
-  left: 14px;
-  right: 80px;
-  bottom: 75px;
+  left: 12px;
+  right: 70px;
+  bottom: 60px;
   z-index: 30;
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
-.tt-author-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
-.tt-caption { font-size: 13px; line-height: 1.4; margin-bottom: 8px; }
-.tt-music { font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.tt-author-name { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.tt-caption { font-size: 12px; line-height: 1.35; margin-bottom: 4px; }
+.tt-music { font-size: 11px; display: flex; align-items: center; gap: 4px; }
 
 .tt-bottom-bar {
-  height: 52px;
+  height: 46px;
   background: #000;
   border-top: 1px solid rgba(255,255,255,0.15);
   display: flex;
@@ -637,24 +620,24 @@ body.sim-theater-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   color: rgba(255,255,255,0.6);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   cursor: pointer;
 }
 .tt-bar-item.active { color: #fff; }
 .tt-create-btn {
-  width: 44px;
-  height: 28px;
+  width: 38px;
+  height: 24px;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -672,7 +655,7 @@ body.sim-theater-body {
 }
 
 .yt-header {
-  padding: 4px 14px 8px;
+  padding: 4px 10px 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -682,38 +665,37 @@ body.sim-theater-body {
 .yt-play-icon-logo {
   background: #ff0000;
   color: white;
-  width: 26px;
-  height: 18px;
-  border-radius: 5px;
+  width: 22px;
+  height: 15px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 9px;
 }
-.yt-logo-text { font-size: 18px; font-weight: 900; letter-spacing: -0.5px; }
-.yt-header-tools { display: flex; gap: 14px; font-size: 18px; }
+.yt-logo-text { font-size: 16px; font-weight: 900; letter-spacing: -0.5px; }
+.yt-header-tools { display: flex; gap: 10px; font-size: 15px; }
 
 .yt-pills-row {
   display: flex;
-  gap: 8px;
-  padding: 6px 14px 10px;
+  gap: 6px;
+  padding: 4px 10px 6px;
   overflow-x: auto;
   background: #0f0f0f;
 }
 .yt-pill {
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 4px 10px;
+  border-radius: 6px;
   background: #272727;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  cursor: pointer;
 }
 .yt-pill.active { background: #fff; color: #0f0f0f; }
 
 .yt-player-box {
   width: 100%;
-  height: 210px;
+  height: 175px;
   background: #000;
   position: relative;
   display: flex;
@@ -729,20 +711,20 @@ body.sim-theater-body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 54px;
+  font-size: 42px;
   color: white;
   position: relative;
 }
 .yt-play-center-btn {
-  width: 56px;
-  height: 56px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: rgba(0,0,0,0.6);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
 }
 .yt-progress-container {
@@ -763,39 +745,39 @@ body.sim-theater-body {
 .yt-content-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 12px 14px;
+  padding: 8px 10px;
 }
-.yt-video-title { font-size: 15px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
-.yt-video-meta { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+.yt-video-title { font-size: 13px; font-weight: 700; line-height: 1.3; margin-bottom: 3px; }
+.yt-video-meta { font-size: 11px; color: #aaa; margin-bottom: 8px; }
 
 .yt-channel-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 4px 0;
   border-bottom: 1px solid #272727;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
-.yt-ch-left { display: flex; align-items: center; gap: 10px; }
+.yt-ch-left { display: flex; align-items: center; gap: 6px; }
 .yt-ch-avatar {
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #b91c1c;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 14px;
 }
-.yt-ch-info strong { font-size: 13px; display: block; }
-.yt-ch-info span { font-size: 11px; color: #aaa; }
+.yt-ch-info strong { font-size: 12px; display: block; }
+.yt-ch-info span { font-size: 10px; color: #aaa; }
 .yt-sub-btn {
   background: #fff;
   color: #0f0f0f;
   border: none;
-  padding: 8px 14px;
-  border-radius: 18px;
-  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 11px;
   font-weight: 800;
   cursor: pointer;
 }
@@ -803,24 +785,24 @@ body.sim-theater-body {
 
 .yt-actions-scroll {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
 }
 .yt-action-pill {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: #272727;
-  padding: 6px 14px;
-  border-radius: 18px;
-  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
 }
 
 .yt-bottom-nav {
-  height: 48px;
+  height: 42px;
   background: #0f0f0f;
   border-top: 1px solid #272727;
   display: flex;
@@ -832,53 +814,52 @@ body.sim-theater-body {
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  font-size: 10px;
+  font-size: 9px;
   color: #aaa;
 }
 .yt-nav-item.active { color: #fff; }
-.yt-nav-item span:first-child { font-size: 18px; }
 
 /* =========================================================
-   MOBILE RESPONSIVE (PERFECT PHONE FIT & CLEAN BUTTONS)
+   MOBILE RESPONSIVE (ZERO OVERFLOW, PERFECT FIT)
    ========================================================= */
 @media (max-width: 640px) {
   .sim-top-bar {
-    padding: 8px 10px 12px;
-    gap: 8px;
+    padding: 6px 8px 8px;
+    gap: 6px;
   }
   .sim-btn-exit {
-    padding: 8px 14px;
-    font-size: 14px;
-  }
-  .sim-act-btn {
-    padding: 8px 12px;
+    padding: 6px 10px;
     font-size: 13px;
   }
+  .sim-act-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
   .sim-badge-tag {
-    font-size: 11px;
-    padding: 1px 8px;
+    font-size: 10px;
+    padding: 1px 6px;
   }
   .sim-step-caption {
     font-size: 12px;
+    max-height: 32px;
   }
   .sim-theater-stage {
-    padding: 60px 4px 4px;
+    padding: 4px;
   }
   .sim-phone {
     width: 100%;
     height: 100%;
-    max-height: none;
-    border-radius: 20px;
+    border-radius: 18px;
     padding: 2px;
     box-shadow: none;
     border: none;
   }
   .sim-notch {
     top: 4px;
-    width: 70px;
-    height: 14px;
+    width: 65px;
+    height: 12px;
   }
   .sim-screen {
-    border-radius: 18px;
+    border-radius: 16px;
   }
 }
