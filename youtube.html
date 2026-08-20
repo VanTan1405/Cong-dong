@@ -7,61 +7,46 @@
   <title>Mô Phỏng YouTube - Hướng Dẫn Cho Ông Bà</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/app-simulation.css">
-  <link rel="stylesheet" href="css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body style="background: #0f0f0f; color: white;">
+<body class="sim-theater-body">
 
-<!-- TOP HEADER -->
-<header class="main-header" style="background:#1e1e1e;">
-  <div class="header-inner">
-    <div class="logo-area">
-      <span class="logo-icon">📱</span>
-      <div class="logo-text">
-        <h1 style="color:#ff0000">Công Nghệ Vui</h1>
-        <p style="color:#aaa">Mô phỏng YouTube thật 100%</p>
-      </div>
-    </div>
-    <nav class="top-nav">
-      <a href="index.html" class="nav-link" style="color:#cbd5e1;">🏠 Trang Chủ</a>
-      <a href="facebook.html" class="nav-link nav-fb">👍 Facebook</a>
-      <a href="tiktok.html" class="nav-link nav-tt">🎵 TikTok</a>
-      <a href="youtube.html" class="nav-link active nav-yt">▶️ YouTube</a>
-    </nav>
-  </div>
-</header>
+<div class="sim-theater-container">
 
-<!-- MAIN SIMULATION AREA -->
-<main style="max-width: 900px; margin: 0 auto; padding: 16px 12px 60px;">
+  <!-- TOP FLOATING CONTROLLER BAR -->
+  <div class="sim-top-bar" style="border-bottom-color: rgba(255, 0, 0, 0.4);">
+    <div class="sim-top-left">
+      <button class="sim-ctrl-btn btn-exit-home" onclick="sim.exit()" title="Thoát ra Trang Chủ">
+        <span>✕</span> <span>Thoát</span>
+      </button>
+      <button class="sim-ctrl-btn btn-pause-toggle" id="sim-btn-play" style="background:#ff0000; color:white;" onclick="sim.togglePlay()">
+        <span>⏸</span> <span>Tạm Dừng</span>
+      </button>
+    </div>
 
-  <!-- SIMULATOR CONTROLLER (TOP) -->
-  <div class="sim-controller" style="background:#1e1e1e; border-color:#333;">
-    <div class="sim-ctrl-header">
-      <span class="sim-step-badge" id="sim-badge" style="background:rgba(255,0,0,0.2); color:#ff4d4d;">Bước 1 / 5</span>
-      <span style="font-size:13px; font-weight:800; color:#aaa;">🎬 Chế độ xem mô phỏng</span>
+    <div class="sim-top-title-box">
+      <span class="sim-step-tag" id="sim-badge" style="background:#ff0000; color:white;">Bước 1 / 5</span>
+      <div class="sim-step-text" id="sim-title">Bước 1: Chạm vào biểu tượng YouTube nút phát màu đỏ để mở</div>
     </div>
-    <div class="sim-ctrl-title" id="sim-title" style="color:white;">
-      Bước 1: Chạm vào biểu tượng YouTube nút phát màu đỏ để mở
+
+    <div style="display:flex; gap:6px;">
+      <button class="sim-ctrl-btn btn-voice-replay" onclick="sim.replayVoice()" title="Nghe lại lời hướng dẫn">
+        <span>🔊</span> <span>Nghe Lại</span>
+      </button>
+      <button class="sim-ctrl-btn btn-voice-replay" onclick="sim.next()" title="Sang bước tiếp theo">
+        <span>Tiếp ▶</span>
+      </button>
     </div>
-    <div class="sim-ctrl-buttons">
-      <button class="sim-btn sim-btn-play" id="sim-btn-play" style="background:#ff0000" onclick="sim.togglePlay()">
-        ▶ Tự Động Chạy
-      </button>
-      <button class="sim-btn sim-btn-nav" style="background:#333; color:white; border-color:#444;" onclick="sim.prev()">
-        ◀ Bước Trước
-      </button>
-      <button class="sim-btn sim-btn-nav" style="background:#333; color:white; border-color:#444;" onclick="sim.next()">
-        Bước Tiếp ▶
-      </button>
-      <button class="sim-btn sim-btn-voice" onclick="sim.replayVoice()">
-        🔊 Nghe Lại
-      </button>
+
+    <!-- Countdown Progress Fill -->
+    <div class="sim-top-progress-track">
+      <div class="sim-top-progress-fill" id="sim-top-progress-fill" style="background:linear-gradient(90deg, #ff8080, #ff0000);"></div>
     </div>
   </div>
 
-  <!-- SMARTPHONE SIMULATOR -->
-  <div class="sim-stage">
-    <div class="sim-phone" style="box-shadow: 0 25px 60px -12px rgba(255, 0, 0, 0.25);">
+  <!-- MAXIMIZED STAGE -->
+  <div class="sim-theater-stage">
+    <div class="sim-phone" style="box-shadow: 0 0 50px rgba(255, 0, 0, 0.35);">
       <div class="sim-notch">
         <div class="sim-speaker"></div>
         <div class="sim-camera"></div>
@@ -74,30 +59,16 @@
       </div>
 
       <!-- SIMULATED MOBILE SCREEN -->
-      <div class="sim-screen" id="sim-screen" onclick="sim.next()" style="cursor:pointer;" title="Chạm vào màn hình để sang bước tiếp theo">
+      <div class="sim-screen" id="sim-screen" title="Chạm vào màn hình để sang bước tiếp theo">
         <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
   </div>
 
-</main>
-
-<footer class="main-footer" style="background:#0a0a0a; border-top:1px solid #222;">
-  <div class="footer-inner">
-    <div class="footer-logo">📱 Công Nghệ Vui</div>
-    <p>💖 Giao diện mô phỏng chân thực giúp Ông Bà thực hành dễ dàng nhất</p>
-    <div class="footer-links">
-      <a href="index.html">Trang Chủ</a>
-      <a href="facebook.html">Facebook</a>
-      <a href="tiktok.html">TikTok</a>
-      <a href="youtube.html">YouTube</a>
-    </div>
-  </div>
-</footer>
+</div>
 
 <script src="js/voice.js"></script>
 <script src="js/simulator.js"></script>
-<script src="js/mobile.js"></script>
 <script>
 // REAL YOUTUBE STEPS
 const YT_SIMULATION_STEPS = [
@@ -106,7 +77,7 @@ const YT_SIMULATION_STEPS = [
     title: 'Bước 1: Chạm vào biểu tượng nút phát màu đỏ YouTube trên màn hình để mở',
     voice: 'Bước một: Chạm vào biểu tượng YouTube nút phát màu đỏ trên màn hình điện thoại để mở ứng dụng xem phim và nghe nhạc.',
     finger: { x: 80, y: 35 },
-    duration: 5000,
+    duration: 5500,
     render: function() {
       return '<div class="sim-status-bar status-dark" style="background:#0f0f0f">' +
         '<span>09:41</span>' +
@@ -138,7 +109,7 @@ const YT_SIMULATION_STEPS = [
     title: 'Bước 2: Chạm vào Kính Lúp 🔍 và Micro 🎙️ để nói tên bài hát hoặc vở cải lương muốn xem',
     voice: 'Bước hai: Nhấn vào biểu tượng kính lúp ở trên cùng, sau đó nhấn vào chiếc micro rồi nói to tên bài hát muốn nghe.',
     finger: { x: 78, y: 5 },
-    duration: 5500,
+    duration: 6000,
     render: function() {
       return '<div class="yt-app-screen">' +
         '<div class="sim-status-bar status-dark">' +
@@ -186,7 +157,7 @@ const YT_SIMULATION_STEPS = [
     title: 'Bước 3: Video tự phát mượt mà — Chạm vào giữa màn hình để Tạm Dừng hoặc Phát Tiếp',
     voice: 'Bước ba: Video sẽ tự động phát. Khi muốn tạm dừng để nghe điện thoại hoặc làm việc nhà, Ông Bà chạm một lần vào giữa màn hình.',
     finger: { x: 50, y: 22 },
-    duration: 5500,
+    duration: 6000,
     render: function() {
       return '<div class="yt-app-screen">' +
         '<div class="sim-status-bar status-dark">' +
@@ -241,7 +212,7 @@ const YT_SIMULATION_STEPS = [
     title: 'Bước 4: Nhấn nút "ĐĂNG KÝ" để lưu kênh hay — Mỗi khi có bài mới YouTube sẽ thông báo',
     voice: 'Bước bốn: Nhấn vào nút Đăng Ký màu trắng bên dưới video để theo dõi kênh hay này.',
     finger: { x: 80, y: 44 },
-    duration: 5000,
+    duration: 5500,
     render: function() {
       return '<div class="yt-app-screen">' +
         '<div class="sim-status-bar status-dark">' +
@@ -290,7 +261,7 @@ const YT_SIMULATION_STEPS = [
     title: 'Bước 5: Xoay ngang điện thoại để xem video to toàn màn hình cực nét và rõ ràng',
     voice: 'Bước năm: Ông Bà chỉ việc xoay ngang chiếc điện thoại ra là video tự động phóng to khắp toàn màn hình để xem thật đã mắt.',
     finger: { x: 92, y: 32 },
-    duration: 5500,
+    duration: 6000,
     render: function() {
       return '<div class="yt-app-screen" style="background:#000; justify-content:center; align-items:center;">' +
         '<div style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(135deg,#1e3a8a,#0f172a); position:relative;">' +
@@ -307,13 +278,14 @@ const YT_SIMULATION_STEPS = [
   }
 ];
 
-// START SIMULATOR ON LOAD
+// AUTO START ON LOAD
 let sim;
 document.addEventListener('DOMContentLoaded', function() {
   sim = new AppSimulator({
     screenId: 'sim-screen',
     steps: YT_SIMULATION_STEPS,
-    defaultDuration: 5500
+    defaultDuration: 5500,
+    autoStart: true
   });
 });
 </script>

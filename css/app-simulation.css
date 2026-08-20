@@ -1,29 +1,160 @@
 ﻿/* =========================================================
-   APP-SIMULATION.CSS - PIXEL-PERFECT REAL APP INTERFACES
-   Optimized for both Desktop/Laptop and Mobile Phones
+   APP-SIMULATION.CSS - IMMERSIVE FULLSCREEN SIMULATION MODE
+   Zero distraction, 100% focused on Phone Simulation
    ========================================================= */
 
-/* ===== SMARTPHONE CONTAINER ===== */
-.sim-stage {
+/* Reset body for fullscreen theater experience */
+body.sim-theater-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: #090d16;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+/* Fullscreen Theater Container */
+.sim-theater-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  inset: 0;
+  background: #090d16;
+  z-index: 1000;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ===== TOP FLOATING CONTROL BAR (SENIOR-FRIENDLY) ===== */
+.sim-top-bar {
+  display: flex;
   align-items: center;
-  padding: 16px 8px;
-  width: 100%;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 500;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.sim-top-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-top-title-box {
+  flex: 1;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.sim-step-tag {
+  background: #f59e0b;
+  color: #000;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.sim-step-text {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Progress bar inside top bar */
+.sim-top-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.sim-top-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #f59e0b);
+  transition: width 0.05s linear;
+}
+
+/* Buttons in top bar */
+.sim-ctrl-btn {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.btn-pause-toggle {
+  background: #f59e0b;
+  color: #000;
+}
+.btn-pause-toggle:hover { background: #d97706; }
+
+.btn-exit-home {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.btn-exit-home:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-voice-replay {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.btn-voice-replay:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* ===== MAXIMIZED STAGE & PHONE ===== */
+.sim-theater-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
 .sim-phone {
-  width: 375px;
-  height: 720px;
+  width: 420px;
+  height: calc(100vh - 85px);
+  max-height: 820px;
   max-width: 100%;
   background: #0f172a;
-  border-radius: 44px;
+  border-radius: 46px;
   padding: 10px 8px;
-  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255,255,255,0.1), inset 0 0 0 2px #334155;
+  box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 0 2px rgba(255,255,255,0.15);
   position: relative;
   user-select: none;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -48,7 +179,7 @@
 .sim-screen {
   width: 100%;
   height: 100%;
-  border-radius: 34px;
+  border-radius: 36px;
   overflow: hidden;
   position: relative;
   background: #fff;
@@ -61,7 +192,7 @@
 /* Status Bar */
 .sim-status-bar {
   height: 34px;
-  padding: 6px 14px 0;
+  padding: 6px 16px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,8 +217,8 @@
   transform: translate(-50%, -50%);
 }
 .sim-finger-hand {
-  font-size: 38px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+  font-size: 42px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
   animation: finger-tap 1s infinite alternate ease-in-out;
 }
 .sim-finger-pulse {
@@ -95,16 +226,16 @@
   top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 4px solid #f59e0b;
-  background: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.3);
   animation: ripple 1.2s infinite ease-out;
 }
 @keyframes finger-tap {
   0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-8px) scale(0.92); }
+  100% { transform: translateY(-10px) scale(0.92); }
 }
 @keyframes ripple {
   0% { transform: translateX(-50%) scale(0.4); opacity: 1; }
@@ -174,7 +305,7 @@
   flex: 1;
   text-align: center;
   padding: 8px 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #65676b;
   position: relative;
   cursor: pointer;
@@ -191,14 +322,13 @@
   border-radius: 3px 3px 0 0;
 }
 
-/* Content Area */
+/* Feed Content */
 .fb-feed {
   flex: 1;
   overflow-y: auto;
   padding-bottom: 20px;
 }
 
-/* Post Creator Box */
 .fb-create-box {
   background: #fff;
   padding: 10px 14px;
@@ -208,115 +338,115 @@
   margin-bottom: 8px;
 }
 .fb-avatar {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: linear-gradient(135deg, #a8edea, #fed6e3);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
 }
 .fb-input-fake {
   flex: 1;
   border: 1px solid #ced0d4;
   border-radius: 24px;
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 9px 14px;
+  font-size: 14px;
   color: #65676b;
   background: #f0f2f5;
   cursor: pointer;
 }
-.fb-photo-icon { color: #45bd62; font-size: 20px; cursor: pointer; }
+.fb-photo-icon { color: #45bd62; font-size: 22px; cursor: pointer; }
 
 /* Feed Post */
 .fb-post-card {
   background: #fff;
   margin-bottom: 8px;
-  padding: 10px 0 0;
+  padding: 12px 0 0;
 }
 .fb-post-header {
   display: flex;
   gap: 10px;
-  padding: 0 12px 8px;
+  padding: 0 14px 10px;
   align-items: center;
 }
 .fb-post-user { flex: 1; }
-.fb-user-name { font-size: 13px; font-weight: 700; color: #050505; }
-.fb-post-meta { font-size: 11px; color: #65676b; }
+.fb-user-name { font-size: 14px; font-weight: 700; color: #050505; }
+.fb-post-meta { font-size: 12px; color: #65676b; }
 .fb-post-body {
-  padding: 0 12px 8px;
-  font-size: 13px;
+  padding: 0 14px 10px;
+  font-size: 14px;
   color: #050505;
   line-height: 1.4;
 }
 .fb-post-media {
   width: 100%;
-  height: 170px;
+  height: 200px;
   background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 48px;
   color: white;
   position: relative;
 }
 .fb-media-caption {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   background: rgba(0,0,0,0.5);
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .fb-post-stats {
   display: flex;
   justify-content: space-between;
-  padding: 6px 12px;
-  font-size: 11px;
+  padding: 8px 14px;
+  font-size: 12px;
   color: #65676b;
   border-bottom: 1px solid #e4e6eb;
 }
 .fb-stats-likes { display: flex; align-items: center; gap: 4px; }
 .fb-like-bubble {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: #1877f2;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 9px;
+  font-size: 10px;
 }
 .fb-heart-bubble {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: #e41e3f;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .fb-post-actions {
   display: flex;
   justify-content: space-around;
-  padding: 4px 6px;
+  padding: 6px 8px;
 }
 .fb-act-btn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 6px 0;
-  font-size: 12px;
+  gap: 6px;
+  padding: 8px 0;
+  font-size: 13px;
   font-weight: 700;
   color: #65676b;
   border-radius: 6px;
@@ -339,20 +469,20 @@
 
 .tt-top-nav {
   position: absolute;
-  top: 34px;
+  top: 36px;
   left: 0;
   right: 0;
   z-index: 40;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  font-size: 15px;
+  gap: 18px;
+  font-size: 16px;
   font-weight: 700;
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 .tt-tab-item { color: rgba(255,255,255,0.6); cursor: pointer; position: relative; padding: 4px 0; }
-.tt-tab-item.active { color: #fff; font-weight: 800; font-size: 16px; }
+.tt-tab-item.active { color: #fff; font-weight: 800; font-size: 17px; }
 .tt-tab-item.active::after {
   content: '';
   position: absolute;
@@ -363,7 +493,7 @@
   background: #fff;
   border-radius: 2px;
 }
-.tt-search-icon { position: absolute; right: 16px; font-size: 18px; cursor: pointer; }
+.tt-search-icon { position: absolute; right: 16px; font-size: 20px; cursor: pointer; }
 
 .tt-viewport {
   flex: 1;
@@ -383,7 +513,7 @@
   background-position: center;
 }
 .tt-vid-main-icon {
-  font-size: 70px;
+  font-size: 80px;
   animation: float-slow 3s infinite alternate ease-in-out;
 }
 @keyframes float-slow {
@@ -393,38 +523,38 @@
 
 .tt-sidebar {
   position: absolute;
-  right: 10px;
-  bottom: 75px;
+  right: 12px;
+  bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   z-index: 30;
 }
 .tt-avatar-box {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 2px solid #fff;
   background: #fe2c55;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   position: relative;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .tt-plus-badge {
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
   background: #fe2c55;
   color: white;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -434,40 +564,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   cursor: pointer;
 }
-.tt-action-icon { font-size: 26px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6)); }
-.tt-action-num { font-size: 10px; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
+.tt-action-icon { font-size: 28px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6)); }
+.tt-action-num { font-size: 11px; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
 .tt-disc {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #262626;
-  border: 6px solid #0f0f0f;
+  border: 8px solid #0f0f0f;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
   animation: spin 3s linear infinite;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
 .tt-bottom-info {
   position: absolute;
-  left: 12px;
-  right: 75px;
-  bottom: 70px;
+  left: 14px;
+  right: 80px;
+  bottom: 75px;
   z-index: 30;
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
-.tt-author-name { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
-.tt-caption { font-size: 12px; line-height: 1.4; margin-bottom: 6px; }
-.tt-music { font-size: 11px; display: flex; align-items: center; gap: 4px; }
+.tt-author-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+.tt-caption { font-size: 13px; line-height: 1.4; margin-bottom: 8px; }
+.tt-music { font-size: 12px; display: flex; align-items: center; gap: 6px; }
 
 .tt-bottom-bar {
-  height: 48px;
+  height: 52px;
   background: #000;
   border-top: 1px solid rgba(255,255,255,0.15);
   display: flex;
@@ -479,24 +609,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   color: rgba(255,255,255,0.6);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
 }
 .tt-bar-item.active { color: #fff; }
 .tt-create-btn {
-  width: 40px;
-  height: 26px;
+  width: 44px;
+  height: 28px;
   background: #fff;
-  border-radius: 7px;
+  border-radius: 8px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
 }
 
@@ -514,7 +644,7 @@
 }
 
 .yt-header {
-  padding: 4px 12px 6px;
+  padding: 4px 14px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -524,29 +654,29 @@
 .yt-play-icon-logo {
   background: #ff0000;
   color: white;
-  width: 24px;
-  height: 16px;
-  border-radius: 4px;
+  width: 26px;
+  height: 18px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 11px;
 }
-.yt-logo-text { font-size: 17px; font-weight: 900; letter-spacing: -0.5px; }
-.yt-header-tools { display: flex; gap: 12px; font-size: 16px; }
+.yt-logo-text { font-size: 18px; font-weight: 900; letter-spacing: -0.5px; }
+.yt-header-tools { display: flex; gap: 14px; font-size: 18px; }
 
 .yt-pills-row {
   display: flex;
-  gap: 6px;
-  padding: 4px 12px 8px;
+  gap: 8px;
+  padding: 6px 14px 10px;
   overflow-x: auto;
   background: #0f0f0f;
 }
 .yt-pill {
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 8px;
   background: #272727;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
@@ -555,7 +685,7 @@
 
 .yt-player-box {
   width: 100%;
-  height: 190px;
+  height: 210px;
   background: #000;
   position: relative;
   display: flex;
@@ -571,20 +701,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 54px;
   color: white;
   position: relative;
 }
 .yt-play-center-btn {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: rgba(0,0,0,0.6);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
 }
 .yt-progress-container {
@@ -605,39 +735,39 @@
 .yt-content-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
-.yt-video-title { font-size: 14px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
-.yt-video-meta { font-size: 11px; color: #aaa; margin-bottom: 10px; }
+.yt-video-title { font-size: 15px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+.yt-video-meta { font-size: 12px; color: #aaa; margin-bottom: 12px; }
 
 .yt-channel-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 1px solid #272727;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-.yt-ch-left { display: flex; align-items: center; gap: 8px; }
+.yt-ch-left { display: flex; align-items: center; gap: 10px; }
 .yt-ch-avatar {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #b91c1c;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 18px;
 }
-.yt-ch-info strong { font-size: 12px; display: block; }
-.yt-ch-info span { font-size: 10px; color: #aaa; }
+.yt-ch-info strong { font-size: 13px; display: block; }
+.yt-ch-info span { font-size: 11px; color: #aaa; }
 .yt-sub-btn {
   background: #fff;
   color: #0f0f0f;
   border: none;
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
 }
@@ -645,24 +775,24 @@
 
 .yt-actions-scroll {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 .yt-action-pill {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   background: #272727;
-  padding: 5px 12px;
-  border-radius: 16px;
-  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
 }
 
 .yt-bottom-nav {
-  height: 44px;
+  height: 48px;
   background: #0f0f0f;
   border-top: 1px solid #272727;
   display: flex;
@@ -674,105 +804,48 @@
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  font-size: 9px;
+  font-size: 10px;
   color: #aaa;
 }
 .yt-nav-item.active { color: #fff; }
+.yt-nav-item span:first-child { font-size: 18px; }
 
 /* =========================================================
-   CONTROLLER BAR FOR SENIORS
-   ========================================================= */
-.sim-controller {
-  max-width: 520px;
-  margin: 10px auto 0;
-  background: #fff;
-  border-radius: 20px;
-  padding: 16px 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  border: 2px solid #e2e8f0;
-  box-sizing: border-box;
-}
-.sim-ctrl-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-.sim-step-badge {
-  background: #fef3c7;
-  color: #b45309;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-.sim-ctrl-title {
-  font-size: 16px;
-  font-weight: 900;
-  color: #1e293b;
-  margin-bottom: 10px;
-  line-height: 1.4;
-  min-height: 44px;
-}
-.sim-ctrl-buttons {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.sim-btn {
-  padding: 10px 16px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border: 2px solid transparent;
-}
-.sim-btn-play { background: #10b981; color: white; }
-.sim-btn-play:hover { background: #059669; }
-.sim-btn-nav { background: #f1f5f9; color: #1e293b; border-color: #cbd5e1; }
-.sim-btn-nav:hover { background: #e2e8f0; }
-.sim-btn-voice { background: #f59e0b; color: white; }
-.sim-btn-voice:hover { background: #d97706; }
-
-/* =========================================================
-   MOBILE RESPONSIVE (MATCHES REAL PHONE VIEW)
+   MOBILE RESPONSIVE (FULLSCREEN ON MOBILE SCREENS)
    ========================================================= */
 @media (max-width: 640px) {
-  .sim-stage {
-    padding: 6px 0;
+  .sim-top-bar {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  .sim-ctrl-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .sim-step-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+  .sim-step-text {
+    font-size: 13px;
+  }
+  .sim-theater-stage {
+    padding: 4px;
   }
   .sim-phone {
     width: 100%;
-    max-width: 390px;
-    height: 640px;
-    padding: 6px;
-    border-radius: 28px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    height: 100%;
+    max-height: none;
+    border-radius: 24px;
+    padding: 4px;
+    box-shadow: none;
   }
   .sim-notch {
-    top: 8px;
-    width: 90px;
-    height: 18px;
+    top: 6px;
+    width: 80px;
+    height: 16px;
   }
   .sim-screen {
-    border-radius: 22px;
-  }
-  .sim-controller {
-    padding: 12px 14px;
-    border-radius: 16px;
-    margin: 6px auto 0;
-  }
-  .sim-ctrl-title {
-    font-size: 14px;
-    min-height: 38px;
-  }
-  .sim-btn {
-    padding: 8px 12px;
-    font-size: 13px;
+    border-radius: 20px;
   }
 }

@@ -1,5 +1,5 @@
-/* =========================================================
-   SIMULATOR.JS - ROCK SOLID AUTOMATIC INTERACTIVE APP SIMULATION
+﻿/* =========================================================
+   SIMULATOR.JS - IMMERSIVE FULLSCREEN AUTO-SIMULATION ENGINE
    ========================================================= */
 'use strict';
 
@@ -11,11 +11,12 @@ class AppSimulator {
     this.stepBadgeId = config.stepBadgeId || 'sim-badge';
     this.fingerId = config.fingerId || 'sim-finger';
     this.playBtnId = config.playBtnId || 'sim-btn-play';
+    this.autoStart = config.autoStart !== false; // Default true
     this.current = 0;
     this.isPlaying = false;
     this.autoTimer = null;
     this.progressInterval = null;
-    this.stepDuration = config.defaultDuration || 5000;
+    this.stepDuration = config.defaultDuration || 5500;
     this.progressElapsed = 0;
 
     this.init();
@@ -28,12 +29,9 @@ class AppSimulator {
     this.stepBadge = document.getElementById(this.stepBadgeId);
     this.playBtn = document.getElementById(this.playBtnId);
 
-    // Inject visual progress bar if not present
-    this.injectProgressBar();
-
-    // Attach click events on phone screen for manual tap progression
+    // Click on screen advances step
     if (this.screen) {
-      this.screen.onclick = (e) => {
+      this.screen.onclick = () => {
         this.next();
       };
     }
@@ -43,19 +41,12 @@ class AppSimulator {
 
     // Show initial step
     this.showStep(0, false);
-  }
 
-  injectProgressBar() {
-    const ctrl = document.querySelector('.sim-controller');
-    if (ctrl && !document.getElementById('sim-auto-progress-bar')) {
-      const pWrap = document.createElement('div');
-      pWrap.style.cssText = 'height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin: 12px 0 16px; position: relative;';
-      pWrap.innerHTML = '<div id="sim-auto-progress-fill" style="height:100%; width:0%; background: linear-gradient(90deg, #10b981, #3b82f6); border-radius:10px; transition: width 0.1s linear;"></div>';
-      
-      const titleEl = document.getElementById(this.stepTitleId);
-      if (titleEl && titleEl.parentNode) {
-        titleEl.parentNode.insertBefore(pWrap, titleEl.nextSibling);
-      }
+    // Auto-start immediately if enabled
+    if (this.autoStart) {
+      setTimeout(() => {
+        this.play();
+      }, 600);
     }
   }
 
@@ -64,7 +55,7 @@ class AppSimulator {
     this.current = idx;
     const step = this.steps[idx];
 
-    // 1. Update Title & Badge
+    // 1. Update Title & Badge in Top Bar
     if (this.stepTitle) this.stepTitle.textContent = step.title;
     if (this.stepBadge) this.stepBadge.textContent = 'Bước ' + (idx + 1) + ' / ' + this.steps.length;
 
@@ -73,7 +64,7 @@ class AppSimulator {
       this.screen.innerHTML = step.render();
     }
 
-    // 3. Move Finger to Target Position with spring animation
+    // 3. Move Finger to Target Position
     if (this.finger) {
       if (step.finger) {
         this.finger.style.display = 'flex';
@@ -89,7 +80,7 @@ class AppSimulator {
       window.Voice.speak(step.voice);
     }
 
-    // 5. If Playing Auto-run, start countdown timer & progress bar
+    // 5. If Playing Auto-run, start countdown timer & top progress bar
     this.resetTimers();
     if (this.isPlaying) {
       this.startCountdown(step.duration || this.stepDuration);
@@ -99,8 +90,8 @@ class AppSimulator {
   startCountdown(totalDuration) {
     this.resetTimers();
     this.progressElapsed = 0;
-    const intervalMs = 50;
-    const pFill = document.getElementById('sim-auto-progress-fill');
+    const intervalMs = 40;
+    const pFill = document.getElementById('sim-top-progress-fill');
 
     this.progressInterval = setInterval(() => {
       this.progressElapsed += intervalMs;
@@ -123,7 +114,7 @@ class AppSimulator {
       clearTimeout(this.autoTimer);
       this.autoTimer = null;
     }
-    const pFill = document.getElementById('sim-auto-progress-fill');
+    const pFill = document.getElementById('sim-top-progress-fill');
     if (pFill) pFill.style.width = '0%';
   }
 
@@ -133,7 +124,7 @@ class AppSimulator {
       nextIdx = 0;
       if (this.isPlaying) {
         this.pause();
-        if (window.Voice) window.Voice.speak('Đã hoàn thành các bước mô phỏng. Ông Bà có thể xem lại bất cứ lúc nào!');
+        if (window.Voice) window.Voice.speak('Đã hoàn thành các bước mô phỏng. Ông Bà có thể nhấn Tự Động Chạy để xem lại bất cứ lúc nào!');
         return;
       }
     }
@@ -159,7 +150,7 @@ class AppSimulator {
     this.isPlaying = false;
     this.resetTimers();
     if (this.playBtn) {
-      this.playBtn.innerHTML = '▶ Tự Động Chạy';
+      this.playBtn.innerHTML = '▶ Tiếp Tục';
       this.playBtn.style.background = '#10b981';
     }
     if (window.Voice) window.Voice.stop();
@@ -175,5 +166,10 @@ class AppSimulator {
     if (step && window.Voice && step.voice) {
       window.Voice.speak(step.voice);
     }
+  }
+
+  exit() {
+    if (window.Voice) window.Voice.stop();
+    window.location.href = 'index.html';
   }
 }
