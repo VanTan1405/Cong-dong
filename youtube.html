@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
       </div>
 
       <!-- SIMULATED MOBILE SCREEN -->
-      <div class="sim-screen" id="sim-screen">
+      <div class="sim-screen" id="sim-screen" onclick="sim.next()" style="cursor:pointer;" title="Chạm vào màn hình để sang bước tiếp theo">
         <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
@@ -107,30 +107,30 @@ const YT_SIMULATION_STEPS = [
     voice: 'Bước một: Chạm vào biểu tượng YouTube nút phát màu đỏ trên màn hình điện thoại để mở ứng dụng xem phim và nghe nhạc.',
     finger: { x: 80, y: 35 },
     duration: 5000,
-    render: () => 
-      <div class="sim-status-bar status-dark" style="background:#0f0f0f">
-        <span>09:41</span>
-        <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-      </div>
-      <div style="background:linear-gradient(180deg, #18181b, #09090b); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900;">f</div>
-          <span style="color:#aaa; font-size:12px;">Facebook</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>
-          <span style="color:#aaa; font-size:12px;">TikTok</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">
-          <div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white; box-shadow:0 8px 20px rgba(255,0,0,0.4); border:2px solid #fff;">▶️</div>
-          <span style="color:white; font-size:12px; font-weight:700;">YouTube</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>
-          <span style="color:#aaa; font-size:12px;">Điện thoại</span>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="sim-status-bar status-dark" style="background:#0f0f0f">' +
+        '<span>09:41</span>' +
+        '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+      '</div>' +
+      '<div style="background:linear-gradient(180deg, #18181b, #09090b); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900;">f</div>' +
+          '<span style="color:#aaa; font-size:12px;">Facebook</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>' +
+          '<span style="color:#aaa; font-size:12px;">TikTok</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">' +
+          '<div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white; box-shadow:0 8px 20px rgba(255,0,0,0.4); border:2px solid #fff;">▶️</div>' +
+          '<span style="color:white; font-size:12px; font-weight:700;">YouTube</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>' +
+          '<span style="color:#aaa; font-size:12px;">Điện thoại</span>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 2. TÌM KIẾM BẰNG GIỌNG NÓI
@@ -139,52 +139,46 @@ const YT_SIMULATION_STEPS = [
     voice: 'Bước hai: Nhấn vào biểu tượng kính lúp ở trên cùng, sau đó nhấn vào chiếc micro rồi nói to tên bài hát muốn nghe.',
     finger: { x: 78, y: 5 },
     duration: 5500,
-    render: () => 
-      <div class="yt-app-screen">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <!-- Real YouTube Header -->
-        <div class="yt-header">
-          <div class="yt-logo-box">
-            <div class="yt-play-icon-logo">▶</div>
-            <span class="yt-logo-text">YouTube</span>
-          </div>
-          <div class="yt-header-tools">
-            <span>📺</span>
-            <span>🔔</span>
-            <span style="color:#ff0000; font-weight:900;">🔍</span>
-            <span>👤</span>
-          </div>
-        </div>
-
-        <!-- Pills -->
-        <div class="yt-pills-row">
-          <div class="yt-pill active">Tất cả</div>
-          <div class="yt-pill">Bolero xưa</div>
-          <div class="yt-pill">Cải lương</div>
-          <div class="yt-pill">Nấu ăn</div>
-        </div>
-
-        <!-- Voice Search Active Popup -->
-        <div style="margin:16px 14px; background:#212121; border-radius:16px; padding:20px; text-align:center; border:2px solid #ff0000;">
-          <div style="font-size:13px; color:#aaa; margin-bottom:8px;">Đang lắng nghe giọng nói của bạn...</div>
-          <div style="width:64px; height:64px; background:#ff0000; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:32px; animation:pulse 1s infinite;">
-            🎙️
-          </div>
-          <div style="font-size:17px; font-weight:800; color:#fff;">"Tuyển tập Nhạc Vàng Bolero xưa"</div>
-        </div>
-
-        <div class="yt-bottom-nav" style="margin-top:auto;">
-          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
-          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
-          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
-          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
-          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="yt-app-screen">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="yt-header">' +
+          '<div class="yt-logo-box">' +
+            '<div class="yt-play-icon-logo">▶</div>' +
+            '<span class="yt-logo-text">YouTube</span>' +
+          '</div>' +
+          '<div class="yt-header-tools">' +
+            '<span>📺</span>' +
+            '<span>🔔</span>' +
+            '<span style="color:#ff0000; font-weight:900;">🔍</span>' +
+            '<span>👤</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="yt-pills-row">' +
+          '<div class="yt-pill active">Tất cả</div>' +
+          '<div class="yt-pill">Bolero xưa</div>' +
+          '<div class="yt-pill">Cải lương</div>' +
+          '<div class="yt-pill">Nấu ăn</div>' +
+        '</div>' +
+        '<div style="margin:16px 14px; background:#212121; border-radius:16px; padding:20px; text-align:center; border:2px solid #ff0000;">' +
+          '<div style="font-size:13px; color:#aaa; margin-bottom:8px;">Đang lắng nghe giọng nói của bạn...</div>' +
+          '<div style="width:64px; height:64px; background:#ff0000; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:32px;">' +
+            '🎙️' +
+          '</div>' +
+          '<div style="font-size:17px; font-weight:800; color:#fff;">"Tuyển tập Nhạc Vàng Bolero xưa"</div>' +
+        '</div>' +
+        '<div class="yt-bottom-nav" style="margin-top:auto;">' +
+          '<div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>' +
+          '<div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>' +
+          '<div class="yt-nav-item" style="font-size:24px;">⊕</div>' +
+          '<div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>' +
+          '<div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 3. XEM VIDEO & TẠM DỪNG
@@ -193,62 +187,53 @@ const YT_SIMULATION_STEPS = [
     voice: 'Bước ba: Video sẽ tự động phát. Khi muốn tạm dừng để nghe điện thoại hoặc làm việc nhà, Ông Bà chạm một lần vào giữa màn hình.',
     finger: { x: 50, y: 22 },
     duration: 5500,
-    render: () => 
-      <div class="yt-app-screen">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-
-        <!-- Real YouTube Video Player Container -->
-        <div class="yt-player-box">
-          <div class="yt-vid-cover">
-            🎵
-            <div class="yt-play-center-btn">⏸</div>
-            <div class="yt-progress-container">
-              <div class="yt-progress-fill">
-                <div class="yt-progress-scrubber"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Info -->
-        <div class="yt-content-scroll">
-          <div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025 - Giúp Ngủ Ngon</div>
-          <div class="yt-video-meta">1.5 Tr lượt xem · 3 ngày trước</div>
-
-          <!-- Channel Row -->
-          <div class="yt-channel-row">
-            <div class="yt-ch-left">
-              <div class="yt-ch-avatar">📻</div>
-              <div class="yt-ch-info">
-                <strong>Nhạc Vàng Quê Hương</strong>
-                <span>1.2 Tr người đăng ký</span>
-              </div>
-            </div>
-            <button class="yt-sub-btn">ĐĂNG KÝ</button>
-          </div>
-
-          <!-- Actions -->
-          <div class="yt-actions-scroll">
-            <div class="yt-action-pill">👍 85K</div>
-            <div class="yt-action-pill">👎</div>
-            <div class="yt-action-pill">↗️ Chia sẻ</div>
-            <div class="yt-action-pill">⬇️ Tải xuống</div>
-            <div class="yt-action-pill">💾 Lưu</div>
-          </div>
-        </div>
-
-        <div class="yt-bottom-nav">
-          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
-          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
-          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
-          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
-          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="yt-app-screen">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="yt-player-box">' +
+          '<div class="yt-vid-cover">' +
+            '🎵' +
+            '<div class="yt-play-center-btn">⏸</div>' +
+            '<div class="yt-progress-container">' +
+              '<div class="yt-progress-fill">' +
+                '<div class="yt-progress-scrubber"></div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="yt-content-scroll">' +
+          '<div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025 - Giúp Ngủ Ngon</div>' +
+          '<div class="yt-video-meta">1.5 Tr lượt xem · 3 ngày trước</div>' +
+          '<div class="yt-channel-row">' +
+            '<div class="yt-ch-left">' +
+              '<div class="yt-ch-avatar">📻</div>' +
+              '<div class="yt-ch-info">' +
+                '<strong>Nhạc Vàng Quê Hương</strong>' +
+                '<span>1.2 Tr người đăng ký</span>' +
+              '</div>' +
+            '</div>' +
+            '<button class="yt-sub-btn">ĐĂNG KÝ</button>' +
+          '</div>' +
+          '<div class="yt-actions-scroll">' +
+            '<div class="yt-action-pill">👍 85K</div>' +
+            '<div class="yt-action-pill">👎</div>' +
+            '<div class="yt-action-pill">↗️ Chia sẻ</div>' +
+            '<div class="yt-action-pill">⬇️ Tải xuống</div>' +
+            '<div class="yt-action-pill">💾 Lưu</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="yt-bottom-nav">' +
+          '<div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>' +
+          '<div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>' +
+          '<div class="yt-nav-item" style="font-size:24px;">⊕</div>' +
+          '<div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>' +
+          '<div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 4. ĐĂNG KÝ KÊNH
@@ -257,51 +242,47 @@ const YT_SIMULATION_STEPS = [
     voice: 'Bước bốn: Nhấn vào nút Đăng Ký màu trắng bên dưới video để theo dõi kênh hay này.',
     finger: { x: 80, y: 44 },
     duration: 5000,
-    render: () => 
-      <div class="yt-app-screen">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <div class="yt-player-box">
-          <div class="yt-vid-cover">
-            🎵
-            <div class="yt-play-center-btn">▶</div>
-            <div class="yt-progress-container"><div class="yt-progress-fill" style="width:60%"></div></div>
-          </div>
-        </div>
-
-        <div class="yt-content-scroll">
-          <div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025</div>
-          <div class="yt-video-meta">1.5 Tr lượt xem</div>
-
-          <div class="yt-channel-row">
-            <div class="yt-ch-left">
-              <div class="yt-ch-avatar">📻</div>
-              <div class="yt-ch-info">
-                <strong>Nhạc Vàng Quê Hương</strong>
-                <span>1.2 Tr người đăng ký</span>
-              </div>
-            </div>
-            <button class="yt-sub-btn subscribed">✓ Đã Đăng Ký 🔔</button>
-          </div>
-
-          <div class="yt-actions-scroll">
-            <div class="yt-action-pill" style="color:#3ea6ff">👍 Đã thích</div>
-            <div class="yt-action-pill">↗️ Chia sẻ</div>
-            <div class="yt-action-pill">💾 Đã lưu</div>
-          </div>
-        </div>
-
-        <div class="yt-bottom-nav">
-          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
-          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
-          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
-          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
-          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="yt-app-screen">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="yt-player-box">' +
+          '<div class="yt-vid-cover">' +
+            '🎵' +
+            '<div class="yt-play-center-btn">▶</div>' +
+            '<div class="yt-progress-container"><div class="yt-progress-fill" style="width:60%"></div></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="yt-content-scroll">' +
+          '<div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025</div>' +
+          '<div class="yt-video-meta">1.5 Tr lượt xem</div>' +
+          '<div class="yt-channel-row">' +
+            '<div class="yt-ch-left">' +
+              '<div class="yt-ch-avatar">📻</div>' +
+              '<div class="yt-ch-info">' +
+                '<strong>Nhạc Vàng Quê Hương</strong>' +
+                '<span>1.2 Tr người đăng ký</span>' +
+              '</div>' +
+            '</div>' +
+            '<button class="yt-sub-btn subscribed">✓ Đã Đăng Ký 🔔</button>' +
+          '</div>' +
+          '<div class="yt-actions-scroll">' +
+            '<div class="yt-action-pill" style="color:#3ea6ff">👍 Đã thích</div>' +
+            '<div class="yt-action-pill">↗️ Chia sẻ</div>' +
+            '<div class="yt-action-pill">💾 Đã lưu</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="yt-bottom-nav">' +
+          '<div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>' +
+          '<div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>' +
+          '<div class="yt-nav-item" style="font-size:24px;">⊕</div>' +
+          '<div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>' +
+          '<div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 5. TOÀN MÀN HÌNH
@@ -310,26 +291,25 @@ const YT_SIMULATION_STEPS = [
     voice: 'Bước năm: Ông Bà chỉ việc xoay ngang chiếc điện thoại ra là video tự động phóng to khắp toàn màn hình để xem thật đã mắt.',
     finger: { x: 92, y: 32 },
     duration: 5500,
-    render: () => 
-      <div class="yt-app-screen" style="background:#000; justify-content:center; align-items:center;">
-        <div style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(135deg,#1e3a8a,#0f172a); position:relative;">
-          <div style="font-size:72px; margin-bottom:12px;">🎭</div>
-          <div style="font-size:18px; font-weight:800; color:white; text-align:center;">Vở Cải Lương: Nửa Đời Hương Phấn</div>
-          <div style="font-size:13px; color:#aaa; margin-top:4px;">⛶ Chế độ xem toàn màn hình xoay ngang</div>
-          
-          <div style="position:absolute; bottom:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center; color:white; font-size:13px;">
-            <span>12:45 / 45:00</span>
-            <span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:10px;">HD 1080p</span>
-          </div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="yt-app-screen" style="background:#000; justify-content:center; align-items:center;">' +
+        '<div style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(135deg,#1e3a8a,#0f172a); position:relative;">' +
+          '<div style="font-size:72px; margin-bottom:12px;">🎭</div>' +
+          '<div style="font-size:18px; font-weight:800; color:white; text-align:center;">Vở Cải Lương: Nửa Đời Hương Phấn</div>' +
+          '<div style="font-size:13px; color:#aaa; margin-top:4px;">⛶ Chế độ xem toàn màn hình xoay ngang</div>' +
+          '<div style="position:absolute; bottom:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center; color:white; font-size:13px;">' +
+            '<span>12:45 / 45:00</span>' +
+            '<span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:10px;">HD 1080p</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
   }
 ];
 
 // START SIMULATOR ON LOAD
 let sim;
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', function() {
   sim = new AppSimulator({
     screenId: 'sim-screen',
     steps: YT_SIMULATION_STEPS,

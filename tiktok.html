@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
       </div>
 
       <!-- SIMULATED MOBILE SCREEN -->
-      <div class="sim-screen" id="sim-screen">
+      <div class="sim-screen" id="sim-screen" onclick="sim.next()" style="cursor:pointer;" title="Chạm vào màn hình để sang bước tiếp theo">
         <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
@@ -107,30 +107,30 @@ const TT_SIMULATION_STEPS = [
     voice: 'Bước một: Chạm vào biểu tượng nốt nhạc TikTok trên màn hình để mở ứng dụng xem video ngắn vui nhộn.',
     finger: { x: 55, y: 35 },
     duration: 5000,
-    render: () => 
-      <div class="sim-status-bar status-dark" style="background:#0f172a">
-        <span>09:41</span>
-        <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-      </div>
-      <div style="background:linear-gradient(180deg, #18181b, #09090b); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900;">f</div>
-          <span style="color:#aaa; font-size:12px;">Facebook</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">
-          <div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55; box-shadow:0 8px 20px rgba(254,44,85,0.4); border:2px solid #25f4ee;">🎵</div>
-          <span style="color:white; font-size:12px; font-weight:700;">TikTok</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">▶️</div>
-          <span style="color:#aaa; font-size:12px;">YouTube</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>
-          <span style="color:#aaa; font-size:12px;">Điện thoại</span>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="sim-status-bar status-dark" style="background:#0f172a">' +
+        '<span>09:41</span>' +
+        '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+      '</div>' +
+      '<div style="background:linear-gradient(180deg, #18181b, #09090b); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900;">f</div>' +
+          '<span style="color:#aaa; font-size:12px;">Facebook</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">' +
+          '<div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55; box-shadow:0 8px 20px rgba(254,44,85,0.4); border:2px solid #25f4ee;">🎵</div>' +
+          '<span style="color:white; font-size:12px; font-weight:700;">TikTok</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">▶️</div>' +
+          '<span style="color:#aaa; font-size:12px;">YouTube</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>' +
+          '<span style="color:#aaa; font-size:12px;">Điện thoại</span>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 2. VUỐT LÊN XEM VIDEO
@@ -139,69 +139,45 @@ const TT_SIMULATION_STEPS = [
     voice: 'Bước hai: Khi video đang phát, Ông Bà chỉ cần đặt ngón tay vào màn hình rồi vuốt nhẹ lên trên để xem video mới.',
     finger: { x: 50, y: 70 },
     duration: 5500,
-    render: () => 
-      <div class="tt-app-screen">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <!-- Real TikTok Nav -->
-        <div class="tt-top-nav">
-          <span class="tt-tab-item">Đang Follow</span>
-          <span class="tt-tab-item active">Dành cho bạn</span>
-          <span class="tt-search-icon">🔍</span>
-        </div>
-
-        <!-- Fullscreen Video -->
-        <div class="tt-viewport" style="background:linear-gradient(180deg, #1e3a8a, #065f46);">
-          <div class="tt-video-slide">
-            <div class="tt-vid-main-icon">🍲</div>
-            <div style="font-size:18px; font-weight:800; margin-top:12px;">Canh Chua Cá Lóc Nam Bộ</div>
-          </div>
-
-          <!-- Right Sidebar -->
-          <div class="tt-sidebar">
-            <div class="tt-avatar-box">
-              👨‍🍳
-              <div class="tt-plus-badge">+</div>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">🤍</span>
-              <span class="tt-action-num">125.4K</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">💬</span>
-              <span class="tt-action-num">2.1K</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">⭐</span>
-              <span class="tt-action-num">850</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">↗️</span>
-              <span class="tt-action-num">1.4K</span>
-            </div>
-            <div class="tt-disc">🎵</div>
-          </div>
-
-          <!-- Bottom Meta -->
-          <div class="tt-bottom-info">
-            <div class="tt-author-name">@bep_nha_viet · Theo dõi</div>
-            <div class="tt-caption">Bí quyết nấu canh chua cá lóc miền Tây chuẩn vị thơm ngon đậm đà 🍲 #nauan #monngon</div>
-            <div class="tt-music">♫ Âm thanh gốc - Bếp Nhà Việt</div>
-          </div>
-        </div>
-
-        <!-- Bottom Tabs -->
-        <div class="tt-bottom-bar">
-          <div class="tt-bar-item active"><span>🏠</span><span>Trang chủ</span></div>
-          <div class="tt-bar-item"><span>👥</span><span>Bạn bè</span></div>
-          <div class="tt-create-btn">+</div>
-          <div class="tt-bar-item"><span>📥</span><span>Hộp thư</span></div>
-          <div class="tt-bar-item"><span>👤</span><span>Hồ sơ</span></div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="tt-app-screen">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="tt-top-nav">' +
+          '<span class="tt-tab-item">Đang Follow</span>' +
+          '<span class="tt-tab-item active">Dành cho bạn</span>' +
+          '<span class="tt-search-icon">🔍</span>' +
+        '</div>' +
+        '<div class="tt-viewport" style="background:linear-gradient(180deg, #1e3a8a, #065f46);">' +
+          '<div class="tt-video-slide">' +
+            '<div class="tt-vid-main-icon">🍲</div>' +
+            '<div style="font-size:18px; font-weight:800; margin-top:12px;">Canh Chua Cá Lóc Nam Bộ</div>' +
+          '</div>' +
+          '<div class="tt-sidebar">' +
+            '<div class="tt-avatar-box">👨‍🍳<div class="tt-plus-badge">+</div></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">🤍</span><span class="tt-action-num">125.4K</span></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">💬</span><span class="tt-action-num">2.1K</span></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">⭐</span><span class="tt-action-num">850</span></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">↗️</span><span class="tt-action-num">1.4K</span></div>' +
+            '<div class="tt-disc">🎵</div>' +
+          '</div>' +
+          '<div class="tt-bottom-info">' +
+            '<div class="tt-author-name">@bep_nha_viet · Theo dõi</div>' +
+            '<div class="tt-caption">Bí quyết nấu canh chua cá lóc miền Tây chuẩn vị thơm ngon đậm đà 🍲 #nauan #monngon</div>' +
+            '<div class="tt-music">♫ Âm thanh gốc - Bếp Nhà Việt</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="tt-bottom-bar">' +
+          '<div class="tt-bar-item active"><span>🏠</span><span>Trang chủ</span></div>' +
+          '<div class="tt-bar-item"><span>👥</span><span>Bạn bè</span></div>' +
+          '<div class="tt-create-btn">+</div>' +
+          '<div class="tt-bar-item"><span>📥</span><span>Hộp thư</span></div>' +
+          '<div class="tt-bar-item"><span>👤</span><span>Hồ sơ</span></div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 3. THẢ TIM YÊU THÍCH
@@ -210,60 +186,47 @@ const TT_SIMULATION_STEPS = [
     voice: 'Bước ba: Chạm vào hình trái tim bên phải màn hình để thả tim và khen ngợi video bổ ích.',
     finger: { x: 90, y: 55 },
     duration: 5000,
-    render: () => 
-      <div class="tt-app-screen">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <div class="tt-top-nav">
-          <span class="tt-tab-item">Đang Follow</span>
-          <span class="tt-tab-item active">Dành cho bạn</span>
-          <span class="tt-search-icon">🔍</span>
-        </div>
-
-        <div class="tt-viewport" style="background:linear-gradient(180deg, #1e3a8a, #065f46);">
-          <div class="tt-video-slide">
-            <div class="tt-vid-main-icon">🍲</div>
-            <div style="font-size:18px; font-weight:800; margin-top:12px;">Canh Chua Cá Lóc Nam Bộ</div>
-          </div>
-
-          <div class="tt-sidebar">
-            <div class="tt-avatar-box">👨‍🍳</div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon" style="color:#fe2c55; font-size:34px; animation:heartBeat 0.4s ease;">❤️</span>
-              <span class="tt-action-num" style="color:#fe2c55; font-weight:900;">125.5K</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">💬</span>
-              <span class="tt-action-num">2.1K</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">⭐</span>
-              <span class="tt-action-num">850</span>
-            </div>
-            <div class="tt-btn-action">
-              <span class="tt-action-icon">↗️</span>
-              <span class="tt-action-num">1.4K</span>
-            </div>
-            <div class="tt-disc">🎵</div>
-          </div>
-
-          <div class="tt-bottom-info">
-            <div class="tt-author-name">@bep_nha_viet</div>
-            <div class="tt-caption">Bí quyết nấu canh chua cá lóc miền Tây chuẩn vị thơm ngon 🍲</div>
-          </div>
-        </div>
-
-        <div class="tt-bottom-bar">
-          <div class="tt-bar-item active"><span>🏠</span><span>Trang chủ</span></div>
-          <div class="tt-bar-item"><span>👥</span><span>Bạn bè</span></div>
-          <div class="tt-create-btn">+</div>
-          <div class="tt-bar-item"><span>📥</span><span>Hộp thư</span></div>
-          <div class="tt-bar-item"><span>👤</span><span>Hồ sơ</span></div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="tt-app-screen">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="tt-top-nav">' +
+          '<span class="tt-tab-item">Đang Follow</span>' +
+          '<span class="tt-tab-item active">Dành cho bạn</span>' +
+          '<span class="tt-search-icon">🔍</span>' +
+        '</div>' +
+        '<div class="tt-viewport" style="background:linear-gradient(180deg, #1e3a8a, #065f46);">' +
+          '<div class="tt-video-slide">' +
+            '<div class="tt-vid-main-icon">🍲</div>' +
+            '<div style="font-size:18px; font-weight:800; margin-top:12px;">Canh Chua Cá Lóc Nam Bộ</div>' +
+          '</div>' +
+          '<div class="tt-sidebar">' +
+            '<div class="tt-avatar-box">👨‍🍳</div>' +
+            '<div class="tt-btn-action">' +
+              '<span class="tt-action-icon" style="color:#fe2c55; font-size:34px;">❤️</span>' +
+              '<span class="tt-action-num" style="color:#fe2c55; font-weight:900;">125.5K</span>' +
+            '</div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">💬</span><span class="tt-action-num">2.1K</span></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">⭐</span><span class="tt-action-num">850</span></div>' +
+            '<div class="tt-btn-action"><span class="tt-action-icon">↗️</span><span class="tt-action-num">1.4K</span></div>' +
+            '<div class="tt-disc">🎵</div>' +
+          '</div>' +
+          '<div class="tt-bottom-info">' +
+            '<div class="tt-author-name">@bep_nha_viet</div>' +
+            '<div class="tt-caption">Bí quyết nấu canh chua cá lóc miền Tây chuẩn vị thơm ngon 🍲</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="tt-bottom-bar">' +
+          '<div class="tt-bar-item active"><span>🏠</span><span>Trang chủ</span></div>' +
+          '<div class="tt-bar-item"><span>👥</span><span>Bạn bè</span></div>' +
+          '<div class="tt-create-btn">+</div>' +
+          '<div class="tt-bar-item"><span>📥</span><span>Hộp thư</span></div>' +
+          '<div class="tt-bar-item"><span>👤</span><span>Hồ sơ</span></div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 4. TÌM VIDEO BẰNG GIỌNG NÓI
@@ -272,49 +235,45 @@ const TT_SIMULATION_STEPS = [
     voice: 'Bước bốn: Nhấn vào biểu tượng kính lúp ở góc trên, nhấn vào micro rồi nói to điều muốn xem.',
     finger: { x: 88, y: 6 },
     duration: 5500,
-    render: () => 
-      <div class="tt-app-screen" style="background:#18181b;">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <!-- Search Screen -->
-        <div style="padding:10px 14px; display:flex; gap:10px; align-items:center;">
-          <span style="font-size:18px;">←</span>
-          <div style="flex:1; background:#27272a; border-radius:20px; padding:8px 14px; display:flex; align-items:center; gap:8px; border:2px solid #fe2c55;">
-            <span>🔍</span>
-            <span style="color:#fff; font-size:14px; font-weight:700;">Tập dưỡng sinh sáng</span>
-            <span style="margin-left:auto; background:#fe2c55; color:white; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px;">🎙️</span>
-          </div>
-        </div>
-
-        <div style="flex:1; padding:14px; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-size:13px; color:#aaa; font-weight:700;">KẾT QUẢ TÌM KIẾM</div>
-          
-          <div style="display:flex; gap:10px; background:#27272a; border-radius:12px; padding:10px; align-items:center;">
-            <div style="width:70px; height:90px; background:linear-gradient(135deg,#059669,#10b981); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:32px;">🧘</div>
-            <div style="flex:1;">
-              <div style="font-weight:800; font-size:14px; margin-bottom:4px;">10 Phút Dưỡng Sinh Khớp Khỏe</div>
-              <div style="font-size:12px; color:#aaa;">@suckhoeviet · 1.5M xem</div>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:10px; background:#27272a; border-radius:12px; padding:10px; align-items:center;">
-            <div style="width:70px; height:90px; background:linear-gradient(135deg,#d97706,#f59e0b); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:32px;">🌿</div>
-            <div style="flex:1;">
-              <div style="font-weight:800; font-size:14px; margin-bottom:4px;">Bài Tập Đi Bộ Nhẹ Nhàng Tại Nhà</div>
-              <div style="font-size:12px; color:#aaa;">@songkhoe · 850K xem</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="tt-app-screen" style="background:#18181b;">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div style="padding:10px 14px; display:flex; gap:10px; align-items:center;">' +
+          '<span style="font-size:18px;">←</span>' +
+          '<div style="flex:1; background:#27272a; border-radius:20px; padding:8px 14px; display:flex; align-items:center; gap:8px; border:2px solid #fe2c55;">' +
+            '<span>🔍</span>' +
+            '<span style="color:#fff; font-size:14px; font-weight:700;">Tập dưỡng sinh sáng</span>' +
+            '<span style="margin-left:auto; background:#fe2c55; color:white; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px;">🎙️</span>' +
+          '</div>' +
+        '</div>' +
+        '<div style="flex:1; padding:14px; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">' +
+          '<div style="font-size:13px; color:#aaa; font-weight:700;">KẾT QUẢ TÌM KIẾM</div>' +
+          '<div style="display:flex; gap:10px; background:#27272a; border-radius:12px; padding:10px; align-items:center;">' +
+            '<div style="width:70px; height:90px; background:linear-gradient(135deg,#059669,#10b981); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:32px;">🧘</div>' +
+            '<div style="flex:1;">' +
+              '<div style="font-weight:800; font-size:14px; margin-bottom:4px;">10 Phút Dưỡng Sinh Khớp Khỏe</div>' +
+              '<div style="font-size:12px; color:#aaa;">@suckhoeviet · 1.5M xem</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex; gap:10px; background:#27272a; border-radius:12px; padding:10px; align-items:center;">' +
+            '<div style="width:70px; height:90px; background:linear-gradient(135deg,#d97706,#f59e0b); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:32px;">🌿</div>' +
+            '<div style="flex:1;">' +
+              '<div style="font-weight:800; font-size:14px; margin-bottom:4px;">Bài Tập Đi Bộ Nhẹ Nhàng Tại Nhà</div>' +
+              '<div style="font-size:12px; color:#aaa;">@songkhoe · 850K xem</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
   }
 ];
 
 // START SIMULATOR ON LOAD
 let sim;
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', function() {
   sim = new AppSimulator({
     screenId: 'sim-screen',
     steps: TT_SIMULATION_STEPS,

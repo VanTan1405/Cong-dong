@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
       </div>
 
       <!-- SIMULATED MOBILE SCREEN -->
-      <div class="sim-screen" id="sim-screen">
+      <div class="sim-screen" id="sim-screen" onclick="sim.next()" style="cursor:pointer;" title="Chạm vào màn hình để sang bước tiếp theo">
         <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
@@ -107,30 +107,30 @@ const FB_SIMULATION_STEPS = [
     voice: 'Bước một: Tìm biểu tượng Facebook chữ f màu xanh trên màn hình điện thoại rồi nhấn vào để mở ứng dụng.',
     finger: { x: 30, y: 35 },
     duration: 5000,
-    render: () => 
-      <div class="sim-status-bar status-dark" style="background:#1e293b">
-        <span>09:41</span>
-        <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-      </div>
-      <div style="background:linear-gradient(180deg, #1e3a8a, #0f172a); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">
-          <div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900; box-shadow:0 8px 16px rgba(24,119,242,0.4);">f</div>
-          <span style="color:white; font-size:12px; font-weight:700;">Facebook</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>
-          <span style="color:white; font-size:12px;">TikTok</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">▶️</div>
-          <span style="color:white; font-size:12px;">YouTube</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
-          <div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>
-          <span style="color:white; font-size:12px;">Điện thoại</span>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="sim-status-bar status-dark" style="background:#1e293b">' +
+        '<span>09:41</span>' +
+        '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+      '</div>' +
+      '<div style="background:linear-gradient(180deg, #1e3a8a, #0f172a); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">' +
+          '<div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900; box-shadow:0 8px 16px rgba(24,119,242,0.4);">f</div>' +
+          '<span style="color:white; font-size:12px; font-weight:700;">Facebook</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>' +
+          '<span style="color:white; font-size:12px;">TikTok</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">▶️</div>' +
+          '<span style="color:white; font-size:12px;">YouTube</span>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; align-items:center; gap:6px;">' +
+          '<div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>' +
+          '<span style="color:white; font-size:12px;">Điện thoại</span>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 2. LƯỚT BẢNG TIN
@@ -139,69 +139,64 @@ const FB_SIMULATION_STEPS = [
     voice: 'Bước hai: Khi mở Facebook, màn hình chính là Bảng Tin. Ông Bà vuốt ngón tay lên để xem các hình ảnh con cháu vừa đăng.',
     finger: { x: 50, y: 70 },
     duration: 5500,
-    render: () => 
-      <div class="fb-app-screen">
-        <div class="sim-status-bar status-light" style="background:#fff">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <!-- Real FB Header -->
-        <div class="fb-header">
-          <div class="fb-logo">facebook</div>
-          <div class="fb-header-actions">
-            <div class="fb-circle-btn">🔍</div>
-            <div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>
-          </div>
-        </div>
-        <!-- Real FB Tabs -->
-        <div class="fb-nav-tabs">
-          <div class="fb-tab active">🏠</div>
-          <div class="fb-tab">📺</div>
-          <div class="fb-tab">👥</div>
-          <div class="fb-tab">🔔</div>
-          <div class="fb-tab">☰</div>
-        </div>
-        <!-- Feed -->
-        <div class="fb-feed">
-          <div class="fb-create-box">
-            <div class="fb-avatar">👵</div>
-            <div class="fb-input-fake">Bà đang nghĩ gì thế?</div>
-            <div class="fb-photo-icon">📷</div>
-          </div>
-
-          <!-- Post -->
-          <div class="fb-post-card">
-            <div class="fb-post-header">
-              <div class="fb-avatar" style="background:#fed7aa">👧</div>
-              <div class="fb-post-user">
-                <div class="fb-user-name">Cháu Lan Hương</div>
-                <div class="fb-post-meta">Vừa xong · 🌐 Công khai</div>
-              </div>
-            </div>
-            <div class="fb-post-body">
-              Cuối tuần cả nhà về quê thăm Ông Bà! Hoa trong vườn nở rực rỡ quá ạ 🌸❤️
-            </div>
-            <div class="fb-post-media">
-              🌸🌺🌻
-              <div class="fb-media-caption">Vườn hoa quê nội</div>
-            </div>
-            <div class="fb-post-stats">
-              <div class="fb-stats-likes">
-                <div class="fb-like-bubble">👍</div>
-                <div class="fb-heart-bubble">❤️</div>
-                <span>45</span>
-              </div>
-              <div>8 bình luận</div>
-            </div>
-            <div class="fb-post-actions">
-              <div class="fb-act-btn">👍 Thích</div>
-              <div class="fb-act-btn">💬 Bình luận</div>
-              <div class="fb-act-btn">↗️ Chia sẻ</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="fb-app-screen">' +
+        '<div class="sim-status-bar status-light" style="background:#fff">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="fb-header">' +
+          '<div class="fb-logo">facebook</div>' +
+          '<div class="fb-header-actions">' +
+            '<div class="fb-circle-btn">🔍</div>' +
+            '<div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="fb-nav-tabs">' +
+          '<div class="fb-tab active">🏠</div>' +
+          '<div class="fb-tab">📺</div>' +
+          '<div class="fb-tab">👥</div>' +
+          '<div class="fb-tab">🔔</div>' +
+          '<div class="fb-tab">☰</div>' +
+        '</div>' +
+        '<div class="fb-feed">' +
+          '<div class="fb-create-box">' +
+            '<div class="fb-avatar">👵</div>' +
+            '<div class="fb-input-fake">Bà đang nghĩ gì thế?</div>' +
+            '<div class="fb-photo-icon">📷</div>' +
+          '</div>' +
+          '<div class="fb-post-card">' +
+            '<div class="fb-post-header">' +
+              '<div class="fb-avatar" style="background:#fed7aa">👧</div>' +
+              '<div class="fb-post-user">' +
+                '<div class="fb-user-name">Cháu Lan Hương</div>' +
+                '<div class="fb-post-meta">Vừa xong · 🌐 Công khai</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="fb-post-body">' +
+              'Cuối tuần cả nhà về quê thăm Ông Bà! Hoa trong vườn nở rực rỡ quá ạ 🌸❤️' +
+            '</div>' +
+            '<div class="fb-post-media">' +
+              '🌸🌺🌻' +
+              '<div class="fb-media-caption">Vườn hoa quê nội</div>' +
+            '</div>' +
+            '<div class="fb-post-stats">' +
+              '<div class="fb-stats-likes">' +
+                '<div class="fb-like-bubble">👍</div>' +
+                '<div class="fb-heart-bubble">❤️</div>' +
+                '<span>45</span>' +
+              '</div>' +
+              '<div>8 bình luận</div>' +
+            '</div>' +
+            '<div class="fb-post-actions">' +
+              '<div class="fb-act-btn">👍 Thích</div>' +
+              '<div class="fb-act-btn">💬 Bình luận</div>' +
+              '<div class="fb-act-btn">↗️ Chia sẻ</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 3. THẢ TIM / NHẤN THÍCH
@@ -210,52 +205,50 @@ const FB_SIMULATION_STEPS = [
     voice: 'Bước ba: Nhấn vào chữ Thích có hình bàn tay giơ ngón cái để bày tỏ tình cảm yêu thương với bài viết.',
     finger: { x: 25, y: 92 },
     duration: 5000,
-    render: () => 
-      <div class="fb-app-screen">
-        <div class="sim-status-bar status-light" style="background:#fff">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <div class="fb-header">
-          <div class="fb-logo">facebook</div>
-          <div class="fb-header-actions">
-            <div class="fb-circle-btn">🔍</div>
-            <div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>
-          </div>
-        </div>
-        <div class="fb-feed">
-          <div class="fb-post-card">
-            <div class="fb-post-header">
-              <div class="fb-avatar" style="background:#fed7aa">👧</div>
-              <div class="fb-post-user">
-                <div class="fb-user-name">Cháu Lan Hương</div>
-                <div class="fb-post-meta">Vừa xong · 🌐</div>
-              </div>
-            </div>
-            <div class="fb-post-body">
-              Cuối tuần cả nhà về quê thăm Ông Bà! 🌸❤️
-            </div>
-            <div class="fb-post-media">
-              🌸🌺🌻
-            </div>
-            <div class="fb-post-stats">
-              <div class="fb-stats-likes">
-                <div class="fb-like-bubble">👍</div>
-                <div class="fb-heart-bubble">❤️</div>
-                <span style="font-weight:700; color:#1877f2;">Bạn và 45 người khác</span>
-              </div>
-            </div>
-            <div class="fb-post-actions">
-              <div class="fb-act-btn liked" style="color:#1877f2; background:#e7f0fd;">
-                <span style="font-size:18px;">💙</span> Đã Thích
-              </div>
-              <div class="fb-act-btn">💬 Bình luận</div>
-              <div class="fb-act-btn">↗️ Chia sẻ</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="fb-app-screen">' +
+        '<div class="sim-status-bar status-light" style="background:#fff">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="fb-header">' +
+          '<div class="fb-logo">facebook</div>' +
+          '<div class="fb-header-actions">' +
+            '<div class="fb-circle-btn">🔍</div>' +
+            '<div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="fb-feed">' +
+          '<div class="fb-post-card">' +
+            '<div class="fb-post-header">' +
+              '<div class="fb-avatar" style="background:#fed7aa">👧</div>' +
+              '<div class="fb-post-user">' +
+                '<div class="fb-user-name">Cháu Lan Hương</div>' +
+                '<div class="fb-post-meta">Vừa xong · 🌐</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="fb-post-body">' +
+              'Cuối tuần cả nhà về quê thăm Ông Bà! 🌸❤️' +
+            '</div>' +
+            '<div class="fb-post-media">🌸🌺🌻</div>' +
+            '<div class="fb-post-stats">' +
+              '<div class="fb-stats-likes">' +
+                '<div class="fb-like-bubble">👍</div>' +
+                '<div class="fb-heart-bubble">❤️</div>' +
+                '<span style="font-weight:700; color:#1877f2;">Bạn và 45 người khác</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="fb-post-actions">' +
+              '<div class="fb-act-btn liked" style="color:#1877f2; background:#e7f0fd;">' +
+                '<span style="font-size:18px;">💙</span> Đã Thích' +
+              '</div>' +
+              '<div class="fb-act-btn">💬 Bình luận</div>' +
+              '<div class="fb-act-btn">↗️ Chia sẻ</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 4. VIẾT BÌNH LUẬN
@@ -264,39 +257,38 @@ const FB_SIMULATION_STEPS = [
     voice: 'Bước bốn: Nhấn vào nút Bình Luận, gõ vài chữ hỏi thăm rồi nhấn nút gửi màu xanh.',
     finger: { x: 50, y: 70 },
     duration: 5500,
-    render: () => 
-      <div class="fb-app-screen">
-        <div class="sim-status-bar status-light" style="background:#fff">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <div class="fb-header">
-          <div style="font-size:18px; font-weight:800;">💬 Bình luận bài viết</div>
-          <div style="font-size:14px; color:#1877f2; font-weight:700;">Đóng</div>
-        </div>
-        <div style="flex:1; padding:14px; background:#fff; display:flex; flex-direction:column; gap:12px;">
-          <div style="display:flex; gap:10px;">
-            <div class="fb-avatar" style="background:#fed7aa">👧</div>
-            <div style="background:#f0f2f5; padding:10px 14px; border-radius:18px; flex:1;">
-              <strong>Cháu Lan Hương</strong>
-              <p style="margin:4px 0 0; font-size:13px;">Cuối tuần con mang quà về cho Bà nhé!</p>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:10px; animation:fadeIn 0.5s;">
-            <div class="fb-avatar">👵</div>
-            <div style="background:#e7f0fd; border:2px solid #1877f2; padding:10px 14px; border-radius:18px; flex:1;">
-              <strong style="color:#1877f2">Bà Nội (Bạn)</strong>
-              <p style="margin:4px 0 0; font-size:14px; font-weight:700; color:#1e293b;">Bà mong các cháu về lắm! Đi đường cẩn thận nhé con ❤️</p>
-            </div>
-          </div>
-        </div>
-        <div style="padding:10px 14px; background:#fff; border-top:1px solid #e4e6eb; display:flex; gap:8px;">
-          <input type="text" value="Bà mong các cháu về lắm! ❤️" style="flex:1; border:1px solid #1877f2; border-radius:20px; padding:8px 14px; font-size:14px; background:#eff6ff;" readonly>
-          <button style="background:#1877f2; color:white; border:none; border-radius:50%; width:36px; height:36px; font-size:14px;">➤</button>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="fb-app-screen">' +
+        '<div class="sim-status-bar status-light" style="background:#fff">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div class="fb-header">' +
+          '<div style="font-size:18px; font-weight:800;">💬 Bình luận bài viết</div>' +
+          '<div style="font-size:14px; color:#1877f2; font-weight:700;">Đóng</div>' +
+        '</div>' +
+        '<div style="flex:1; padding:14px; background:#fff; display:flex; flex-direction:column; gap:12px;">' +
+          '<div style="display:flex; gap:10px;">' +
+            '<div class="fb-avatar" style="background:#fed7aa">👧</div>' +
+            '<div style="background:#f0f2f5; padding:10px 14px; border-radius:18px; flex:1;">' +
+              '<strong>Cháu Lan Hương</strong>' +
+              '<p style="margin:4px 0 0; font-size:13px;">Cuối tuần con mang quà về cho Bà nhé!</p>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex; gap:10px;">' +
+            '<div class="fb-avatar">👵</div>' +
+            '<div style="background:#e7f0fd; border:2px solid #1877f2; padding:10px 14px; border-radius:18px; flex:1;">' +
+              '<strong style="color:#1877f2">Bà Nội (Bạn)</strong>' +
+              '<p style="margin:4px 0 0; font-size:14px; font-weight:700; color:#1e293b;">Bà mong các cháu về lắm! Đi đường cẩn thận nhé con ❤️</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="padding:10px 14px; background:#fff; border-top:1px solid #e4e6eb; display:flex; gap:8px;">' +
+          '<input type="text" value="Bà mong các cháu về lắm! ❤️" style="flex:1; border:1px solid #1877f2; border-radius:20px; padding:8px 14px; font-size:14px; background:#eff6ff;" readonly>' +
+          '<button style="background:#1877f2; color:white; border:none; border-radius:50%; width:36px; height:36px; font-size:14px;">➤</button>' +
+        '</div>' +
+      '</div>';
+    }
   },
 
   // 5. GỌI VIDEO CALL MESSENGER
@@ -305,41 +297,38 @@ const FB_SIMULATION_STEPS = [
     voice: 'Bước năm: Nhấn biểu tượng tin nhắn, chọn tên con cháu rồi nhấn biểu tượng máy quay phim để gọi video nhìn thấy mặt trực tiếp.',
     finger: { x: 80, y: 15 },
     duration: 6000,
-    render: () => 
-      <div class="fb-app-screen" style="background:#0f172a;">
-        <div class="sim-status-bar status-dark">
-          <span>09:41</span>
-          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
-        </div>
-        <!-- Real Video Call Screen -->
-        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:space-around; padding:20px; color:white; text-align:center;">
-          <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-            <span>📹 Cuộc gọi Messenger</span>
-            <span style="background:#22c55e; padding:4px 10px; border-radius:20px; font-size:12px;">Đang kết nối...</span>
-          </div>
-
-          <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
-            <div style="width:110px; height:110px; border-radius:50%; background:#fed7aa; display:flex; align-items:center; justify-content:center; font-size:56px; border:4px solid #22c55e; box-shadow:0 0 30px rgba(34,197,94,0.6); animation:pulse 1.5s infinite;">
-              👧
-            </div>
-            <h3 style="font-size:20px; font-weight:900; margin:0;">Cháu Lan Hương</h3>
-            <p style="color:#94a3b8; font-size:14px; margin:0;">00:28 · Hình ảnh sắc nét</p>
-          </div>
-
-          <div style="display:flex; gap:20px; align-items:center;">
-            <div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🎤</div>
-            <div style="width:68px; height:68px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; font-size:28px; cursor:pointer;" onclick="sim.showStep(0)">📞</div>
-            <div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🔄</div>
-          </div>
-        </div>
-      </div>
-    
+    render: function() {
+      return '<div class="fb-app-screen" style="background:#0f172a;">' +
+        '<div class="sim-status-bar status-dark">' +
+          '<span>09:41</span>' +
+          '<div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>' +
+        '</div>' +
+        '<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:space-around; padding:20px; color:white; text-align:center;">' +
+          '<div style="display:flex; justify-content:space-between; width:100%; align-items:center;">' +
+            '<span>📹 Cuộc gọi Messenger</span>' +
+            '<span style="background:#22c55e; padding:4px 10px; border-radius:20px; font-size:12px;">Đang kết nối...</span>' +
+          '</div>' +
+          '<div style="display:flex; flex-direction:column; align-items:center; gap:12px;">' +
+            '<div style="width:110px; height:110px; border-radius:50%; background:#fed7aa; display:flex; align-items:center; justify-content:center; font-size:56px; border:4px solid #22c55e; box-shadow:0 0 30px rgba(34,197,94,0.6);">' +
+              '👧' +
+            '</div>' +
+            '<h3 style="font-size:20px; font-weight:900; margin:0;">Cháu Lan Hương</h3>' +
+            '<p style="color:#94a3b8; font-size:14px; margin:0;">00:28 · Hình ảnh sắc nét</p>' +
+          '</div>' +
+          '<div style="display:flex; gap:20px; align-items:center;">' +
+            '<div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🎤</div>' +
+            '<div style="width:68px; height:68px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; font-size:28px; cursor:pointer;" onclick="sim.showStep(0)">📞</div>' +
+            '<div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🔄</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
   }
 ];
 
 // START SIMULATOR ON LOAD
 let sim;
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', function() {
   sim = new AppSimulator({
     screenId: 'sim-screen',
     steps: FB_SIMULATION_STEPS,
