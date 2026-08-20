@@ -1,6 +1,6 @@
 ﻿/* =========================================================
    APP-SIMULATION.CSS - IMMERSIVE FULLSCREEN SIMULATION MODE
-   Zero distraction, 100% focused on Phone Simulation
+   Floating Glassmorphism Controls - Optimized for Mobile
    ========================================================= */
 
 /* Reset body for fullscreen theater experience */
@@ -14,9 +14,9 @@ body.sim-theater-body {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   display: flex;
   flex-direction: column;
+  user-select: none;
 }
 
-/* Fullscreen Theater Container */
 .sim-theater-container {
   display: flex;
   flex-direction: column;
@@ -30,106 +30,135 @@ body.sim-theater-body {
   box-sizing: border-box;
 }
 
-/* ===== TOP FLOATING CONTROL BAR (SENIOR-FRIENDLY) ===== */
+/* ===== TOP FLOATING OVERLAY BAR (STORIES / THEATER STYLE) ===== */
 .sim-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px 16px;
+  background: linear-gradient(180deg, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.7) 70%, transparent 100%);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+/* Stories Style Progress Bar at the very top */
+.sim-story-progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.sim-story-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #f59e0b);
+  border-radius: 10px;
+  transition: width 0.04s linear;
+}
+
+/* Main Controls Row in Top Bar */
+.sim-controls-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
-  background: rgba(15, 23, 42, 0.95);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  z-index: 500;
-  flex-shrink: 0;
   gap: 10px;
 }
 
-.sim-top-left {
-  display: flex;
+/* Left: Big Red Floating Exit Button */
+.sim-btn-exit {
+  background: #dc2626;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 50px;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease, background 0.2s ease;
+  flex-shrink: 0;
+  z-index: 550;
 }
+.sim-btn-exit:hover, .sim-btn-exit:active {
+  background: #b91c1c;
+  transform: scale(0.96);
+  color: #fff !important;
+}
+.sim-btn-exit span.icon { font-size: 18px; line-height: 1; }
 
-.sim-top-title-box {
+/* Center: Step Indicator Pill */
+.sim-title-pill {
   flex: 1;
   text-align: center;
-  padding: 0 8px;
+  padding: 0 6px;
+  min-width: 0;
 }
-
-.sim-step-tag {
-  background: #f59e0b;
-  color: #000;
-  font-size: 13px;
+.sim-badge-tag {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fcd34d;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  font-size: 12px;
   font-weight: 900;
-  padding: 3px 10px;
+  padding: 2px 10px;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 2px;
+  letter-spacing: 0.5px;
 }
-
-.sim-step-text {
-  color: #fff;
-  font-size: 15px;
+.sim-step-caption {
+  color: #ffffff;
+  font-size: 14px;
   font-weight: 800;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 500px;
-  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Progress bar inside top bar */
-.sim-top-progress-track {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.15);
-}
-.sim-top-progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #10b981, #3b82f6, #f59e0b);
-  transition: width 0.05s linear;
+/* Right Actions Group */
+.sim-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
-/* Buttons in top bar */
-.sim-ctrl-btn {
-  padding: 8px 16px;
+.sim-act-btn {
+  background: rgba(30, 41, 59, 0.85);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 14px;
   border-radius: 50px;
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
-  border: 2px solid transparent;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
   white-space: nowrap;
-  transition: all 0.2s;
 }
-
-.btn-pause-toggle {
-  background: #f59e0b;
-  color: #000;
+.sim-act-btn:hover, .sim-act-btn:active {
+  background: rgba(51, 65, 85, 0.95);
+  transform: scale(0.96);
 }
-.btn-pause-toggle:hover { background: #d97706; }
-
-.btn-exit-home {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-  border-color: rgba(239, 68, 68, 0.4);
+.sim-btn-pause {
+  background: #d97706;
+  border-color: #f59e0b;
+  color: #ffffff;
 }
-.btn-exit-home:hover {
-  background: #ef4444;
-  color: #fff;
-}
-
-.btn-voice-replay {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-.btn-voice-replay:hover { background: rgba(255, 255, 255, 0.25); }
+.sim-btn-pause:hover { background: #b45309; }
 
 /* ===== MAXIMIZED STAGE & PHONE ===== */
 .sim-theater-stage {
@@ -137,20 +166,22 @@ body.sim-theater-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+  padding: 70px 12px 12px;
   overflow: hidden;
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }
 
 .sim-phone {
   width: 420px;
-  height: calc(100vh - 85px);
-  max-height: 820px;
+  height: 100%;
+  max-height: 800px;
   max-width: 100%;
   background: #0f172a;
-  border-radius: 46px;
+  border-radius: 44px;
   padding: 10px 8px;
-  box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 0 2px rgba(255,255,255,0.15);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.15);
   position: relative;
   user-select: none;
   display: flex;
@@ -179,7 +210,7 @@ body.sim-theater-body {
 .sim-screen {
   width: 100%;
   height: 100%;
-  border-radius: 36px;
+  border-radius: 34px;
   overflow: hidden;
   position: relative;
   background: #fff;
@@ -294,7 +325,6 @@ body.sim-theater-body {
   border: 2px solid white;
 }
 
-/* Tabs */
 .fb-nav-tabs {
   background: #fff;
   display: flex;
@@ -322,7 +352,6 @@ body.sim-theater-body {
   border-radius: 3px 3px 0 0;
 }
 
-/* Feed Content */
 .fb-feed {
   flex: 1;
   overflow-y: auto;
@@ -360,7 +389,6 @@ body.sim-theater-body {
 }
 .fb-photo-icon { color: #45bd62; font-size: 22px; cursor: pointer; }
 
-/* Feed Post */
 .fb-post-card {
   background: #fff;
   margin-bottom: 8px;
@@ -811,41 +839,46 @@ body.sim-theater-body {
 .yt-nav-item span:first-child { font-size: 18px; }
 
 /* =========================================================
-   MOBILE RESPONSIVE (FULLSCREEN ON MOBILE SCREENS)
+   MOBILE RESPONSIVE (PERFECT PHONE FIT & CLEAN BUTTONS)
    ========================================================= */
 @media (max-width: 640px) {
   .sim-top-bar {
-    padding: 8px 10px;
-    gap: 6px;
+    padding: 8px 10px 12px;
+    gap: 8px;
   }
-  .sim-ctrl-btn {
-    padding: 6px 10px;
-    font-size: 12px;
+  .sim-btn-exit {
+    padding: 8px 14px;
+    font-size: 14px;
   }
-  .sim-step-tag {
-    font-size: 11px;
-    padding: 2px 8px;
-  }
-  .sim-step-text {
+  .sim-act-btn {
+    padding: 8px 12px;
     font-size: 13px;
   }
+  .sim-badge-tag {
+    font-size: 11px;
+    padding: 1px 8px;
+  }
+  .sim-step-caption {
+    font-size: 12px;
+  }
   .sim-theater-stage {
-    padding: 4px;
+    padding: 60px 4px 4px;
   }
   .sim-phone {
     width: 100%;
     height: 100%;
     max-height: none;
-    border-radius: 24px;
-    padding: 4px;
+    border-radius: 20px;
+    padding: 2px;
     box-shadow: none;
+    border: none;
   }
   .sim-notch {
-    top: 6px;
-    width: 80px;
-    height: 16px;
+    top: 4px;
+    width: 70px;
+    height: 14px;
   }
   .sim-screen {
-    border-radius: 20px;
+    border-radius: 18px;
   }
 }

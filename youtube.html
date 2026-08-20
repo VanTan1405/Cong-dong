@@ -13,34 +13,39 @@
 
 <div class="sim-theater-container">
 
-  <!-- TOP FLOATING CONTROLLER BAR -->
-  <div class="sim-top-bar" style="border-bottom-color: rgba(255, 0, 0, 0.4);">
-    <div class="sim-top-left">
-      <button class="sim-ctrl-btn btn-exit-home" onclick="sim.exit()" title="Thoát ra Trang Chủ">
-        <span>✕</span> <span>Thoát</span>
-      </button>
-      <button class="sim-ctrl-btn btn-pause-toggle" id="sim-btn-play" style="background:#ff0000; color:white;" onclick="sim.togglePlay()">
-        <span>⏸</span> <span>Tạm Dừng</span>
-      </button>
+  <!-- TOP FLOATING BAR (STORIES / THEATER STYLE) -->
+  <div class="sim-top-bar">
+    <!-- Progress Bar at very top -->
+    <div class="sim-story-progress-bar">
+      <div class="sim-story-progress-fill" id="sim-top-progress-fill" style="background:linear-gradient(90deg, #ff8080, #ff0000);"></div>
     </div>
 
-    <div class="sim-top-title-box">
-      <span class="sim-step-tag" id="sim-badge" style="background:#ff0000; color:white;">Bước 1 / 5</span>
-      <div class="sim-step-text" id="sim-title">Bước 1: Chạm vào biểu tượng YouTube nút phát màu đỏ để mở</div>
-    </div>
+    <!-- Main Controls Row -->
+    <div class="sim-controls-row">
+      <!-- 100% Reliable Exit Link -->
+      <a href="index.html" class="sim-btn-exit" onclick="if(window.Voice)Voice.stop();" title="Thoát về Trang Chủ">
+        <span class="icon">←</span>
+        <span>Thoát</span>
+      </a>
 
-    <div style="display:flex; gap:6px;">
-      <button class="sim-ctrl-btn btn-voice-replay" onclick="sim.replayVoice()" title="Nghe lại lời hướng dẫn">
-        <span>🔊</span> <span>Nghe Lại</span>
-      </button>
-      <button class="sim-ctrl-btn btn-voice-replay" onclick="sim.next()" title="Sang bước tiếp theo">
-        <span>Tiếp ▶</span>
-      </button>
-    </div>
+      <!-- Step Title & Badge -->
+      <div class="sim-title-pill">
+        <span class="sim-badge-tag" id="sim-badge" style="background:rgba(255,0,0,0.25); color:#ff4d4d; border-color:#ff0000;">Bước 1 / 5</span>
+        <div class="sim-step-caption" id="sim-title">Bước 1: Chạm vào biểu tượng YouTube nút phát màu đỏ để mở</div>
+      </div>
 
-    <!-- Countdown Progress Fill -->
-    <div class="sim-top-progress-track">
-      <div class="sim-top-progress-fill" id="sim-top-progress-fill" style="background:linear-gradient(90deg, #ff8080, #ff0000);"></div>
+      <!-- Right Actions -->
+      <div class="sim-actions-group">
+        <button class="sim-act-btn sim-btn-pause" id="sim-btn-play" style="background:#ff0000; border-color:#ff0000; color:white;" onclick="sim.togglePlay()">
+          <span>⏸ Tạm Dừng</span>
+        </button>
+        <button class="sim-act-btn" onclick="sim.replayVoice()" title="Nghe lại lời hướng dẫn">
+          <span>🔊</span>
+        </button>
+        <button class="sim-act-btn" onclick="sim.next()" title="Sang bước tiếp theo">
+          <span>▶</span>
+        </button>
+      </div>
     </div>
   </div>
 
