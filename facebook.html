@@ -4,18 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#1877f2">
-  <title>Hướng Dẫn Facebook - Công Nghệ Vui</title>
+  <title>Mô Phỏng Facebook - Hướng Dẫn Cho Ông Bà</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/app-simulation.css">
   <link rel="stylesheet" href="css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background: #f8faff;">
 
+<!-- TOP HEADER -->
 <header class="main-header">
   <div class="header-inner">
     <div class="logo-area">
       <span class="logo-icon">📱</span>
-      <div class="logo-text"><h1>Công Nghệ Vui</h1><p>Dành riêng cho Ông Bà</p></div>
+      <div class="logo-text">
+        <h1>Công Nghệ Vui</h1>
+        <p>Mô phỏng Facebook thật 100%</p>
+      </div>
     </div>
     <nav class="top-nav">
       <a href="index.html" class="nav-link">🏠 Trang Chủ</a>
@@ -26,493 +31,321 @@
   </div>
 </header>
 
-<div class="breadcrumb"><div class="breadcrumb-inner">
-  <a href="index.html">🏠 Trang Chủ</a><span>›</span><span>👍 Facebook</span>
-</div></div>
+<!-- MAIN SIMULATION AREA -->
+<main style="max-width: 900px; margin: 0 auto; padding: 16px 12px 60px;">
 
-<div class="page-header fb-header">
-  <div class="page-header-inner">
-    <span class="page-icon">👍</span>
-    <h1>Hướng Dẫn Facebook</h1>
-    <p>Xem ảnh con cháu · Nhắn tin · Gọi video miễn phí</p>
-  </div>
-</div>
-
-<!-- AUTO DEMO PHONE -->
-<section class="demo-section">
-  <div class="demo-section-inner">
-    <div class="demo-header">
-      <h2>📱 Xem Demo Từng Bước</h2>
-      <p>Tự động chạy — Ông Bà chỉ cần xem!</p>
+  <!-- SIMULATOR CONTROLLER (TOP) -->
+  <div class="sim-controller">
+    <div class="sim-ctrl-header">
+      <span class="sim-step-badge" id="sim-badge">Bước 1 / 5</span>
+      <span style="font-size:13px; font-weight:800; color:#64748b;">🎬 Chế độ xem mô phỏng</span>
     </div>
-    <div id="fb-demo"></div>
-  </div>
-</section>
-
-<!-- HƯỚNG DẪN CHI TIẾT -->
-<section class="steps-section" style="background:#f8faff">
-  <div class="inner">
-    <div class="steps-header-row">
-      <h2>📋 Hướng Dẫn Chi Tiết</h2>
-      <button class="read-all-btn" onclick="Voice.readSteps(window.PAGE_STEPS); document.getElementById('voice-ui').classList.add('active')">
-        🔊 Nghe Tất Cả
+    <div class="sim-ctrl-title" id="sim-title">
+      Bước 1: Chạm vào biểu tượng Facebook màu xanh để mở ứng dụng
+    </div>
+    <div class="sim-ctrl-buttons">
+      <button class="sim-btn sim-btn-play" id="sim-btn-play" onclick="sim.togglePlay()">
+        ▶ Tự Động Chạy
+      </button>
+      <button class="sim-btn sim-btn-nav" onclick="sim.prev()">
+        ◀ Bước Trước
+      </button>
+      <button class="sim-btn sim-btn-nav" onclick="sim.next()">
+        Bước Tiếp ▶
+      </button>
+      <button class="sim-btn sim-btn-voice" onclick="sim.replayVoice()">
+        🔊 Nghe Lại
       </button>
     </div>
-
-    <div class="step-block open" id="step-1">
-      <div class="step-header" onclick="toggleStep('step-1')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">1</div>
-        <div class="step-header-text">
-          <strong>Mở Facebook</strong>
-          <span>Tìm và nhấn vào biểu tượng Facebook</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="anim-phone-mini">
-              <div class="apm-screen apm-home">
-                <div class="apm-app fb-icon-anim">👍</div>
-                <div class="apm-label">Facebook</div>
-                <div class="apm-tap-hint">👆 Nhấn vào đây</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Tìm biểu tượng <strong>chữ "f" màu xanh</strong> trên màn hình điện thoại và nhấn vào.</p>
-          <p>Nếu chưa có, nhờ con cháu tải miễn phí từ App Store hoặc CH Play.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Tìm biểu tượng Facebook màu xanh trên màn hình điện thoại rồi nhấn vào. Nếu chưa có hãy nhờ con cháu tải về miễn phí.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <div class="step-block" id="step-2">
-      <div class="step-header" onclick="toggleStep('step-2')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">2</div>
-        <div class="step-header-text">
-          <strong>Tạo Tài Khoản</strong>
-          <span>Điền thông tin đơn giản — làm 1 lần dùng mãi</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="fb-form-anim">
-              <div class="ffa-title">📝 Đăng ký Facebook</div>
-              <div class="ffa-field typing-anim" id="ffa-f1">👤 Nguyễn Thị Ba</div>
-              <div class="ffa-field" id="ffa-f2">📱 0912 345 678</div>
-              <div class="ffa-field" id="ffa-f3">🔒 ••••••••</div>
-              <div class="ffa-btn" id="ffa-btn">✅ Đăng ký</div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn <strong>"Tạo tài khoản mới"</strong> → điền họ tên → số điện thoại → mật khẩu → nhấn Đăng ký.</p>
-          <p>⚠️ Ghi mật khẩu ra giấy và cất kỹ!</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào nút Tạo tài khoản mới. Sau đó điền họ tên thật, số điện thoại đang dùng, và đặt mật khẩu ít nhất 8 ký tự. Nhớ ghi mật khẩu ra giấy và cất kỹ nhé!')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <div class="step-block" id="step-3">
-      <div class="step-header" onclick="toggleStep('step-3')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">3</div>
-        <div class="step-header-text">
-          <strong>Tìm & Kết Bạn</strong>
-          <span>Tìm lại bạn bè, con cháu trên Facebook</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="search-anim-demo">
-              <div class="sad-search-bar">🔍 Nguyễn Văn An...</div>
-              <div class="sad-result">
-                <div class="sad-item">👤 <strong>Nguyễn Văn An</strong> — Hà Nội <button class="sad-add-btn" onclick="this.textContent='✅ Đã gửi'">+ Thêm bạn</button></div>
-                <div class="sad-item">👤 <strong>Nguyễn Văn An</strong> — Sài Gòn <button class="sad-add-btn" onclick="this.textContent='✅ Đã gửi'">+ Thêm bạn</button></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn 🔍 → gõ tên người muốn kết bạn → nhấn <strong>"Thêm bạn"</strong>.</p>
-          <p>Xem ảnh đại diện để chắc đúng người!</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào biểu tượng kính lúp ở thanh dưới. Gõ tên người muốn kết bạn. Xem ảnh đại diện để chắc đúng người rồi nhấn Thêm bạn. Đợi họ chấp nhận là xong!')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <div class="step-block" id="step-4">
-      <div class="step-header" onclick="toggleStep('step-4')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">4</div>
-        <div class="step-header-text">
-          <strong>Đăng Ảnh Lên Facebook</strong>
-          <span>Chia sẻ ảnh để bạn bè cùng xem</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="post-anim-demo" id="post-anim">
-              <div class="pad-input">😊 Ông Bà đang nghĩ gì?</div>
-              <div class="pad-actions">
-                <div class="pad-btn photo-btn" onclick="demoAddPhoto()">📷 Ảnh/Video</div>
-                <div class="pad-btn feel-btn" onclick="demoAddFeeling()">😊 Cảm xúc</div>
-              </div>
-              <div class="pad-preview" id="pad-preview" style="display:none">🌸 Ảnh đã chọn</div>
-              <div class="pad-submit" onclick="demoSubmitPost()">📤 Đăng Bài</div>
-              <div id="pad-result" style="font-size:0.85rem;color:green;margin-top:8px;text-align:center"></div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn ô <strong>"Đang nghĩ gì?"</strong> → viết vài chữ → nhấn 📷 thêm ảnh → nhấn <strong>Đăng</strong>.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào ô Đang nghĩ gì trên trang chủ. Viết vài chữ muốn chia sẻ. Nhấn vào biểu tượng máy ảnh để thêm ảnh từ điện thoại. Cuối cùng nhấn nút Đăng màu xanh là xong!')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <div class="step-block" id="step-5">
-      <div class="step-header" onclick="toggleStep('step-5')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">5</div>
-        <div class="step-header-text">
-          <strong>Nhắn Tin & Gọi Video</strong>
-          <span>Chat và gọi video miễn phí qua Messenger</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="chat-anim-demo">
-              <div class="cad-header">💬 Messenger — Con Gái Lan</div>
-              <div class="cad-msgs">
-                <div class="cad-bubble in">Chào Ba! Ba khoẻ không? 😊</div>
-                <div class="cad-bubble out">Ba khoẻ lắm, con ơi! 👍</div>
-                <div class="cad-bubble in typing" id="typing-bubble">...</div>
-              </div>
-              <div class="cad-actions">
-                <button class="cad-call-btn" onclick="demoVideoCall()">📹 Gọi Video</button>
-                <button class="cad-voice-btn" onclick="demoVoiceCall()">📞 Gọi Thoại</button>
-              </div>
-              <div id="call-overlay-demo" class="call-overlay-demo" style="display:none">
-                <div class="cod-pulse">📹</div>
-                <p>Đang gọi Con Gái Lan...</p>
-                <button onclick="document.getElementById('call-overlay-demo').style.display='none'">Kết Thúc</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn biểu tượng 💬 → chọn tên người → nhắn tin hoặc nhấn 📹 để gọi video miễn phí.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào biểu tượng tin nhắn bong bóng ở thanh dưới. Chọn tên người muốn nhắn tin. Gõ lời nhắn rồi nhấn nút gửi. Để gọi video miễn phí, nhấn biểu tượng máy quay phim ở góc trên bên phải.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <div class="step-block" id="step-6">
-      <div class="step-header" onclick="toggleStep('step-6')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#1877f2,#1358b8)">6</div>
-        <div class="step-header-text">
-          <strong>Nhấn Thích & Bình Luận</strong>
-          <span>Tương tác với bài viết của bạn bè</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="react-anim-demo">
-              <div class="rad-post">
-                <div class="rad-header">🌸 Hoa nhà em nở đẹp quá! 🌺</div>
-                <div class="rad-actions">
-                  <button class="rad-like" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '💙 Đã Thích' : '👍 Thích'">👍 Thích</button>
-                  <button class="rad-comment" onclick="document.getElementById('rad-comment-box').style.display='block'">💬 Bình luận</button>
-                  <button class="rad-share" onclick="Voice.speak('Đã chia sẻ bài viết!')">↗️ Chia sẻ</button>
-                </div>
-                <div id="rad-comment-box" style="display:none;padding:8px 0">
-                  <input type="text" placeholder="Viết bình luận..." style="width:100%;border:2px solid #e2e8f0;border-radius:20px;padding:8px 14px;font-size:0.9rem;font-family:inherit" id="rad-inp">
-                  <button onclick="submitRadComment()" style="margin-top:6px;background:#1877f2;color:white;border:none;padding:8px 18px;border-radius:20px;font-weight:800;cursor:pointer">Gửi</button>
-                  <div id="rad-result" style="font-size:0.85rem;color:green;margin-top:6px"></div>
-                </div>
-              </div>
-              <div class="reaction-row">
-                <span>Nhấn giữ "Thích" để chọn cảm xúc:</span>
-                <div class="reaction-emojis">
-                  <span onclick="Voice.speak('Yêu thích')" title="Yêu">❤️</span>
-                  <span onclick="Voice.speak('Haha')" title="Haha">😂</span>
-                  <span onclick="Voice.speak('Ngạc nhiên')" title="Wow">😮</span>
-                  <span onclick="Voice.speak('Buồn')" title="Buồn">😢</span>
-                  <span onclick="Voice.speak('Phẫn nộ')" title="Phẫn nộ">😠</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn <strong>👍 Thích</strong> để bày tỏ cảm xúc. Nhấn giữ 1 giây để chọn tim, cười, v.v.</p>
-          <p>Nhấn <strong>💬 Bình luận</strong> để viết vài chữ động viên.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào nút Thích dưới bài viết để bày tỏ cảm xúc. Nhấn giữ nút Thích trong một giây để hiện ra nhiều cảm xúc như tim đỏ, cười, ngạc nhiên. Nhấn Bình luận để viết vài chữ động viên bạn bè.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
   </div>
-</section>
 
-<!-- CẢNH BÁO AN TOÀN -->
-<section style="padding:48px 24px;background:white">
-  <div style="max-width:900px;margin:0 auto">
-    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:24px;text-align:center">🔒 An Toàn Khi Dùng Facebook</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-      <div style="background:#f0fdf4;border-radius:20px;padding:24px;border:3px solid #22c55e">
-        <div style="font-size:1.3rem;font-weight:900;margin-bottom:14px">✅ Nên Làm</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:1rem">
-          <li>✅ Kết bạn với người quen biết</li>
-          <li>✅ Giữ mật khẩu bí mật</li>
-          <li>✅ Báo cáo bài viết xấu</li>
-          <li>✅ Đăng xuất khi dùng xong</li>
-        </ul>
+  <!-- SMARTPHONE SIMULATOR -->
+  <div class="sim-stage">
+    <div class="sim-phone">
+      <div class="sim-notch">
+        <div class="sim-speaker"></div>
+        <div class="sim-camera"></div>
       </div>
-      <div style="background:#fff1f2;border-radius:20px;padding:24px;border:3px solid #ef4444">
-        <div style="font-size:1.3rem;font-weight:900;margin-bottom:14px">❌ Không Nên Làm</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:1rem">
-          <li>❌ Không kết bạn người lạ</li>
-          <li>❌ Không nhấn link lạ</li>
-          <li>❌ Không chuyển tiền qua Facebook</li>
-          <li>❌ Không chia sẻ CMND, tài khoản ngân hàng</li>
-        </ul>
+
+      <!-- FINGER POINTER -->
+      <div class="sim-finger" id="sim-finger">
+        <div class="sim-finger-pulse"></div>
+        <div class="sim-finger-hand">👆</div>
       </div>
-    </div>
-    <div class="warn-box" style="margin-top:20px">
-      <div class="warn-icon">⚠️</div>
-      <div class="warn-text">
-        <strong>Cảnh báo lừa đảo phổ biến</strong>
-        <p>Có người nhắn tin xưng là con cháu đang gặp nạn cần tiền gấp — đây là LỪA ĐẢO! Hãy gọi điện thẳng cho con cháu để kiểm tra trước.</p>
+
+      <!-- SIMULATED MOBILE SCREEN -->
+      <div class="sim-screen" id="sim-screen">
+        <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
   </div>
-</section>
 
-<section class="nav-section">
-  <div class="nav-section-inner">
-    <a href="index.html" class="nav-prev">← Trang Chủ</a>
-    <a href="tiktok.html" class="nav-next tt-next">Tiếp: TikTok →</a>
-  </div>
-</section>
+</main>
 
 <footer class="main-footer">
   <div class="footer-inner">
     <div class="footer-logo">📱 Công Nghệ Vui</div>
-    <p>💖 Được tạo ra với tình yêu thương dành cho Ông Bà</p>
+    <p>💖 Giao diện mô phỏng chân thực giúp Ông Bà thực hành dễ dàng nhất</p>
     <div class="footer-links">
-      <a href="index.html">Trang Chủ</a><a href="facebook.html">Facebook</a>
-      <a href="tiktok.html">TikTok</a><a href="youtube.html">YouTube</a>
+      <a href="index.html">Trang Chủ</a>
+      <a href="facebook.html">Facebook</a>
+      <a href="tiktok.html">TikTok</a>
+      <a href="youtube.html">YouTube</a>
     </div>
-    <p class="copy">© 2025 Công Nghệ Vui</p>
   </div>
 </footer>
-<div class="back-to-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">🔝 Lên Đầu</div>
 
-<script>
-// Facebook demo steps for phone animator
-const FB_STEPS = [
-  {
-    screen: <div class="sc-home"><div class="sc-app-icon" style="background:#1877f2">👍</div><div class="sc-app-label">Facebook</div><div class="sc-hint">👆 Nhấn vào đây</div></div>,
-    tap: {x:50,y:50}, caption: 'Nhấn vào Facebook để mở', audio: 'Tìm biểu tượng Facebook màu xanh và nhấn vào.', duration: 3500
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-fb-top">facebook <span>Đăng nhập</span></div><div class="sc-form"><div class="sc-form-field">👤 Tên của bạn</div><div class="sc-form-field active">📱 Số điện thoại</div><div class="sc-form-field">🔒 Mật khẩu</div><div class="sc-form-btn">Đăng ký →</div></div></div>,
-    tap: {x:50,y:72}, caption: 'Điền thông tin, nhấn Đăng ký', audio: 'Điền họ tên, số điện thoại và mật khẩu rồi nhấn Đăng ký.', duration: 4000
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-fb-top">Tìm bạn bè <span>🔍</span></div><div class="sc-body"><div style="padding:10px"><div style="background:#f1f5f9;border-radius:20px;padding:10px 12px;font-size:0.8rem;color:#64748b;margin-bottom:10px">🔍 Nguyễn Văn An...</div><div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f1f5f9"><span style="font-size:1.5rem">👤</span><div style="flex:1"><div style="font-size:0.8rem;font-weight:800">Nguyễn Văn An</div><div style="font-size:0.7rem;color:#94a3b8">Hà Nội</div></div><div style="background:#1877f2;color:white;border-radius:20px;padding:4px 10px;font-size:0.75rem;font-weight:800">+Thêm</div></div></div></div></div>,
-    tap: {x:82,y:50}, caption: 'Tìm bạn → nhấn Thêm bạn', audio: 'Gõ tên người muốn kết bạn rồi nhấn nút Thêm bạn màu xanh.', duration: 4000
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-fb-top">facebook</div><div class="sc-post"><div class="sc-post-hd"><span class="sc-avatar">😊</span><div><div class="sc-post-name">Bà Lan</div><div class="sc-post-time">Vừa xong</div></div></div><div class="sc-post-text">Hôm nay đi chơi với cháu, vui quá! 🌺</div><div class="sc-post-img">📸</div><div class="sc-post-actions"><div class="sc-action sc-like-active">💙 Thích</div><div class="sc-action">💬 Bình luận</div><div class="sc-action">↗️ Chia sẻ</div></div></div></div>,
-    tap: {x:20,y:82}, caption: 'Nhấn Thích để bày tỏ cảm xúc!', audio: 'Nhấn nút Thích dưới bài viết để bày tỏ cảm xúc với bài đăng của bạn bè.', duration: 3500
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-fb-top" style="background:#0a7aff">💬 Messenger</div><div class="sc-msg"><div class="sc-msg-list"><div class="sc-bubble in">Chào Ba! Ba khoẻ không? 😊</div><div class="sc-bubble out">Ba khoẻ lắm con ơi! 👍</div><div class="sc-bubble in">❤️ Nhớ Ba lắm!</div></div><div class="sc-msg-input"><input placeholder="Nhắn tin..."><button class="sc-send">➤</button></div></div></div>,
-    tap: {x:50,y:85}, caption: 'Nhắn tin miễn phí cho con cháu!', audio: 'Nhấn vào bong bóng tin nhắn để chat và gọi video miễn phí với con cháu.', duration: 4000
-  }
-];
-
-window.PAGE_STEPS = [
-  { el: '#step-1', text: 'Bước 1: Mở Facebook. Tìm biểu tượng chữ f màu xanh trên màn hình điện thoại và nhấn vào.' },
-  { el: '#step-2', text: 'Bước 2: Tạo tài khoản. Nhấn Tạo tài khoản mới, điền họ tên, số điện thoại và đặt mật khẩu. Nhớ ghi mật khẩu ra giấy.' },
-  { el: '#step-3', text: 'Bước 3: Tìm và kết bạn. Nhấn biểu tượng kính lúp, gõ tên người quen, xem ảnh cho chắc đúng người rồi nhấn Thêm bạn.' },
-  { el: '#step-4', text: 'Bước 4: Đăng ảnh. Nhấn ô Đang nghĩ gì, viết vài chữ, thêm ảnh rồi nhấn nút Đăng màu xanh.' },
-  { el: '#step-5', text: 'Bước 5: Nhắn tin và gọi video. Nhấn biểu tượng bong bóng, chọn tên người muốn chat và gọi video hoàn toàn miễn phí.' },
-  { el: '#step-6', text: 'Bước 6: Tương tác bài viết. Nhấn Thích để bày tỏ cảm xúc. Nhấn giữ 1 giây để chọn tim đỏ hoặc mặt cười.' },
-];
-
-function toggleStep(id) {
-  const block = document.getElementById(id);
-  block.classList.toggle('open');
-}
-
-function demoAddPhoto() {
-  document.getElementById('pad-preview').style.display = 'block';
-  Voice.speak('Đã chọn ảnh từ điện thoại!');
-}
-function demoAddFeeling() { Voice.speak('Chọn cảm xúc: Hạnh phúc!'); }
-function demoSubmitPost() {
-  document.getElementById('pad-result').textContent = '✅ Bài viết đã đăng thành công!';
-  Voice.speak('Bài viết đã được đăng lên Facebook!');
-}
-function demoVideoCall() {
-  document.getElementById('call-overlay-demo').style.display = 'flex';
-  Voice.speak('Đang gọi video cho Con Gái Lan... Chờ họ nhấc máy nhé!');
-}
-function demoVoiceCall() {
-  Voice.speak('Đang gọi thoại. Gọi thoại qua Facebook hoàn toàn miễn phí khi dùng wifi!');
-}
-function submitRadComment() {
-  const v = document.getElementById('rad-inp').value;
-  if (v) {
-    document.getElementById('rad-result').textContent = '✅ Đã gửi bình luận: "' + v + '"';
-    document.getElementById('rad-inp').value = '';
-    Voice.speak('Bình luận đã được gửi thành công!');
-  }
-}
-
-// Animate typing in form
-setTimeout(() => {
-  const fields = ['ffa-f1','ffa-f2','ffa-f3'];
-  let i = 0;
-  const iv = setInterval(() => {
-    if (i > 0) document.getElementById(fields[i-1])?.classList.remove('typing-anim');
-    if (i < fields.length) document.getElementById(fields[i])?.classList.add('typing-anim');
-    i++;
-    if (i > fields.length) { clearInterval(iv); document.getElementById('ffa-btn')?.classList.add('glow-anim'); }
-  }, 1200);
-}, 1500);
-
-// Typing bubble animation
-setInterval(() => {
-  const b = document.getElementById('typing-bubble');
-  if (b) {
-    b.style.display = 'block';
-    setTimeout(() => { b.style.display = 'none'; }, 2000);
-  }
-}, 5000);
-</script>
-
-<script src="js/main.js"></script>
 <script src="js/voice.js"></script>
-<script src="js/demo.js"></script>
+<script src="js/simulator.js"></script>
 <script src="js/mobile.js"></script>
 <script>
-// Init phone demo after scripts load
+// REAL FACEBOOK STEPS
+const FB_SIMULATION_STEPS = [
+  // 1. MỞ APP
+  {
+    title: 'Bước 1: Tìm biểu tượng Facebook chữ "f" màu xanh trên màn hình rồi nhấn vào để mở',
+    voice: 'Bước một: Tìm biểu tượng Facebook chữ f màu xanh trên màn hình điện thoại rồi nhấn vào để mở ứng dụng.',
+    finger: { x: 30, y: 35 },
+    duration: 5000,
+    render: () => 
+      <div class="sim-status-bar status-dark" style="background:#1e293b">
+        <span>09:41</span>
+        <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+      </div>
+      <div style="background:linear-gradient(180deg, #1e3a8a, #0f172a); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">
+          <div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900; box-shadow:0 8px 16px rgba(24,119,242,0.4);">f</div>
+          <span style="color:white; font-size:12px; font-weight:700;">Facebook</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>
+          <span style="color:white; font-size:12px;">TikTok</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">▶️</div>
+          <span style="color:white; font-size:12px;">YouTube</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>
+          <span style="color:white; font-size:12px;">Điện thoại</span>
+        </div>
+      </div>
+    
+  },
+
+  // 2. LƯỚT BẢNG TIN
+  {
+    title: 'Bước 2: Lướt xem ảnh và bài viết mới của con cháu trên Bảng Tin Facebook',
+    voice: 'Bước hai: Khi mở Facebook, màn hình chính là Bảng Tin. Ông Bà vuốt ngón tay lên để xem các hình ảnh con cháu vừa đăng.',
+    finger: { x: 50, y: 70 },
+    duration: 5500,
+    render: () => 
+      <div class="fb-app-screen">
+        <div class="sim-status-bar status-light" style="background:#fff">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <!-- Real FB Header -->
+        <div class="fb-header">
+          <div class="fb-logo">facebook</div>
+          <div class="fb-header-actions">
+            <div class="fb-circle-btn">🔍</div>
+            <div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>
+          </div>
+        </div>
+        <!-- Real FB Tabs -->
+        <div class="fb-nav-tabs">
+          <div class="fb-tab active">🏠</div>
+          <div class="fb-tab">📺</div>
+          <div class="fb-tab">👥</div>
+          <div class="fb-tab">🔔</div>
+          <div class="fb-tab">☰</div>
+        </div>
+        <!-- Feed -->
+        <div class="fb-feed">
+          <div class="fb-create-box">
+            <div class="fb-avatar">👵</div>
+            <div class="fb-input-fake">Bà đang nghĩ gì thế?</div>
+            <div class="fb-photo-icon">📷</div>
+          </div>
+
+          <!-- Post -->
+          <div class="fb-post-card">
+            <div class="fb-post-header">
+              <div class="fb-avatar" style="background:#fed7aa">👧</div>
+              <div class="fb-post-user">
+                <div class="fb-user-name">Cháu Lan Hương</div>
+                <div class="fb-post-meta">Vừa xong · 🌐 Công khai</div>
+              </div>
+            </div>
+            <div class="fb-post-body">
+              Cuối tuần cả nhà về quê thăm Ông Bà! Hoa trong vườn nở rực rỡ quá ạ 🌸❤️
+            </div>
+            <div class="fb-post-media">
+              🌸🌺🌻
+              <div class="fb-media-caption">Vườn hoa quê nội</div>
+            </div>
+            <div class="fb-post-stats">
+              <div class="fb-stats-likes">
+                <div class="fb-like-bubble">👍</div>
+                <div class="fb-heart-bubble">❤️</div>
+                <span>45</span>
+              </div>
+              <div>8 bình luận</div>
+            </div>
+            <div class="fb-post-actions">
+              <div class="fb-act-btn">👍 Thích</div>
+              <div class="fb-act-btn">💬 Bình luận</div>
+              <div class="fb-act-btn">↗️ Chia sẻ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  },
+
+  // 3. THẢ TIM / NHẤN THÍCH
+  {
+    title: 'Bước 3: Nhấn vào nút "Thích" 👍 để thả tim và khen ngợi bài viết của con cháu',
+    voice: 'Bước ba: Nhấn vào chữ Thích có hình bàn tay giơ ngón cái để bày tỏ tình cảm yêu thương với bài viết.',
+    finger: { x: 25, y: 92 },
+    duration: 5000,
+    render: () => 
+      <div class="fb-app-screen">
+        <div class="sim-status-bar status-light" style="background:#fff">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <div class="fb-header">
+          <div class="fb-logo">facebook</div>
+          <div class="fb-header-actions">
+            <div class="fb-circle-btn">🔍</div>
+            <div class="fb-circle-btn">💬<span class="fb-badge">1</span></div>
+          </div>
+        </div>
+        <div class="fb-feed">
+          <div class="fb-post-card">
+            <div class="fb-post-header">
+              <div class="fb-avatar" style="background:#fed7aa">👧</div>
+              <div class="fb-post-user">
+                <div class="fb-user-name">Cháu Lan Hương</div>
+                <div class="fb-post-meta">Vừa xong · 🌐</div>
+              </div>
+            </div>
+            <div class="fb-post-body">
+              Cuối tuần cả nhà về quê thăm Ông Bà! 🌸❤️
+            </div>
+            <div class="fb-post-media">
+              🌸🌺🌻
+            </div>
+            <div class="fb-post-stats">
+              <div class="fb-stats-likes">
+                <div class="fb-like-bubble">👍</div>
+                <div class="fb-heart-bubble">❤️</div>
+                <span style="font-weight:700; color:#1877f2;">Bạn và 45 người khác</span>
+              </div>
+            </div>
+            <div class="fb-post-actions">
+              <div class="fb-act-btn liked" style="color:#1877f2; background:#e7f0fd;">
+                <span style="font-size:18px;">💙</span> Đã Thích
+              </div>
+              <div class="fb-act-btn">💬 Bình luận</div>
+              <div class="fb-act-btn">↗️ Chia sẻ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  },
+
+  // 4. VIẾT BÌNH LUẬN
+  {
+    title: 'Bước 4: Nhấn "Bình luận" để gửi lời nhắn nhủ yêu thương cho con cháu',
+    voice: 'Bước bốn: Nhấn vào nút Bình Luận, gõ vài chữ hỏi thăm rồi nhấn nút gửi màu xanh.',
+    finger: { x: 50, y: 70 },
+    duration: 5500,
+    render: () => 
+      <div class="fb-app-screen">
+        <div class="sim-status-bar status-light" style="background:#fff">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <div class="fb-header">
+          <div style="font-size:18px; font-weight:800;">💬 Bình luận bài viết</div>
+          <div style="font-size:14px; color:#1877f2; font-weight:700;">Đóng</div>
+        </div>
+        <div style="flex:1; padding:14px; background:#fff; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; gap:10px;">
+            <div class="fb-avatar" style="background:#fed7aa">👧</div>
+            <div style="background:#f0f2f5; padding:10px 14px; border-radius:18px; flex:1;">
+              <strong>Cháu Lan Hương</strong>
+              <p style="margin:4px 0 0; font-size:13px;">Cuối tuần con mang quà về cho Bà nhé!</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; animation:fadeIn 0.5s;">
+            <div class="fb-avatar">👵</div>
+            <div style="background:#e7f0fd; border:2px solid #1877f2; padding:10px 14px; border-radius:18px; flex:1;">
+              <strong style="color:#1877f2">Bà Nội (Bạn)</strong>
+              <p style="margin:4px 0 0; font-size:14px; font-weight:700; color:#1e293b;">Bà mong các cháu về lắm! Đi đường cẩn thận nhé con ❤️</p>
+            </div>
+          </div>
+        </div>
+        <div style="padding:10px 14px; background:#fff; border-top:1px solid #e4e6eb; display:flex; gap:8px;">
+          <input type="text" value="Bà mong các cháu về lắm! ❤️" style="flex:1; border:1px solid #1877f2; border-radius:20px; padding:8px 14px; font-size:14px; background:#eff6ff;" readonly>
+          <button style="background:#1877f2; color:white; border:none; border-radius:50%; width:36px; height:36px; font-size:14px;">➤</button>
+        </div>
+      </div>
+    
+  },
+
+  // 5. GỌI VIDEO CALL MESSENGER
+  {
+    title: 'Bước 5: Nhấn vào biểu tượng tin nhắn 💬 để Gọi Video miễn phí nhìn thấy mặt con cháu',
+    voice: 'Bước năm: Nhấn biểu tượng tin nhắn, chọn tên con cháu rồi nhấn biểu tượng máy quay phim để gọi video nhìn thấy mặt trực tiếp.',
+    finger: { x: 80, y: 15 },
+    duration: 6000,
+    render: () => 
+      <div class="fb-app-screen" style="background:#0f172a;">
+        <div class="sim-status-bar status-dark">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <!-- Real Video Call Screen -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:space-around; padding:20px; color:white; text-align:center;">
+          <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+            <span>📹 Cuộc gọi Messenger</span>
+            <span style="background:#22c55e; padding:4px 10px; border-radius:20px; font-size:12px;">Đang kết nối...</span>
+          </div>
+
+          <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <div style="width:110px; height:110px; border-radius:50%; background:#fed7aa; display:flex; align-items:center; justify-content:center; font-size:56px; border:4px solid #22c55e; box-shadow:0 0 30px rgba(34,197,94,0.6); animation:pulse 1.5s infinite;">
+              👧
+            </div>
+            <h3 style="font-size:20px; font-weight:900; margin:0;">Cháu Lan Hương</h3>
+            <p style="color:#94a3b8; font-size:14px; margin:0;">00:28 · Hình ảnh sắc nét</p>
+          </div>
+
+          <div style="display:flex; gap:20px; align-items:center;">
+            <div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🎤</div>
+            <div style="width:68px; height:68px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; font-size:28px; cursor:pointer;" onclick="sim.showStep(0)">📞</div>
+            <div style="width:52px; height:52px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-size:20px;">🔄</div>
+          </div>
+        </div>
+      </div>
+    
+  }
+];
+
+// START SIMULATOR ON LOAD
+let sim;
 window.addEventListener('load', () => {
-  new PhoneDemo('fb-demo', FB_STEPS);
+  sim = new AppSimulator({
+    screenId: 'sim-screen',
+    steps: FB_SIMULATION_STEPS,
+    defaultDuration: 5500
+  });
 });
 </script>
-<style>
-.demo-section { padding: 48px 24px; background: linear-gradient(135deg, #e7f0fd, #f0fdf4); }
-.demo-section-inner { max-width: 1100px; margin: 0 auto; }
-.demo-header { text-align: center; margin-bottom: 24px; }
-.demo-header h2 { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
-.demo-header p { font-size: 1.1rem; color: #64748b; }
-
-.steps-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
-.steps-header-row h2 { font-size: 1.8rem; font-weight: 900; margin: 0; }
-.read-all-btn { background: #f59e0b; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.read-all-btn:hover { transform: scale(1.05); }
-.step-speak-btn { background: #e7f0fd; color: #1877f2; border: 2px solid #1877f2; padding: 10px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-top: 12px; transition: all 0.2s; }
-.step-speak-btn:hover { background: #1877f2; color: white; }
-
-.step-visual { margin-bottom: 16px; }
-.step-anim-box { background: #f8faff; border-radius: 16px; padding: 20px; display: flex; justify-content: center; min-height: 160px; align-items: center; }
-.step-text-short p { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; }
-
-/* Form animation */
-.fb-form-anim { background: white; border-radius: 16px; padding: 16px; width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.ffa-title { font-size: 0.95rem; font-weight: 800; color: #1877f2; margin-bottom: 12px; text-align: center; }
-.ffa-field { border: 2px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; color: #64748b; margin-bottom: 8px; transition: all 0.3s; }
-.ffa-field.typing-anim { border-color: #1877f2; background: #eff6ff; color: #1e293b; }
-.ffa-btn { background: #22c55e; color: white; border-radius: 10px; padding: 10px; text-align: center; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: all 0.3s; }
-.ffa-btn.glow-anim { animation: btn-glow 1s ease-in-out infinite; }
-@keyframes btn-glow { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); } 50% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } }
-
-/* Search anim */
-.search-anim-demo { background: white; border-radius: 14px; padding: 14px; width: 240px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.sad-search-bar { background: #f1f5f9; border-radius: 20px; padding: 10px 14px; font-size: 0.85rem; color: #64748b; margin-bottom: 10px; }
-.sad-result { display: flex; flex-direction: column; gap: 8px; }
-.sad-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; background: #f8faff; border-radius: 10px; padding: 8px 10px; }
-.sad-add-btn { background: #1877f2; color: white; border: none; border-radius: 20px; padding: 5px 10px; font-size: 0.75rem; font-weight: 800; cursor: pointer; white-space: nowrap; }
-
-/* Post anim */
-.post-anim-demo { background: white; border-radius: 14px; padding: 14px; width: 240px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.pad-input { border: 2px solid #e2e8f0; border-radius: 20px; padding: 10px 14px; font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px; }
-.pad-actions { display: flex; gap: 8px; margin-bottom: 8px; }
-.pad-btn { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; text-align: center; transition: all 0.2s; }
-.pad-btn:hover { background: #e7f0fd; }
-.pad-preview { background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 10px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; margin-bottom: 8px; }
-.pad-submit { background: #1877f2; color: white; border-radius: 10px; padding: 10px; text-align: center; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.pad-submit:hover { opacity: 0.9; }
-
-/* Chat anim */
-.chat-anim-demo { background: white; border-radius: 14px; overflow: hidden; width: 240px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; }
-.cad-header { background: #1877f2; color: white; padding: 10px 14px; font-size: 0.85rem; font-weight: 800; }
-.cad-msgs { padding: 10px; display: flex; flex-direction: column; gap: 6px; min-height: 80px; }
-.cad-bubble { padding: 8px 12px; border-radius: 16px; font-size: 0.8rem; max-width: 80%; }
-.cad-bubble.in { background: #f1f5f9; align-self: flex-start; }
-.cad-bubble.out { background: #1877f2; color: white; align-self: flex-end; }
-.cad-bubble.typing { color: #94a3b8; align-self: flex-start; font-size: 1rem; letter-spacing: 2px; }
-.cad-actions { display: flex; gap: 8px; padding: 8px 10px; border-top: 1px solid #f1f5f9; }
-.cad-call-btn, .cad-voice-btn { flex: 1; border: none; border-radius: 20px; padding: 8px; font-size: 0.8rem; font-weight: 800; cursor: pointer; }
-.cad-call-btn { background: #1877f2; color: white; }
-.cad-voice-btn { background: #22c55e; color: white; }
-.call-overlay-demo { position: absolute; inset: 0; background: #0f172a; color: white; flex-direction: column; align-items: center; justify-content: center; gap: 12px; border-radius: 14px; }
-.cod-pulse { font-size: 3rem; animation: cod-anim 1s ease-in-out infinite; }
-@keyframes cod-anim { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-.call-overlay-demo button { background: #ef4444; color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 800; cursor: pointer; font-size: 0.9rem; }
-
-/* React demo */
-.react-anim-demo { width: 260px; }
-.rad-post { background: white; border-radius: 14px; padding: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 12px; }
-.rad-header { font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
-.rad-actions { display: flex; gap: 6px; flex-wrap: wrap; }
-.rad-like, .rad-comment, .rad-share { border: 2px solid #e2e8f0; background: #f8faff; border-radius: 20px; padding: 8px 12px; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.rad-like:hover, .rad-like.liked { background: #eff6ff; border-color: #1877f2; color: #1877f2; }
-.rad-comment:hover { background: #f0fdf4; border-color: #22c55e; }
-.rad-share:hover { background: #fff7ed; border-color: #f97316; }
-.reaction-row { background: white; border-radius: 14px; padding: 12px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.reaction-row span:first-child { font-size: 0.85rem; color: #64748b; display: block; margin-bottom: 8px; }
-.reaction-emojis { display: flex; gap: 10px; font-size: 1.8rem; }
-.reaction-emojis span { cursor: pointer; transition: transform 0.2s; }
-.reaction-emojis span:hover { transform: scale(1.3); }
-
-/* Voice search section */
-.voice-search-section { padding: 60px 24px; background: linear-gradient(135deg, #1e293b, #0f172a); }
-.vs-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-.vs-inner h2 { font-size: 2rem; font-weight: 900; color: white; margin-bottom: 8px; }
-.vs-inner p { font-size: 1.1rem; color: #94a3b8; margin-bottom: 24px; }
-.vs-bar { display: flex; gap: 10px; align-items: center; background: white; border-radius: 50px; padding: 8px 8px 8px 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-.vs-input { flex: 1; border: none; outline: none; font-size: 1.05rem; font-family: inherit; background: transparent; }
-.vs-go-btn { background: #1877f2; color: white; border: none; border-radius: 50px; padding: 12px 24px; font-size: 1rem; font-weight: 800; cursor: pointer; }
-.vs-result { margin-top: 16px; font-size: 1.1rem; color: white; font-weight: 700; }
-.vs-result a { color: #f59e0b; }
-.vs-suggestions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
-.vs-suggestions span { background: rgba(255,255,255,0.1); color: white; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 700; transition: all 0.2s; border: 2px solid rgba(255,255,255,0.2); }
-.vs-suggestions span:hover { background: rgba(255,255,255,0.2); }
-
-@media (max-width: 600px) {
-  .steps-header-row { flex-direction: column; align-items: flex-start; }
-  .step-anim-box { flex-direction: column; }
-  .fb-form-anim, .search-anim-demo, .post-anim-demo, .chat-anim-demo, .react-anim-demo { width: 100%; max-width: 300px; }
-  .vs-bar { padding: 6px 6px 6px 14px; }
-  .vs-input { font-size: 0.95rem; }
-  .safety-grid { grid-template-columns: 1fr !important; }
-}
-</style>
 </body>
 </html>

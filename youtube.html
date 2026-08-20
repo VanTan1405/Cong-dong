@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#ff0000">
-  <title>Hướng Dẫn YouTube - Công Nghệ Vui</title>
+  <title>Mô Phỏng YouTube - Hướng Dẫn Cho Ông Bà</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/app-simulation.css">
   <link rel="stylesheet" href="css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background: #0f0f0f; color: white;">
 
-<header class="main-header">
+<!-- TOP HEADER -->
+<header class="main-header" style="background:#1e1e1e;">
   <div class="header-inner">
     <div class="logo-area">
       <span class="logo-icon">📱</span>
-      <div class="logo-text"><h1>Công Nghệ Vui</h1><p>Dành riêng cho Ông Bà</p></div>
+      <div class="logo-text">
+        <h1 style="color:#ff0000">Công Nghệ Vui</h1>
+        <p style="color:#aaa">Mô phỏng YouTube thật 100%</p>
+      </div>
     </div>
     <nav class="top-nav">
-      <a href="index.html" class="nav-link">🏠 Trang Chủ</a>
+      <a href="index.html" class="nav-link" style="color:#cbd5e1;">🏠 Trang Chủ</a>
       <a href="facebook.html" class="nav-link nav-fb">👍 Facebook</a>
       <a href="tiktok.html" class="nav-link nav-tt">🎵 TikTok</a>
       <a href="youtube.html" class="nav-link active nav-yt">▶️ YouTube</a>
@@ -26,355 +31,311 @@
   </div>
 </header>
 
-<div class="breadcrumb"><div class="breadcrumb-inner">
-  <a href="index.html">🏠 Trang Chủ</a><span>›</span><span>▶️ YouTube</span>
-</div></div>
+<!-- MAIN SIMULATION AREA -->
+<main style="max-width: 900px; margin: 0 auto; padding: 16px 12px 60px;">
 
-<div class="page-header yt-header" style="background: linear-gradient(135deg, #ff0000, #cc0000);">
-  <div class="page-header-inner">
-    <span class="page-icon">▶️</span>
-    <h1>Hướng Dẫn YouTube</h1>
-    <p>Xem phim · Ca nhạc xưa · Cải lương · Nấu ăn · Tin tức miễn phí</p>
-  </div>
-</div>
-
-<!-- AUTO DEMO PHONE -->
-<section class="demo-section" style="background: linear-gradient(135deg, #fff0f0, #fef2f2);">
-  <div class="demo-section-inner">
-    <div class="demo-header">
-      <h2>📱 Xem Demo Từng Thao Tác</h2>
-      <p>Màn hình tự động chạy mô phỏng để Ông Bà dễ hình dung</p>
+  <!-- SIMULATOR CONTROLLER (TOP) -->
+  <div class="sim-controller" style="background:#1e1e1e; border-color:#333;">
+    <div class="sim-ctrl-header">
+      <span class="sim-step-badge" id="sim-badge" style="background:rgba(255,0,0,0.2); color:#ff4d4d;">Bước 1 / 5</span>
+      <span style="font-size:13px; font-weight:800; color:#aaa;">🎬 Chế độ xem mô phỏng</span>
     </div>
-    <div id="yt-demo"></div>
-  </div>
-</section>
-
-<!-- HƯỚNG DẪN CHI TIẾT -->
-<section class="steps-section" style="background:#f8faff">
-  <div class="inner">
-    <div class="steps-header-row">
-      <h2>📋 Hướng Dẫn Từng Bước</h2>
-      <button class="read-all-btn" onclick="Voice.readSteps(window.PAGE_STEPS); document.getElementById('voice-ui').classList.add('active')">
-        🔊 Nghe Toàn Bộ
+    <div class="sim-ctrl-title" id="sim-title" style="color:white;">
+      Bước 1: Chạm vào biểu tượng YouTube nút phát màu đỏ để mở
+    </div>
+    <div class="sim-ctrl-buttons">
+      <button class="sim-btn sim-btn-play" id="sim-btn-play" style="background:#ff0000" onclick="sim.togglePlay()">
+        ▶ Tự Động Chạy
+      </button>
+      <button class="sim-btn sim-btn-nav" style="background:#333; color:white; border-color:#444;" onclick="sim.prev()">
+        ◀ Bước Trước
+      </button>
+      <button class="sim-btn sim-btn-nav" style="background:#333; color:white; border-color:#444;" onclick="sim.next()">
+        Bước Tiếp ▶
+      </button>
+      <button class="sim-btn sim-btn-voice" onclick="sim.replayVoice()">
+        🔊 Nghe Lại
       </button>
     </div>
-
-    <!-- BƯỚC 1 -->
-    <div class="step-block open" id="yt-step-1">
-      <div class="step-header" onclick="toggleStep('yt-step-1')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">1</div>
-        <div class="step-header-text">
-          <strong>Tìm Video Bằng Giọng Nói</strong>
-          <span>Nói tên bài hát hoặc bộ phim muốn xem</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="yt-search-demo-box">
-              <div class="vs-bar" style="border:2px solid #ff0000;box-shadow:none">
-                <input type="text" id="yt-voice-inp" placeholder="Nói tên bài hát..." class="vs-input">
-                <button id="voice-search-btn-yt" class="font-ctrl-btn" style="border:none;background:#ff0000;color:white;font-size:1.2rem;width:40px;height:40px" onclick="Voice.startVoiceSearch(document.getElementById('yt-voice-inp'), handleYTSearch)">🎙️</button>
-              </div>
-              <div class="vs-suggestions" style="margin-top:12px">
-                <span onclick="handleYTSearch('Nhạc Bolero xưa')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">🎵 Bolero xưa</span>
-                <span onclick="handleYTSearch('Cải lương Nam Bộ')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">🎭 Cải lương</span>
-                <span onclick="handleYTSearch('VTV Tin tức 19h')" style="background:#f1f5f9;color:#1e293b;font-size:0.85rem">📰 Thời sự</span>
-              </div>
-              <div id="yt-search-res" style="margin-top:10px;font-size:0.95rem;font-weight:800;color:#ff0000;text-align:center"></div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn vào biểu tượng <strong>Kính lúp 🔍</strong> → Nhấn vào <strong>Micro 🎙️</strong> và nói to rõ ràng tên chương trình muốn xem.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào kính lúp ở trên cùng màn hình YouTube, rồi nhấn vào biểu tượng micro và nói to tên bài hát hay bộ phim Ông Bà muốn xem.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <!-- BƯỚC 2 -->
-    <div class="step-block" id="yt-step-2">
-      <div class="step-header" onclick="toggleStep('yt-step-2')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">2</div>
-        <div class="step-header-text">
-          <strong>Tạm Dừng & Phóng To Toàn Màn Hình</strong>
-          <span>Chạm vào màn hình để dừng hoặc xem toàn màn hình</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="yt-player-interactive">
-              <div class="yt-screen-mock" id="yt-screen-mock" onclick="toggleYTMockPlay()">
-                <div id="yt-play-icon" style="font-size:3rem;color:white">▶️</div>
-                <div class="yt-time-badge" id="yt-badge-txt">0:00 / 15:00</div>
-              </div>
-              <div class="yt-ctrl-bar">
-                <button class="yt-btn-round" onclick="toggleYTMockPlay()" id="yt-btn-play-pause">▶️ Phát</button>
-                <button class="yt-btn-round" onclick="Voice.speak('Xoay ngang điện thoại hoặc nhấn nút vuông ở góc dưới để xem toàn màn hình to rõ nhất.')">⛶ Toàn màn hình</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Chạm <strong>1 lần vào giữa video</strong> để Dừng (hoặc Phát tiếp).</p>
-          <p><strong>Xoay ngang điện thoại</strong> để xem toàn màn hình cực kỳ to và nét.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Chạm một lần vào màn hình video để tạm dừng hoặc phát tiếp. Khi xem, Ông Bà xoay ngang điện thoại ra là video tự phóng to hết màn hình.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <!-- BƯỚC 3 -->
-    <div class="step-block" id="yt-step-3">
-      <div class="step-header" onclick="toggleStep('yt-step-3')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">3</div>
-        <div class="step-header-text">
-          <strong>Tua Video Tiến / Lùi 10 Giây</strong>
-          <span>Xem lại đoạn vừa qua chỉ bằng cách chạm 2 lần</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="yt-seek-demo">
-              <div class="yt-seek-area">
-                <div class="yt-seek-left" onclick="demoSeek(-10)">
-                  <span>⏪</span>
-                  <small>Chạm đúp trái<br>Tua lùi 10s</small>
-                </div>
-                <div class="yt-seek-right" onclick="demoSeek(10)">
-                  <span>⏩</span>
-                  <small>Chạm đúp phải<br>Tua tới 10s</small>
-                </div>
-              </div>
-              <div id="yt-seek-feedback" style="font-size:0.9rem;font-weight:800;color:#ff0000;text-align:center;margin-top:8px"></div>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Chạm nhanh <strong>2 lần bên trái</strong> màn hình = Tua lùi 10 giây.</p>
-          <p>Chạm nhanh <strong>2 lần bên phải</strong> màn hình = Tua tới 10 giây.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Gõ nhanh hai lần bên trái màn hình để nghe lại đoạn vừa rồi mười giây. Gõ hai lần bên phải màn hình để tua tới trước mười giây.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
-    <!-- BƯỚC 4 -->
-    <div class="step-block" id="yt-step-4">
-      <div class="step-header" onclick="toggleStep('yt-step-4')">
-        <div class="step-num-circle" style="background:linear-gradient(135deg,#ff0000,#cc0000)">4</div>
-        <div class="step-header-text">
-          <strong>Đăng Ký Kênh Yêu Thích</strong>
-          <span>Để mỗi khi có bài mới là YouTube tự nhắc</span>
-        </div>
-        <div class="step-toggle">▼</div>
-      </div>
-      <div class="step-body">
-        <div class="step-visual">
-          <div class="step-anim-box">
-            <div class="yt-sub-card">
-              <div class="yt-sub-avatar">🎭</div>
-              <div class="yt-sub-info">
-                <strong>Cải Lương Xưa Chọn Lọc</strong>
-                <span>1.8M người đăng ký</span>
-              </div>
-              <button class="yt-sub-action-btn" id="yt-sub-btn" onclick="toggleYTSubscribe(this)">
-                🔔 Đăng Ký
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="step-text-short">
-          <p>Nhấn vào chữ <strong>Đăng Ký</strong> màu đỏ dưới video để lưu lại kênh hay.</p>
-          <p>Nhấn tiếp vào <strong>Cái Chuông 🔔</strong> để có video mới là xem được ngay.</p>
-        </div>
-        <button class="step-speak-btn" onclick="Voice.speak('Nhấn vào nút Đăng Ký màu đỏ bên dưới video để theo dõi kênh. Nhấn thêm biểu tượng cái chuông bên cạnh để nhận thông báo khi có video mới nhất.')">🔊 Nghe bước này</button>
-      </div>
-    </div>
-
   </div>
-</section>
 
-<!-- KÊNH NỔI BẬT -->
-<section style="padding:48px 24px;background:white">
-  <div style="max-width:900px;margin:0 auto">
-    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:20px;text-align:center">🌟 Kênh Hay Nên Xem</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:16px">
-      <div class="quick-item" onclick="Voice.speak('Kênh Nhạc Bolero Xưa có rất nhiều bài hát quê hương trữ tình êm dịu.')">
-        <div class="qi-icon">🎵</div><p>Nhạc Bolero Xưa</p>
+  <!-- SMARTPHONE SIMULATOR -->
+  <div class="sim-stage">
+    <div class="sim-phone" style="box-shadow: 0 25px 60px -12px rgba(255, 0, 0, 0.25);">
+      <div class="sim-notch">
+        <div class="sim-speaker"></div>
+        <div class="sim-camera"></div>
       </div>
-      <div class="quick-item" onclick="Voice.speak('Kênh Cải Lương có các vở tuồng kinh điển của nghệ sĩ Út Bạch Lan, Minh Phụng, Lệ Thủy.')">
-        <div class="qi-icon">🎭</div><p>Cải Lương Tuồng Cổ</p>
+
+      <!-- FINGER POINTER -->
+      <div class="sim-finger" id="sim-finger">
+        <div class="sim-finger-pulse"></div>
+        <div class="sim-finger-hand">👆</div>
       </div>
-      <div class="quick-item" onclick="Voice.speak('Kênh VTV Thời Sự cập nhật tin tức chuẩn xác hàng ngày của Đài Truyền Hình Việt Nam.')">
-        <div class="qi-icon">📰</div><p>VTV Thời Sự</p>
-      </div>
-      <div class="quick-item" onclick="Voice.speak('Kênh Bếp Xưa chia sẻ cách nấu các món ăn truyền thống dân dã thơm ngon.')">
-        <div class="qi-icon">🍲</div><p>Bếp Xưa Truyền Thống</p>
+
+      <!-- SIMULATED MOBILE SCREEN -->
+      <div class="sim-screen" id="sim-screen">
+        <!-- RENDERED BY SIMULATOR.JS -->
       </div>
     </div>
   </div>
-</section>
 
-<!-- ĐIỀU HƯỚNG -->
-<section class="nav-section">
-  <div class="nav-section-inner">
-    <a href="tiktok.html" class="nav-prev">← TikTok</a>
-    <a href="index.html" class="nav-next" style="background:linear-gradient(135deg,#1877f2,#5b21b6)">🏠 Về Trang Chủ</a>
-  </div>
-</section>
+</main>
 
-<footer class="main-footer">
+<footer class="main-footer" style="background:#0a0a0a; border-top:1px solid #222;">
   <div class="footer-inner">
     <div class="footer-logo">📱 Công Nghệ Vui</div>
-    <p>💖 Được tạo ra với tình yêu thương dành cho Ông Bà</p>
+    <p>💖 Giao diện mô phỏng chân thực giúp Ông Bà thực hành dễ dàng nhất</p>
     <div class="footer-links">
-      <a href="index.html">Trang Chủ</a><a href="facebook.html">Facebook</a>
-      <a href="tiktok.html">TikTok</a><a href="youtube.html">YouTube</a>
+      <a href="index.html">Trang Chủ</a>
+      <a href="facebook.html">Facebook</a>
+      <a href="tiktok.html">TikTok</a>
+      <a href="youtube.html">YouTube</a>
     </div>
-    <p class="copy">© 2025 Công Nghệ Vui</p>
   </div>
 </footer>
-<div class="back-to-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">🔝 Lên Đầu</div>
 
-<script>
-// YouTube demo steps for phone animator
-const YT_DEMO_STEPS = [
-  {
-    screen: <div class="sc-home"><div class="sc-app-icon" style="background:#ff0000;color:white">▶️</div><div class="sc-app-label">YouTube</div><div class="sc-hint">👆 Nhấn để mở</div></div>,
-    tap: {x:50,y:50}, caption: 'Mở ứng dụng YouTube', audio: 'Tìm biểu tượng nút phát YouTube màu đỏ và nhấn vào.', duration: 3500
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-yt-top">YouTube <span style="font-size:1.1rem">🔍</span></div><div class="sc-search"><div class="sc-search-bar">🎙️ "Nhạc trữ tình quê hương"</div><div class="sc-vid-item"><div class="sc-vid-thumb" style="background:#fee2e2">🎵</div><div class="sc-vid-info"><div class="sc-vid-title">Tuyển tập Nhạc Quê Hương</div><div class="sc-vid-sub">3.5M lượt xem</div></div></div></div></div>,
-    tap: {x:88,y:10}, caption: 'Tìm video bằng giọng nói cực nhanh', audio: 'Nhấn vào biểu tượng kính lúp và micro rồi nói bài hát muốn nghe.', duration: 4000
-  },
-  {
-    screen: <div class="sc" style="background:#000"><div style="height:140px;display:flex;align-items:center;justify-content:center;color:white;font-size:2.5rem">⏸️</div><div style="background:#1e293b;color:white;padding:10px;height:calc(100% - 140px)"><div style="font-weight:800;font-size:0.85rem;margin-bottom:6px">Tuyển tập Bolero Chọn Lọc</div><div style="display:flex;gap:8px;font-size:0.75rem;color:#94a3b8"><span>👍 250K</span><span>🔔 Đã Đăng Ký</span></div></div></div>,
-    tap: {x:50,y:30}, caption: 'Chạm vào video để Dừng hoặc Phát tiếp', audio: 'Chạm nhẹ một lần vào giữa video để tạm dừng hoặc phát tiếp.', duration: 4000
-  },
-  {
-    screen: <div class="sc"><div class="sc-topbar sc-yt-top">Kênh yêu thích</div><div style="padding:16px;text-align:center"><div style="font-size:3rem;margin-bottom:6px">🎭</div><div style="font-weight:900;font-size:0.95rem;margin-bottom:4px">Cải Lương Tuồng Cổ</div><button style="background:#22c55e;color:white;border:none;border-radius:20px;padding:8px 20px;font-weight:800;font-size:0.85rem">✓ Đã Đăng Ký 🔔</button></div></div>,
-    tap: {x:50,y:60}, caption: 'Đăng ký kênh để theo dõi các bài mới', audio: 'Nhấn nút Đăng ký màu đỏ để theo dõi các bài hát và vở cải lương mới.', duration: 4000
-  }
-];
-
-window.PAGE_STEPS = [
-  { el: '#yt-step-1', text: 'Bước 1: Tìm video bằng giọng nói. Nhấn vào kính lúp và micro rồi nói tên chương trình muốn xem.' },
-  { el: '#yt-step-2', text: 'Bước 2: Tạm dừng và xem toàn màn hình. Chạm vào video để dừng, xoay ngang điện thoại để xem to nhất.' },
-  { el: '#yt-step-3', text: 'Bước 3: Tua video. Gõ hai lần bên trái để tua lùi mười giây, gõ hai lần bên phải để tua tới trước.' },
-  { el: '#yt-step-4', text: 'Bước 4: Đăng ký kênh. Nhấn nút Đăng Ký và bấm biểu tượng cái chuông để nhận video mới.' },
-];
-
-function toggleStep(id) {
-  document.getElementById(id).classList.toggle('open');
-}
-
-function handleYTSearch(text) {
-  if (!text) return;
-  document.getElementById('yt-search-res').textContent = '✅ Đã tìm thấy danh sách video về "' + text + '"';
-  Voice.speak('Đã tìm thấy video về ' + text);
-}
-
-let isYTMockPlaying = false;
-function toggleYTMockPlay() {
-  isYTMockPlaying = !isYTMockPlaying;
-  const icon = document.getElementById('yt-play-icon');
-  const btn = document.getElementById('yt-btn-play-pause');
-  const badge = document.getElementById('yt-badge-txt');
-  if (isYTMockPlaying) {
-    icon.textContent = '⏸️';
-    btn.textContent = '⏸️ Tạm dừng';
-    badge.textContent = '2:15 / 15:00';
-    Voice.speak('Video đang phát...');
-  } else {
-    icon.textContent = '▶️';
-    btn.textContent = '▶️ Phát';
-    Voice.speak('Đã tạm dừng video.');
-  }
-}
-
-function demoSeek(sec) {
-  const fb = document.getElementById('yt-seek-feedback');
-  if (sec > 0) {
-    fb.textContent = '⏩ Đã tua tới 10 giây!';
-    Voice.speak('Tua tới mười giây');
-  } else {
-    fb.textContent = '⏪ Đã tua lùi 10 giây!';
-    Voice.speak('Tua lùi mười giây');
-  }
-  setTimeout(() => { fb.textContent = ''; }, 2000);
-}
-
-function toggleYTSubscribe(btn) {
-  if (btn.classList.contains('subbed')) {
-    btn.classList.remove('subbed');
-    btn.textContent = '🔔 Đăng Ký';
-    btn.style.background = '#ff0000';
-  } else {
-    btn.classList.add('subbed');
-    btn.textContent = '✓ Đã Đăng Ký 🔔';
-    btn.style.background = '#22c55e';
-    Voice.speak('Đã đăng ký kênh thành công! Ông Bà sẽ nhận được video mới nhất.');
-  }
-}
-</script>
-
-<script src="js/main.js"></script>
 <script src="js/voice.js"></script>
-<script src="js/demo.js"></script>
+<script src="js/simulator.js"></script>
 <script src="js/mobile.js"></script>
 <script>
+// REAL YOUTUBE STEPS
+const YT_SIMULATION_STEPS = [
+  // 1. MỞ APP YOUTUBE
+  {
+    title: 'Bước 1: Chạm vào biểu tượng nút phát màu đỏ YouTube trên màn hình để mở',
+    voice: 'Bước một: Chạm vào biểu tượng YouTube nút phát màu đỏ trên màn hình điện thoại để mở ứng dụng xem phim và nghe nhạc.',
+    finger: { x: 80, y: 35 },
+    duration: 5000,
+    render: () => 
+      <div class="sim-status-bar status-dark" style="background:#0f0f0f">
+        <span>09:41</span>
+        <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+      </div>
+      <div style="background:linear-gradient(180deg, #18181b, #09090b); height:100%; padding:30px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-content:start;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#1877f2; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; color:white; font-weight:900;">f</div>
+          <span style="color:#aaa; font-size:12px;">Facebook</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#010101; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fe2c55;">🎵</div>
+          <span style="color:#aaa; font-size:12px;">TikTok</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;" onclick="sim.next()">
+          <div style="width:58px; height:58px; background:#ff0000; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white; box-shadow:0 8px 20px rgba(255,0,0,0.4); border:2px solid #fff;">▶️</div>
+          <span style="color:white; font-size:12px; font-weight:700;">YouTube</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <div style="width:58px; height:58px; background:#22c55e; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; color:white;">📞</div>
+          <span style="color:#aaa; font-size:12px;">Điện thoại</span>
+        </div>
+      </div>
+    
+  },
+
+  // 2. TÌM KIẾM BẰNG GIỌNG NÓI
+  {
+    title: 'Bước 2: Chạm vào Kính Lúp 🔍 và Micro 🎙️ để nói tên bài hát hoặc vở cải lương muốn xem',
+    voice: 'Bước hai: Nhấn vào biểu tượng kính lúp ở trên cùng, sau đó nhấn vào chiếc micro rồi nói to tên bài hát muốn nghe.',
+    finger: { x: 78, y: 5 },
+    duration: 5500,
+    render: () => 
+      <div class="yt-app-screen">
+        <div class="sim-status-bar status-dark">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <!-- Real YouTube Header -->
+        <div class="yt-header">
+          <div class="yt-logo-box">
+            <div class="yt-play-icon-logo">▶</div>
+            <span class="yt-logo-text">YouTube</span>
+          </div>
+          <div class="yt-header-tools">
+            <span>📺</span>
+            <span>🔔</span>
+            <span style="color:#ff0000; font-weight:900;">🔍</span>
+            <span>👤</span>
+          </div>
+        </div>
+
+        <!-- Pills -->
+        <div class="yt-pills-row">
+          <div class="yt-pill active">Tất cả</div>
+          <div class="yt-pill">Bolero xưa</div>
+          <div class="yt-pill">Cải lương</div>
+          <div class="yt-pill">Nấu ăn</div>
+        </div>
+
+        <!-- Voice Search Active Popup -->
+        <div style="margin:16px 14px; background:#212121; border-radius:16px; padding:20px; text-align:center; border:2px solid #ff0000;">
+          <div style="font-size:13px; color:#aaa; margin-bottom:8px;">Đang lắng nghe giọng nói của bạn...</div>
+          <div style="width:64px; height:64px; background:#ff0000; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:32px; animation:pulse 1s infinite;">
+            🎙️
+          </div>
+          <div style="font-size:17px; font-weight:800; color:#fff;">"Tuyển tập Nhạc Vàng Bolero xưa"</div>
+        </div>
+
+        <div class="yt-bottom-nav" style="margin-top:auto;">
+          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
+          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
+          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
+          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
+          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
+        </div>
+      </div>
+    
+  },
+
+  // 3. XEM VIDEO & TẠM DỪNG
+  {
+    title: 'Bước 3: Video tự phát mượt mà — Chạm vào giữa màn hình để Tạm Dừng hoặc Phát Tiếp',
+    voice: 'Bước ba: Video sẽ tự động phát. Khi muốn tạm dừng để nghe điện thoại hoặc làm việc nhà, Ông Bà chạm một lần vào giữa màn hình.',
+    finger: { x: 50, y: 22 },
+    duration: 5500,
+    render: () => 
+      <div class="yt-app-screen">
+        <div class="sim-status-bar status-dark">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+
+        <!-- Real YouTube Video Player Container -->
+        <div class="yt-player-box">
+          <div class="yt-vid-cover">
+            🎵
+            <div class="yt-play-center-btn">⏸</div>
+            <div class="yt-progress-container">
+              <div class="yt-progress-fill">
+                <div class="yt-progress-scrubber"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Info -->
+        <div class="yt-content-scroll">
+          <div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025 - Giúp Ngủ Ngon</div>
+          <div class="yt-video-meta">1.5 Tr lượt xem · 3 ngày trước</div>
+
+          <!-- Channel Row -->
+          <div class="yt-channel-row">
+            <div class="yt-ch-left">
+              <div class="yt-ch-avatar">📻</div>
+              <div class="yt-ch-info">
+                <strong>Nhạc Vàng Quê Hương</strong>
+                <span>1.2 Tr người đăng ký</span>
+              </div>
+            </div>
+            <button class="yt-sub-btn">ĐĂNG KÝ</button>
+          </div>
+
+          <!-- Actions -->
+          <div class="yt-actions-scroll">
+            <div class="yt-action-pill">👍 85K</div>
+            <div class="yt-action-pill">👎</div>
+            <div class="yt-action-pill">↗️ Chia sẻ</div>
+            <div class="yt-action-pill">⬇️ Tải xuống</div>
+            <div class="yt-action-pill">💾 Lưu</div>
+          </div>
+        </div>
+
+        <div class="yt-bottom-nav">
+          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
+          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
+          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
+          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
+          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
+        </div>
+      </div>
+    
+  },
+
+  // 4. ĐĂNG KÝ KÊNH
+  {
+    title: 'Bước 4: Nhấn nút "ĐĂNG KÝ" để lưu kênh hay — Mỗi khi có bài mới YouTube sẽ thông báo',
+    voice: 'Bước bốn: Nhấn vào nút Đăng Ký màu trắng bên dưới video để theo dõi kênh hay này.',
+    finger: { x: 80, y: 44 },
+    duration: 5000,
+    render: () => 
+      <div class="yt-app-screen">
+        <div class="sim-status-bar status-dark">
+          <span>09:41</span>
+          <div class="sim-status-icons"><span>📶</span><span>🔋 95%</span></div>
+        </div>
+        <div class="yt-player-box">
+          <div class="yt-vid-cover">
+            🎵
+            <div class="yt-play-center-btn">▶</div>
+            <div class="yt-progress-container"><div class="yt-progress-fill" style="width:60%"></div></div>
+          </div>
+        </div>
+
+        <div class="yt-content-scroll">
+          <div class="yt-video-title">Tuyển Tập Nhạc Vàng Bolero Chọn Lọc Hay Nhất 2025</div>
+          <div class="yt-video-meta">1.5 Tr lượt xem</div>
+
+          <div class="yt-channel-row">
+            <div class="yt-ch-left">
+              <div class="yt-ch-avatar">📻</div>
+              <div class="yt-ch-info">
+                <strong>Nhạc Vàng Quê Hương</strong>
+                <span>1.2 Tr người đăng ký</span>
+              </div>
+            </div>
+            <button class="yt-sub-btn subscribed">✓ Đã Đăng Ký 🔔</button>
+          </div>
+
+          <div class="yt-actions-scroll">
+            <div class="yt-action-pill" style="color:#3ea6ff">👍 Đã thích</div>
+            <div class="yt-action-pill">↗️ Chia sẻ</div>
+            <div class="yt-action-pill">💾 Đã lưu</div>
+          </div>
+        </div>
+
+        <div class="yt-bottom-nav">
+          <div class="yt-nav-item active"><span>🏠</span><span>Trang chủ</span></div>
+          <div class="yt-nav-item"><span>⚡</span><span>Shorts</span></div>
+          <div class="yt-nav-item" style="font-size:24px;">⊕</div>
+          <div class="yt-nav-item"><span>📑</span><span>Kênh đăng ký</span></div>
+          <div class="yt-nav-item"><span>👤</span><span>Bạn</span></div>
+        </div>
+      </div>
+    
+  },
+
+  // 5. TOÀN MÀN HÌNH
+  {
+    title: 'Bước 5: Xoay ngang điện thoại để xem video to toàn màn hình cực nét và rõ ràng',
+    voice: 'Bước năm: Ông Bà chỉ việc xoay ngang chiếc điện thoại ra là video tự động phóng to khắp toàn màn hình để xem thật đã mắt.',
+    finger: { x: 92, y: 32 },
+    duration: 5500,
+    render: () => 
+      <div class="yt-app-screen" style="background:#000; justify-content:center; align-items:center;">
+        <div style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(135deg,#1e3a8a,#0f172a); position:relative;">
+          <div style="font-size:72px; margin-bottom:12px;">🎭</div>
+          <div style="font-size:18px; font-weight:800; color:white; text-align:center;">Vở Cải Lương: Nửa Đời Hương Phấn</div>
+          <div style="font-size:13px; color:#aaa; margin-top:4px;">⛶ Chế độ xem toàn màn hình xoay ngang</div>
+          
+          <div style="position:absolute; bottom:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center; color:white; font-size:13px;">
+            <span>12:45 / 45:00</span>
+            <span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:10px;">HD 1080p</span>
+          </div>
+        </div>
+      </div>
+    
+  }
+];
+
+// START SIMULATOR ON LOAD
+let sim;
 window.addEventListener('load', () => {
-  new PhoneDemo('yt-demo', YT_DEMO_STEPS);
+  sim = new AppSimulator({
+    screenId: 'sim-screen',
+    steps: YT_SIMULATION_STEPS,
+    defaultDuration: 5500
+  });
 });
 </script>
-<style>
-.demo-section { padding: 48px 24px; }
-.demo-section-inner { max-width: 1100px; margin: 0 auto; }
-.demo-header { text-align: center; margin-bottom: 24px; }
-.demo-header h2 { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
-.demo-header p { font-size: 1.1rem; color: #64748b; }
-
-.steps-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
-.steps-header-row h2 { font-size: 1.8rem; font-weight: 900; margin: 0; }
-.read-all-btn { background: #f59e0b; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.read-all-btn:hover { transform: scale(1.05); }
-.step-speak-btn { background: #fee2e2; color: #ff0000; border: 2px solid #ff0000; padding: 10px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-top: 12px; transition: all 0.2s; }
-.step-speak-btn:hover { background: #ff0000; color: white; }
-
-.step-visual { margin-bottom: 16px; }
-.step-anim-box { background: #f8faff; border-radius: 16px; padding: 20px; display: flex; justify-content: center; min-height: 160px; align-items: center; }
-.step-text-short p { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; }
-
-/* YouTube custom styles */
-.yt-search-demo-box { width: 300px; }
-.yt-player-interactive { width: 280px; display: flex; flex-direction: column; gap: 10px; }
-.yt-screen-mock { height: 160px; background: #000; border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; }
-.yt-time-badge { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; }
-.yt-ctrl-bar { display: flex; gap: 8px; }
-.yt-btn-round { flex: 1; border: 2px solid #e2e8f0; background: white; border-radius: 20px; padding: 8px 12px; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.yt-btn-round:hover { background: #fee2e2; border-color: #ff0000; color: #ff0000; }
-
-.yt-seek-demo { width: 280px; }
-.yt-seek-area { display: flex; gap: 10px; height: 120px; }
-.yt-seek-left, .yt-seek-right { flex: 1; background: #0f172a; color: white; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; padding: 8px; text-align: center; }
-.yt-seek-left span, .yt-seek-right span { font-size: 1.8rem; margin-bottom: 4px; }
-.yt-seek-left:hover, .yt-seek-right:hover { background: #1e293b; transform: scale(1.03); }
-
-.yt-sub-card { display: flex; align-items: center; gap: 12px; background: white; padding: 14px 16px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); width: 300px; }
-.yt-sub-avatar { font-size: 2.2rem; }
-.yt-sub-info { flex: 1; }
-.yt-sub-info strong { font-size: 0.9rem; display: block; }
-.yt-sub-info span { font-size: 0.75rem; color: #94a3b8; }
-.yt-sub-action-btn { background: #ff0000; color: white; border: none; border-radius: 20px; padding: 8px 16px; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-
-@media (max-width: 600px) {
-  .steps-header-row { flex-direction: column; align-items: flex-start; }
-  .yt-search-demo-box, .yt-player-interactive, .yt-seek-demo, .yt-sub-card { width: 100%; max-width: 300px; }
-}
-</style>
 </body>
 </html>
